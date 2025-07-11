@@ -3,12 +3,10 @@
 A minimal, modern portfolio website built with **Next.js** and **Tailwind CSS**.
 
 <p align="center">
-  <img src="public/chef.png" alt="Chef Project Screenshot" width="350"/>
-  <img src="public/gsap.png" alt="GSAP Project Screenshot" width="350"/>
-  <img src="public/movies.png" alt="Movies Project Screenshot" width="350"/>
+  <img src="public/chef.png" alt="Chef Project Screenshot" width="500"/>
+  <img src="public/gsap.png" alt="GSAP Project Screenshot" width="500"/>
+  <img src="public/movies.png" alt="Movies Project Screenshot" width="500"/>
 </p>
-
----
 
 ## Features
 
