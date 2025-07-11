@@ -19,7 +19,6 @@ A minimal, modern portfolio website built with **Next.js** and **Tailwind CSS**
     ```bash
     npm run dev
     ```
-3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## 🗂️ Project Structure
 
