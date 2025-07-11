@@ -8,14 +8,10 @@ A minimal, modern portfolio website built with **Next.js** and **Tailwind CSS**.
   <img src="public/movies.png" alt="Movies Project Screenshot" width="500"/>
 </p>
 
----
-
 ## ✨ Features
 
 - Responsive, clean design  
 - Sections for Hero, Projects, Skills, and Contact
-
----
 
 ## 🛠️ Getting Started
 
@@ -29,8 +25,6 @@ A minimal, modern portfolio website built with **Next.js** and **Tailwind CSS**.
     ```
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
----
-
 ## 🗂️ Project Structure
 
 ```
@@ -42,10 +36,6 @@ app/
 public/               // Static assets (images, resume, etc.)
 ```
 
----
-
 ## �� License
 
 MIT
-
----
