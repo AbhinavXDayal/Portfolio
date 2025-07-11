@@ -22,7 +22,7 @@ export const ProjectsSection = () => {
 								'Tech Stack: OMDb API, Axios, React Router, localStorage, CSS',
 							],
 							image: '/movies.png', // Make sure this image is in your public/ folder
-							href: 'https://abhinavdayal-moviewatchlist.vercel.app/',
+							href: 'https://abhinav-moviewatchlist.vercel.app/',
 						},
 						{
 							title: 'Chef Claude',
@@ -38,7 +38,7 @@ export const ProjectsSection = () => {
 								'Tech Stack: React, Vite, Tailwind CSS, Hugging Face Inference API',
 							],
 							image: '/chef.png',
-							href: 'https://abhinavdayal-chefclaude.vercel.app/',
+							href: 'https://abhinav-chefclaude.vercel.app/',
 						},
 						{
 							title: 'GSAP Animation',
@@ -54,7 +54,7 @@ export const ProjectsSection = () => {
 								'Tech Stack : React, GSAP, Tailwind CSS, Vite',
 							],
 							image: '/gsap.png',
-							href: 'https://abhinavdayal-gsapanimation.vercel.app/',
+							href: 'https://abhinav-gsapanimation.vercel.app/',
 						},
 					].map((project) => (
 						project.href ? (
