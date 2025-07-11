@@ -1,11 +1,11 @@
 # 🚀 Portfolio
 
-A minimal, modern portfolio website built with **Next.js** and **Tailwind CSS**.
+A minimal, modern portfolio website built with **Next.js** and **Tailwind CSS**
 
 <p align="center">
-  <img src="public/chef.png" alt="Chef Project Screenshot" width="500"/>
-  <img src="public/gsap.png" alt="GSAP Project Screenshot" width="500"/>
-  <img src="public/movies.png" alt="Movies Project Screenshot" width="500"/>
+  <img src="public/chef.png" alt="Chef Project Screenshot" width="600"/>
+  <img src="public/gsap.png" alt="GSAP Project Screenshot" width="600"/>
+  <img src="public/movies.png" alt="Movies Project Screenshot" width="600"/>
 </p>
 
 ## ✨ Features
@@ -23,7 +23,7 @@ A minimal, modern portfolio website built with **Next.js** and **Tailwind CSS**.
     ```bash
     npm run dev
     ```
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## 🗂️ Project Structure
 
