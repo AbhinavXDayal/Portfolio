@@ -8,8 +8,6 @@ A minimal, modern portfolio website built with **Next.js** and **Tailwind CSS**.
   <img src="public/movies.png" alt="Movies Project Screenshot" width="240"/>
 </p>
 
----
-
 ## Features
 
 - Responsive, clean design
