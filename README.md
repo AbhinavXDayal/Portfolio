@@ -2,9 +2,7 @@
 
 A minimal, modern portfolio website built with **Next.js** and **Tailwind CSS**
 
-<div align="center">
-  <video src="public/portfolio-preview.gif" width="800" autoplay loop muted playsinline style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); margin: 16px 0;"/>
-</div>
+![Portfolio preview](public/portfolio-preview.gif)
 
 ## ✨ Features
 
