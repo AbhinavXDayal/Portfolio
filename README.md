@@ -36,6 +36,6 @@ app/
 public/               // Static assets (images, resume, etc.)
 ```
 
-## �� License
+## 📄 License
 
 MIT
