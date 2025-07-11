@@ -2,11 +2,7 @@
 
 A minimal, modern portfolio website built with **Next.js** and **Tailwind CSS**
 
-<p align="center">
-  <img src="public/chef.png" alt="Chef Project Screenshot" width="600"/>
-  <img src="public/gsap.png" alt="GSAP Project Screenshot" width="600"/>
-  <img src="public/movies.png" alt="Movies Project Screenshot" width="600"/>
-</p>
+<div align="center"> <img src="public/chef.png" alt="Chef Project Screenshot" width="700" style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); margin: 16px 0;"/> <p><b>Chef Claude – AI-powered recipe generator</b></p> <img src="public/gsap.png" alt="GSAP Project Screenshot" width="700" style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); margin: 16px 0;"/> <p><b>GSAP Animation – Scroll-driven, interactive site</b></p> <img src="public/movies.png" alt="Movies Project Screenshot" width="700" style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); margin: 16px 0;"/> <p><b>Movie Watchlist – Search & save movies using OMDb API</b></p> </div>
 
 ## ✨ Features
 
