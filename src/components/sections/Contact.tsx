@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { SectionHeading } from '../ui/SectionHeading';
-import { Button } from '../ui/Button';
+import { SectionHeader } from '../ui/SectionHeader';
 import { personalInfo, socialLinks } from '../../data/social';
-import { ArrowRight, Copy, Check } from 'lucide-react';
+import { ArrowUpRight, Copy, Check } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -14,31 +13,29 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section className="contact-section" id="contact" aria-label="Contact">
+    <section className="contact-section-root" id="contact" aria-label="Contact">
       <div className="container">
-        <SectionHeading
-          number="06"
-          title="CONTACT ME"
-        />
+        <SectionHeader number="06" title="CONTACT" />
 
-        <div className="contact-v4-container">
-          <div className="contact-v4-main">
-            <h3 className="contact-v4-headline">
-              LET'S BUILD SOMETHING.
+        <div className="contact-editorial-layout">
+          <div className="contact-statement-wrap">
+            <h3 className="contact-main-heading">
+              Let's build something thoughtful together.
             </h3>
 
-            <p className="contact-v4-subtext">
-              Have a project or engineering role in mind? My inbox is open for high-impact mobile and web opportunities.
+            <p className="contact-supporting-copy">
+              Whether you are architecting a cross-platform mobile application, developing modern React interfaces, or looking to expand your engineering team, my inbox is open.
             </p>
 
-            {/* Quick Email & CTA Row */}
-            <div className="contact-v4-action-bar">
-              <div className="contact-v4-email-box">
-                <span className="contact-v4-email-str mono">{personalInfo.email}</span>
+            {/* Email Box & Direct Mailto */}
+            <div className="contact-email-action-bar">
+              <div className="email-address-wrapper">
+                <span className="email-text mono">{personalInfo.email}</span>
                 <button
+                  type="button"
                   onClick={handleCopyEmail}
-                  className="contact-v4-copy-btn mono"
-                  title="Copy email address"
+                  className="email-copy-action mono"
+                  title="Copy email to clipboard"
                   aria-label="Copy email"
                 >
                   {copied ? (
@@ -55,28 +52,27 @@ export const Contact: React.FC = () => {
                 </button>
               </div>
 
-              <Button
-                variant="primary"
-                size="md"
+              <a
                 href={`mailto:${personalInfo.email}`}
-                icon={<ArrowRight size={15} />}
+                className="contact-cta-button"
               >
-                Let's Talk
-              </Button>
+                <span>Let's Talk</span>
+                <ArrowUpRight size={15} />
+              </a>
             </div>
 
-            {/* Clean Horizontal Social Links Row */}
-            <div className="contact-v4-social-row">
+            {/* Clean Social Links Row */}
+            <div className="contact-social-channels mono">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.url}
                   target={link.isExternal ? '_blank' : undefined}
                   rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                  className="contact-v4-social-link mono"
+                  className="social-channel-link"
                 >
                   <span>{link.label}</span>
-                  <span className="social-arrow">↗</span>
+                  <ArrowUpRight size={13} className="channel-arrow" />
                 </a>
               ))}
             </div>

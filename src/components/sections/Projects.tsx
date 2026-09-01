@@ -1,32 +1,27 @@
 import React from 'react';
-import { SectionHeading } from '../ui/SectionHeading';
-import { Tag } from '../ui/Tag';
-import { Button } from '../ui/Button';
+import { SectionHeader } from '../ui/SectionHeader';
 import { ProjectMockup } from '../ui/ProjectMockup';
 import { projects } from '../../data/projects';
-import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Github } from 'lucide-react';
 
 export const Projects: React.FC = () => {
   return (
-    <section className="projects-section" id="projects" aria-label="Selected Work">
+    <section className="projects-section-root" id="projects" aria-label="Selected Work">
       <div className="container">
-        <SectionHeading
-          number="04"
-          title="SELECTED WORK"
-        />
+        <SectionHeader number="04" title="SELECTED WORK" />
 
-        <div className="projects-v4-showcase">
+        <div className="projects-editorial-showcase">
           {projects.map((project, index) => {
             const isReverse = index % 2 === 1;
 
             return (
               <article
                 key={project.id}
-                className={`project-v4-item ${isReverse ? 'layout-reverse' : ''}`}
+                className={`project-showcase-row ${isReverse ? 'is-reversed' : ''}`}
               >
-                {/* Visual Area */}
-                <div className="project-v4-visual-col">
-                  <div className="project-v4-frame">
+                {/* Visual Mockup Side */}
+                <div className="project-mockup-side">
+                  <div className="project-mockup-frame">
                     <ProjectMockup
                       type={project.mockupType}
                       projectKey={project.mockupKey}
@@ -35,59 +30,71 @@ export const Projects: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Details Area */}
-                <div className="project-v4-details-col">
-                  <div className="project-v4-meta-row">
-                    <span className="project-v4-num mono">PROJECT {project.number}</span>
-                    <span className="project-v4-type mono">
-                      {project.mockupType === 'mobile' ? 'MOBILE APP' : 'WEB APPLICATION'}
-                    </span>
+                {/* Details Side */}
+                <div className="project-info-side">
+                  <div className="project-index-line mono">
+                    <span>PROJECT {project.number}</span>
+                    <span className="dot-sep">•</span>
+                    <span>{project.mockupType === 'mobile' ? 'MOBILE APP' : 'WEB PLATFORM'}</span>
                   </div>
 
-                  <h3 className="project-v4-title">
-                    <span>{project.title}</span>
-                    {project.liveUrl && (
-                      <ArrowUpRight size={18} className="project-v4-arrow" aria-hidden="true" />
+                  <h3 className="project-headline-title">
+                    {project.liveUrl ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-title-link"
+                      >
+                        <span>{project.title}</span>
+                        <ArrowUpRight size={20} className="title-arrow" aria-hidden="true" />
+                      </a>
+                    ) : (
+                      <span>{project.title}</span>
                     )}
                   </h3>
 
-                  <p className="project-v4-subtitle mono">{project.subtitle}</p>
+                  <p className="project-subtitle-text mono">{project.subtitle}</p>
 
-                  <p className="project-v4-desc">{project.description}</p>
+                  <p className="project-summary-copy">{project.description}</p>
 
-                  <div className="project-v4-tags">
+                  {/* Clean Inline Tech Stack */}
+                  <div className="project-stack-tags mono">
                     {project.technologies.map((tech) => (
-                      <Tag key={tech} label={tech} variant="subtle" size="sm" />
+                      <span key={tech} className="tech-tag-item">
+                        {tech}
+                      </span>
                     ))}
                   </div>
 
-                  <div className="project-v4-actions">
+                  {/* Actions (Verified Links Only) */}
+                  <div className="project-links-group">
                     {project.liveUrl && (
-                      <Button
-                        variant="primary"
-                        size="sm"
+                      <a
                         href={project.liveUrl}
-                        isExternal
-                        icon={<ExternalLink size={13} />}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-action-btn primary"
                       >
-                        Live Demo
-                      </Button>
+                        <span>Live Demo</span>
+                        <ArrowUpRight size={14} />
+                      </a>
                     )}
 
                     {project.githubUrl && (
-                      <Button
-                        variant="outline"
-                        size="sm"
+                      <a
                         href={project.githubUrl}
-                        isExternal
-                        icon={<Github size={13} />}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-action-btn secondary"
                       >
-                        Source Code
-                      </Button>
+                        <Github size={14} />
+                        <span>Source Code</span>
+                      </a>
                     )}
 
                     {!project.liveUrl && !project.githubUrl && (
-                      <span className="project-v4-note mono">
+                      <span className="project-production-tag mono">
                         Production Architecture & Mobile Integration
                       </span>
                     )}

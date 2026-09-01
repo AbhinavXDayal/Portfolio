@@ -1,34 +1,35 @@
 :root {
-  /* Color Palette - Soft Beige & Dark Warm Taupe System */
-  --background: #171512;
-  --surface: #201d18;
-  --surface-soft: #25211b;
-  --cream: #e9e0d2;
-  --text: #d8d0c3;
-  --muted: #9e9588;
-  --beige: #bdaf99;
-  --beige-soft: #c9bba5;
-  --border: rgba(220, 205, 180, 0.12);
-  --border-subtle: rgba(220, 205, 180, 0.07);
+  /* Color Palette - Dark Soft-Beige / Warm Espresso Aesthetic */
+  --bg: #141311;
+  --bg-subtle: #1c1a17;
+  --bg-surface: #221f1b;
+  --text: #ede6dc;
+  --text-secondary: #9c9488;
+  --text-muted: #6e675d;
+  --accent: #c4b59f;
+  --accent-hover: #d8cbb7;
+  --accent-subtle: rgba(196, 181, 159, 0.08);
+  --border: rgba(237, 230, 220, 0.08);
+  --border-hover: rgba(196, 181, 159, 0.25);
 
-  /* Typography System */
-  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Typography */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
 
   /* Typography Scales */
-  --text-hero: clamp(2.5rem, 5.5vw, 4.25rem);
-  --text-h1: clamp(1.75rem, 3vw, 2.5rem);
+  --text-hero: clamp(2.5rem, 5.5vw, 4.5rem);
+  --text-h1: clamp(1.75rem, 3.2vw, 2.5rem);
   --text-h2: clamp(1.25rem, 2vw, 1.75rem);
   --text-h3: clamp(1.05rem, 1.3vw, 1.25rem);
-  --text-body: clamp(0.92rem, 0.3vw + 0.82rem, 1rem);
+  --text-body: clamp(0.95rem, 0.25vw + 0.85rem, 1.025rem);
   --text-small: 0.85rem;
   --text-xs: 0.75rem;
 
-  /* Compact Editorial Spacing (40-50% reduced vertical scrolling) */
-  --section-padding-y: clamp(2.25rem, 3.8vw, 3.5rem);
-  --container-max-width: 1140px;
-  --container-padding-x: clamp(1.25rem, 3.5vw, 2.5rem);
+  /* Layout & Spacing */
+  --container-max: 1100px;
+  --section-spacing: clamp(3.5rem, 6vw, 5.5rem);
+  --container-padding: clamp(1.25rem, 4vw, 2.5rem);
 
   /* Radii & Transitions */
   --radius-sm: 3px;
@@ -36,6 +37,6 @@
   --radius-lg: 10px;
   --radius-full: 9999px;
 
-  --transition-fast: 180ms ease;
-  --transition-base: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }

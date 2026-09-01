@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, FileText } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { scrollToSection } from '../../lib/utils';
 import { personalInfo } from '../../data/social';
 
-const navLinks = [
+const navItems = [
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
+  { id: 'projects', label: 'Work' },
   { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
 ];
@@ -55,10 +55,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <header
-        className={`site-navbar ${isScrolled ? 'navbar-scrolled' : ''}`}
-        role="banner"
-      >
+      <header className={`navbar-root ${isScrolled ? 'navbar-scrolled' : ''}`}>
         <div className="navbar-container">
           <a
             href="#"
@@ -69,80 +66,79 @@ export const Navbar: React.FC = () => {
             className="navbar-brand"
             aria-label="Abhinav Dayal - Home"
           >
-            <span className="brand-name">ABHINAV DAYAL</span>
+            <span className="brand-text">Abhinav Dayal</span>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="desktop-nav" aria-label="Main Navigation">
-            <ul className="nav-list">
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.id;
+          <nav className="desktop-navigation" aria-label="Main Navigation">
+            <ul className="desktop-nav-list">
+              {navItems.map((item) => {
+                const isActive = activeSection === item.id;
                 return (
-                  <li key={link.id} className="nav-item">
+                  <li key={item.id} className="desktop-nav-item">
                     <a
-                      href={`#${link.id}`}
-                      onClick={(e) => handleNavClick(e, link.id)}
-                      className={`nav-link ${isActive ? 'active' : ''}`}
+                      href={`#${item.id}`}
+                      onClick={(e) => handleNavClick(e, item.id)}
+                      className={`desktop-nav-link ${isActive ? 'is-active' : ''}`}
                     >
-                      <span>{link.label}</span>
+                      {item.label}
                     </a>
                   </li>
                 );
               })}
             </ul>
 
-            <div className="nav-actions">
-              <a
-                href={personalInfo.resumeUrl}
-                onClick={(e) => {
-                  if (personalInfo.resumeUrl.startsWith('#')) {
-                    handleNavClick(e, personalInfo.resumeUrl.replace('#', ''));
-                  }
-                }}
-                className="resume-btn"
-                aria-label="Contact / Resume"
-              >
-                <span>Resume</span>
-              </a>
-            </div>
+            <a
+              href={personalInfo.resumeUrl}
+              onClick={(e) => {
+                if (personalInfo.resumeUrl.startsWith('#')) {
+                  handleNavClick(e, personalInfo.resumeUrl.replace('#', ''));
+                }
+              }}
+              className="navbar-resume-link"
+              aria-label="Resume"
+            >
+              <span>Resume</span>
+              <ArrowUpRight size={13} className="link-arrow" />
+            </a>
           </nav>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Menu Toggle */}
           <button
             type="button"
-            className="mobile-menu-toggle"
+            className="mobile-nav-toggle"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
-        {/* Scroll Progress Bar */}
+        {/* Subtle Top Scroll Progress Line */}
         <div
-          className="navbar-progress-bar"
+          className="navbar-scroll-indicator"
           style={{ width: `${scrollProgress}%` }}
           aria-hidden="true"
         />
       </header>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile Drawer */}
       <div
-        className={`mobile-drawer-backdrop ${isMobileMenuOpen ? 'open' : ''}`}
+        className={`mobile-backdrop ${isMobileMenuOpen ? 'is-open' : ''}`}
         onClick={() => setIsMobileMenuOpen(false)}
         aria-hidden={!isMobileMenuOpen}
       />
 
       <aside
-        className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}
+        className={`mobile-drawer-panel ${isMobileMenuOpen ? 'is-open' : ''}`}
         aria-label="Mobile Navigation"
         aria-hidden={!isMobileMenuOpen}
       >
-        <div className="mobile-drawer-header">
-          <span className="mobile-drawer-title mono">Menu</span>
+        <div className="mobile-drawer-top">
+          <span className="drawer-title mono">Navigation</span>
           <button
-            className="mobile-drawer-close"
+            className="drawer-close-btn"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Close menu"
           >
@@ -150,25 +146,25 @@ export const Navbar: React.FC = () => {
           </button>
         </div>
 
-        <nav className="mobile-nav-list">
-          {navLinks.map((link, idx) => {
-            const isActive = activeSection === link.id;
+        <nav className="mobile-drawer-links">
+          {navItems.map((item, idx) => {
+            const isActive = activeSection === item.id;
             return (
               <a
-                key={link.id}
-                href={`#${link.id}`}
-                onClick={(e) => handleNavClick(e, link.id)}
-                className={`mobile-nav-link ${isActive ? 'active' : ''}`}
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleNavClick(e, item.id)}
+                className={`mobile-link-row ${isActive ? 'is-active' : ''}`}
               >
-                <span className="mobile-nav-num mono">0{idx + 1}</span>
-                <span className="mobile-nav-text">{link.label}</span>
-                <ArrowUpRight size={15} className="mobile-nav-arrow" />
+                <span className="link-number mono">0{idx + 1}</span>
+                <span className="link-label">{item.label}</span>
+                <ArrowUpRight size={15} className="link-icon" />
               </a>
             );
           })}
         </nav>
 
-        <div className="mobile-drawer-footer">
+        <div className="mobile-drawer-bottom">
           <a
             href={personalInfo.resumeUrl}
             onClick={(e) => {
@@ -176,10 +172,10 @@ export const Navbar: React.FC = () => {
                 handleNavClick(e, personalInfo.resumeUrl.replace('#', ''));
               }
             }}
-            className="mobile-resume-btn"
+            className="mobile-resume-action"
           >
-            <FileText size={15} />
             <span>View Resume</span>
+            <ArrowUpRight size={15} />
           </a>
         </div>
       </aside>

@@ -1,58 +1,91 @@
 import React from 'react';
-import { ArrowDownRight, Mail } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { StatusIndicator } from '../ui/StatusIndicator';
+import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import { personalInfo } from '../../data/social';
 import { scrollToSection } from '../../lib/utils';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="hero-section" id="hero" aria-label="Hero Section">
-      <div className="container hero-container">
-        <div className="hero-content">
-          {/* Status & Tech Pill */}
-          <div className="hero-meta-strip animate-fade-in">
-            <StatusIndicator statusText={personalInfo.status} />
-            <span className="hero-tech-mono mono">
-              React Native <span className="text-accent">•</span> React.js <span className="text-accent">•</span> TypeScript
-            </span>
+    <section className="hero-section-root" id="hero" aria-label="Introduction">
+      <div className="container">
+        <div className="hero-layout">
+          {/* Status Indicator */}
+          <div className="hero-status-pill">
+            <span className="status-dot-indicator" aria-hidden="true" />
+            <span className="status-label mono">{personalInfo.status}</span>
           </div>
 
-          {/* Large Clean Typography */}
-          <div className="hero-headline-block animate-fade-in-up">
-            <h1 className="hero-name">
-              <span>ABHINAV DAYAL</span>
+          {/* Large Editorial Headline */}
+          <div className="hero-title-block">
+            <h1 className="hero-name-heading">
+              Abhinav Dayal
             </h1>
-            <div className="hero-subline-row">
-              <span className="hero-role-tag mono">APP DEVELOPER</span>
-              <span className="hero-location-text mono">Delhi / Lucknow, India</span>
-            </div>
+            <p className="hero-role-title">
+              App Developer <span className="hero-role-sep mono">/</span> <span className="hero-tech-sub">React Native, React.js & TypeScript</span>
+            </p>
           </div>
 
           {/* Supporting Intro Line */}
-          <p className="hero-intro-text animate-fade-in-up">
+          <p className="hero-description-copy">
             {personalInfo.tagline}
           </p>
 
-          {/* Action Buttons */}
-          <div className="hero-buttons-row animate-fade-in-up">
-            <Button
-              variant="primary"
-              size="md"
-              onClick={() => scrollToSection('projects')}
-              icon={<ArrowDownRight size={15} />}
+          {/* Direct Action Links */}
+          <div className="hero-action-links">
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('projects');
+              }}
+              className="hero-primary-link"
             >
-              View Work
-            </Button>
+              <span>View Selected Work</span>
+              <ArrowDownRight size={16} className="hero-link-icon" />
+            </a>
 
-            <Button
-              variant="outline"
-              size="md"
-              onClick={() => scrollToSection('contact')}
-              icon={<Mail size={15} />}
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('contact');
+              }}
+              className="hero-secondary-link"
             >
-              Contact Me
-            </Button>
+              <span>Contact Me</span>
+              <ArrowUpRight size={15} className="hero-link-icon" />
+            </a>
+
+            <a
+              href={personalInfo.resumeUrl}
+              onClick={(e) => {
+                if (personalInfo.resumeUrl.startsWith('#')) {
+                  e.preventDefault();
+                  scrollToSection(personalInfo.resumeUrl.replace('#', ''));
+                }
+              }}
+              className="hero-secondary-link"
+            >
+              <span>Resume</span>
+              <ArrowUpRight size={15} className="hero-link-icon" />
+            </a>
+          </div>
+
+          {/* Quick Context Bar */}
+          <div className="hero-meta-bar mono">
+            <div className="meta-bar-item">
+              <span className="meta-label">Location</span>
+              <span className="meta-value">Delhi / Lucknow, India</span>
+            </div>
+            <div className="meta-bar-divider" aria-hidden="true" />
+            <div className="meta-bar-item">
+              <span className="meta-label">Specialization</span>
+              <span className="meta-value">Cross-Platform UI & REST APIs</span>
+            </div>
+            <div className="meta-bar-divider" aria-hidden="true" />
+            <div className="meta-bar-item">
+              <span className="meta-label">Current Role</span>
+              <span className="meta-value">Aronix Web Technology</span>
+            </div>
           </div>
         </div>
       </div>

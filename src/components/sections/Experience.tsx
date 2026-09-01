@@ -1,44 +1,43 @@
 import React from 'react';
-import { SectionHeading } from '../ui/SectionHeading';
+import { SectionHeader } from '../ui/SectionHeader';
 import { experiences } from '../../data/experience';
 
 export const Experience: React.FC = () => {
   return (
-    <section className="experience-section" id="experience" aria-label="Work Experience">
+    <section className="experience-section-root" id="experience" aria-label="Work Experience">
       <div className="container">
-        <SectionHeading
-          number="03"
-          title="EXPERIENCE"
-        />
+        <SectionHeader number="03" title="EXPERIENCE" />
 
-        <div className="experience-v4-list">
+        <div className="experience-editorial-list">
           {experiences.map((exp) => (
-            <div key={exp.id} className="experience-v4-row">
+            <article key={exp.id} className="experience-row-item">
               {/* Date & Location Column */}
-              <div className="exp-v4-date-col mono">
-                <span className="exp-v4-period">{exp.period}</span>
-                <span className="exp-v4-location">{exp.location}</span>
-                {exp.isCurrent && <span className="exp-v4-present-tag">PRESENT</span>}
+              <div className="experience-date-col mono">
+                <span className="experience-period">{exp.period}</span>
+                <span className="experience-location">{exp.location}</span>
+                {exp.isCurrent && (
+                  <span className="experience-current-badge">CURRENT</span>
+                )}
               </div>
 
               {/* Role & Company Column */}
-              <div className="exp-v4-role-col">
-                <h3 className="exp-v4-role">{exp.role}</h3>
-                <span className="exp-v4-company">{exp.company}</span>
+              <div className="experience-role-col">
+                <h3 className="experience-role-title">{exp.role}</h3>
+                <span className="experience-company-name">{exp.company}</span>
               </div>
 
-              {/* Description Column */}
-              <div className="exp-v4-desc-col">
-                <ul className="exp-v4-bullet-list">
-                  {exp.highlights.map((bullet, idx) => (
-                    <li key={idx} className="exp-v4-bullet-item">
-                      <span className="bullet-dash" aria-hidden="true">•</span>
-                      <span>{bullet}</span>
+              {/* Highlights Column */}
+              <div className="experience-desc-col">
+                <ul className="experience-highlights-list">
+                  {exp.highlights.map((highlight, idx) => (
+                    <li key={idx} className="experience-highlight-bullet">
+                      <span className="bullet-marker" aria-hidden="true">•</span>
+                      <span>{highlight}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

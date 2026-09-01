@@ -1,50 +1,38 @@
 import React from 'react';
-import { SectionHeading } from '../ui/SectionHeading';
-import { Tag } from '../ui/Tag';
+import { SectionHeader } from '../ui/SectionHeader';
 
 export const About: React.FC = () => {
   return (
-    <section className="about-section" id="about" aria-label="About Me">
+    <section className="about-section-root" id="about" aria-label="About Me">
       <div className="container">
-        <SectionHeading
-          number="01"
-          title="ABOUT ME"
-        />
+        <SectionHeader number="01" title="ABOUT" />
 
-        <div className="about-v4-grid">
-          {/* Left: Large Statement & Metadata */}
-          <div className="about-v4-left">
-            <h3 className="about-statement">
-              Building high-reliability mobile applications and modern web interfaces with precision.
+        <div className="about-grid-composition">
+          {/* Left Column: Big Statement */}
+          <div className="about-statement-col">
+            <h3 className="about-lead-statement">
+              Engineering fluid, high-reliability mobile apps and responsive web interfaces with modern JavaScript & TypeScript.
             </h3>
-
-            <div className="about-meta-row mono">
-              <span className="meta-pill">Based in India</span>
-              <span className="meta-sep">•</span>
-              <span className="meta-pill">App Development</span>
-              <span className="meta-sep">•</span>
-              <span className="meta-pill">Web Development</span>
+            <div className="about-location-tag mono">
+              <span>Based in India</span>
+              <span className="dot-sep">•</span>
+              <span>Available Globally</span>
             </div>
           </div>
 
-          {/* Right: Concise Factual Narrative & Technologies */}
-          <div className="about-v4-right">
-            <p className="about-v4-text">
-              I am an <span className="text-highlight">App Developer</span> specializing in cross-platform mobile engineering with <span className="text-highlight">React Native, React.js, and TypeScript</span>.
+          {/* Right Column: Factual Background & Core Focus */}
+          <div className="about-narrative-col">
+            <p className="about-narrative-p">
+              I am an <strong className="text-highlight">App Developer</strong> focused on building cross-platform mobile applications and responsive frontend architectures. At <strong className="text-highlight">Aronix Web Technology</strong>, I develop reusable UI components, navigation flows, and integrate RESTful APIs for production hospital management software.
             </p>
-            <p className="about-v4-text">
-              At <span className="text-highlight">Aronix Web Technology</span>, I develop responsive mobile screens, navigation architectures, and RESTful API integrations for a hospital management application. Grounded by earlier web development at <span className="text-highlight">PCS Management Consultancy</span> and training at <span className="text-highlight">EICT Academy, IIT Kanpur</span>, I focus on component-based architecture and clean, maintainable code.
+            <p className="about-narrative-p">
+              My engineering foundation includes web development at <strong className="text-highlight">PCS Management Consultancy</strong> and practical software training at <strong className="text-highlight">EICT Academy, IIT Kanpur</strong>. I emphasize component modularity, maintainable code practices, and thoughtful user interfaces that perform reliably under real-world usage.
             </p>
 
-            <div className="about-tags-cloud">
-              <Tag label="React Native" variant="accent" size="sm" />
-              <Tag label="React.js" variant="accent" size="sm" />
-              <Tag label="TypeScript" variant="accent" size="sm" />
-              <Tag label="JavaScript" variant="subtle" size="sm" />
-              <Tag label="REST APIs" variant="subtle" size="sm" />
-              <Tag label="Expo" variant="subtle" size="sm" />
-              <Tag label="State Management" variant="subtle" size="sm" />
-              <Tag label="Axios" variant="subtle" size="sm" />
+            {/* Core Stack inline text list */}
+            <div className="about-stack-line mono">
+              <span className="stack-label">Core Ecosystem:</span>
+              <span className="stack-items">React Native, React.js, TypeScript, Expo, REST APIs, State Management, Axios, Git</span>
             </div>
           </div>
         </div>

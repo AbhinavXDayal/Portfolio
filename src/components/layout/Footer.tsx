@@ -13,25 +13,25 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="footer-v4" role="contentinfo">
-      <div className="container footer-v4-container">
-        <div className="footer-v4-left">
-          <span className="footer-v4-name">{personalInfo.name}</span>
-          <span className="footer-v4-sep mono">/</span>
-          <span className="footer-v4-role mono">{personalInfo.role}</span>
-          <span className="footer-v4-sep mono">/</span>
-          <span className="footer-v4-copy mono">© {currentYear}</span>
+    <footer className="footer-root" role="contentinfo">
+      <div className="container footer-container-inner">
+        <div className="footer-identity-meta">
+          <span className="footer-author-name">{personalInfo.name}</span>
+          <span className="footer-meta-dot mono">/</span>
+          <span className="footer-role-label mono">{personalInfo.role}</span>
+          <span className="footer-meta-dot mono">/</span>
+          <span className="footer-copyright mono">© {currentYear}</span>
         </div>
 
-        <div className="footer-v4-right">
-          <div className="footer-v4-socials">
+        <div className="footer-actions-meta">
+          <div className="footer-social-inline">
             {socialLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.url}
                 target={link.isExternal ? '_blank' : undefined}
                 rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                className="footer-v4-link mono"
+                className="footer-social-anchor mono"
               >
                 {link.label}
               </a>
@@ -39,12 +39,13 @@ export const Footer: React.FC = () => {
           </div>
 
           <button
+            type="button"
             onClick={scrollToTop}
-            className="footer-v4-top-btn mono"
+            className="footer-back-to-top mono"
             aria-label="Back to top"
           >
-            <span>TOP</span>
-            <ArrowUp size={11} />
+            <span>Top</span>
+            <ArrowUp size={12} />
           </button>
         </div>
       </div>
