@@ -1,42 +1,35 @@
 :root {
-  /* Color Palette - Dark Soft-Beige / Warm Espresso Aesthetic */
-  --bg: #141311;
-  --bg-subtle: #1c1a17;
-  --bg-surface: #221f1b;
-  --text: #ede6dc;
-  --text-secondary: #9c9488;
-  --text-muted: #6e675d;
-  --accent: #c4b59f;
-  --accent-hover: #d8cbb7;
-  --accent-subtle: rgba(196, 181, 159, 0.08);
-  --border: rgba(237, 230, 220, 0.08);
-  --border-hover: rgba(196, 181, 159, 0.25);
+  /* Color Palette - Dark Soft-Beige & Linen Editorial Palette */
+  --bg: #13110f;
+  --bg-subtle: #191714;
+  --bg-surface: #1e1c18;
+  --text-main: #ede6dc;
+  --text-sub: #b3a99c;
+  --text-dim: #787064;
+  --accent: #c4ad8f;
+  --accent-soft: rgba(196, 173, 143, 0.08);
+  --line: rgba(220, 205, 185, 0.09);
+  --line-focus: rgba(196, 173, 143, 0.28);
 
-  /* Typography */
+  /* Typography System */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
 
   /* Typography Scales */
-  --text-hero: clamp(2.5rem, 5.5vw, 4.5rem);
-  --text-h1: clamp(1.75rem, 3.2vw, 2.5rem);
-  --text-h2: clamp(1.25rem, 2vw, 1.75rem);
-  --text-h3: clamp(1.05rem, 1.3vw, 1.25rem);
-  --text-body: clamp(0.95rem, 0.25vw + 0.85rem, 1.025rem);
-  --text-small: 0.85rem;
+  --text-hero: clamp(2.4rem, 5vw, 3.75rem);
+  --text-h1: clamp(1.6rem, 2.8vw, 2.25rem);
+  --text-h2: clamp(1.2rem, 1.8vw, 1.5rem);
+  --text-h3: clamp(1rem, 1.2vw, 1.15rem);
+  --text-body: 0.95rem;
+  --text-small: 0.84rem;
   --text-xs: 0.75rem;
 
-  /* Layout & Spacing */
-  --container-max: 1100px;
-  --section-spacing: clamp(3.5rem, 6vw, 5.5rem);
-  --container-padding: clamp(1.25rem, 4vw, 2.5rem);
+  /* Single-Column Editorial Container */
+  --container-max-width: 780px;
+  --container-padding-x: clamp(1.25rem, 4vw, 2rem);
+  --section-gap: clamp(3.5rem, 6vw, 5.5rem);
 
-  /* Radii & Transitions */
-  --radius-sm: 3px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
-  --radius-full: 9999px;
-
-  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-base: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  /* Smooth Transitions */
+  --transition: 180ms ease;
 }

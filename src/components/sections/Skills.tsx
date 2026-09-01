@@ -1,60 +1,43 @@
 import React from 'react';
-import { SectionHeader } from '../ui/SectionHeader';
 
-interface SkillTaxonomy {
+interface SkillCatalogItem {
   category: string;
-  categoryNumber: string;
   skills: string[];
 }
 
-const skillTaxonomies: SkillTaxonomy[] = [
+const skillCatalog: SkillCatalogItem[] = [
   {
-    category: 'LANGUAGES',
-    categoryNumber: '01',
-    skills: ['JavaScript (ES6+)', 'TypeScript', 'C++', 'HTML5', 'CSS3'],
+    category: 'Programming & Web',
+    skills: ['JavaScript', 'TypeScript', 'C++', 'HTML5', 'CSS3'],
   },
   {
-    category: 'FRAMEWORKS',
-    categoryNumber: '02',
+    category: 'Frameworks & Mobile',
     skills: ['React Native', 'React.js', 'React Native CLI', 'Expo'],
   },
   {
-    category: 'APPLICATION',
-    categoryNumber: '03',
+    category: 'Application Architecture',
     skills: ['REST APIs', 'API Integration', 'State Management', 'Responsive Design'],
   },
   {
-    category: 'TOOLING',
-    categoryNumber: '04',
+    category: 'Tooling & Platforms',
     skills: ['Git', 'GitHub', 'Google Cloud Platform', 'VS Code'],
   },
 ];
 
 export const Skills: React.FC = () => {
   return (
-    <section className="skills-section-root" id="skills" aria-label="Skills & Expertise">
-      <div className="container">
-        <SectionHeader number="02" title="SKILLS" />
+    <section className="editorial-section" id="skills" aria-label="Technical Skills">
+      <h2 className="section-title mono">Skills</h2>
 
-        <div className="skills-taxonomy-grid">
-          {skillTaxonomies.map((tax) => (
-            <div key={tax.category} className="skills-taxonomy-col">
-              <div className="taxonomy-header">
-                <span className="taxonomy-num mono">{tax.categoryNumber}</span>
-                <h3 className="taxonomy-title mono">{tax.category}</h3>
-              </div>
-
-              <ul className="taxonomy-list">
-                {tax.skills.map((skill) => (
-                  <li key={skill} className="taxonomy-item">
-                    <span className="taxonomy-dash" aria-hidden="true">—</span>
-                    <span className="taxonomy-skill-name">{skill}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+      <div className="skills-grid">
+        {skillCatalog.map((group) => (
+          <div key={group.category} className="skill-row">
+            <span className="skill-category-label mono">{group.category}</span>
+            <p className="skill-list-text">
+              {group.skills.join(' • ')}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );
