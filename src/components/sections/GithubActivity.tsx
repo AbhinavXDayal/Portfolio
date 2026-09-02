@@ -8,12 +8,10 @@ export const GithubActivity: React.FC = () => {
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Heading & Profile Link */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-3 mb-5 text-center sm:text-left">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
-              GitHub Activity
-            </h2>
-          </div>
+        <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-3 mb-4 text-center sm:text-left">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
+            GitHub Activity
+          </h2>
           <a
             href="https://github.com/AbhinavXDayal"
             target="_blank"
@@ -39,10 +37,10 @@ export const GithubActivity: React.FC = () => {
         </div>
 
         {/* GitHub Contribution Snake Animation Card */}
-        <div className="mb-4 bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-3 sm:p-4 shadow-xs overflow-hidden">
+        <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-3 sm:p-4 shadow-xs overflow-hidden">
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-semibold text-[var(--muted-foreground)]">
-              Contribution Graph &amp; Activity
+              Contribution Graph &amp; Commits
             </span>
             <span className="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-medium">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -62,44 +60,6 @@ export const GithubActivity: React.FC = () => {
               loading="lazy"
             />
           </a>
-        </div>
-
-        {/* Profile Summary Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 mb-3.5">
-          <div className="bg-[var(--card)] border border-[var(--border)] rounded-[var(--radius)] p-2.5 shadow-xs flex items-center justify-center overflow-hidden hover:border-[var(--foreground)]/30 transition-colors">
-            <img
-              src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=AbhinavXDayal&theme=tokyonight"
-              alt="GitHub Stats"
-              className="w-full h-auto object-contain rounded"
-              loading="lazy"
-            />
-          </div>
-          <div className="bg-[var(--card)] border border-[var(--border)] rounded-[var(--radius)] p-2.5 shadow-xs flex items-center justify-center overflow-hidden hover:border-[var(--foreground)]/30 transition-colors">
-            <img
-              src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=AbhinavXDayal&theme=tokyonight"
-              alt="Repos per Language"
-              className="w-full h-auto object-contain rounded"
-              loading="lazy"
-            />
-          </div>
-          <div className="bg-[var(--card)] border border-[var(--border)] rounded-[var(--radius)] p-2.5 shadow-xs flex items-center justify-center overflow-hidden hover:border-[var(--foreground)]/30 transition-colors">
-            <img
-              src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=AbhinavXDayal&theme=tokyonight"
-              alt="Most Commit Language"
-              className="w-full h-auto object-contain rounded"
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        {/* Profile Details Card */}
-        <div className="bg-[var(--card)] border border-[var(--border)] rounded-[var(--radius)] p-2.5 shadow-xs flex items-center justify-center overflow-hidden hover:border-[var(--foreground)]/30 transition-colors">
-          <img
-            src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AbhinavXDayal&theme=tokyonight"
-            alt="Profile Details"
-            className="w-full h-auto object-contain rounded"
-            loading="lazy"
-          />
         </div>
       </div>
     </section>
