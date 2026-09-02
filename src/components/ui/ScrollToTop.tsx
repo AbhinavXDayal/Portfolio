@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 export const ScrollToTop: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -10,23 +10,26 @@ export const ScrollToTop: React.FC = () => {
       const totalHeight =
         document.documentElement.scrollHeight - window.innerHeight;
 
-      if (scrolled > 260 || (totalHeight > 0 && scrolled > totalHeight * 0.35)) {
+      if (
+        scrolled > 260 ||
+        (totalHeight > 0 && scrolled > totalHeight * 0.35)
+      ) {
         setVisible(true);
       } else {
         setVisible(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
