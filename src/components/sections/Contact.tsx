@@ -42,22 +42,17 @@ export const Contact: React.FC = () => {
 
         {/* Compact, Premium Contact Card */}
         <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-3.5 sm:p-4 md:p-5 shadow-xs hover:border-[var(--brand-accent)]/30 transition-all duration-200">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             {/* Left Column: Context & Contact Points */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-2.5">
+            <div className="lg:col-span-5 flex flex-col justify-center space-y-2.5">
               <div>
-                <h3 className="text-base sm:text-lg font-bold text-[var(--foreground)] mb-0.5 tracking-tight">
+                <h3 className="text-base sm:text-lg font-bold text-[var(--foreground)] tracking-tight">
                   Let's Connect
                 </h3>
-                <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
-                  Have an app development project in mind, a job opportunity, or
-                  engineering collaboration? Reach out directly or drop a
-                  message.
-                </p>
               </div>
 
               {/* Minimalist Contact Points */}
-              <div className="space-y-1.5 pt-0.5">
+              <div className="space-y-2 pt-0.5">
                 {/* Email */}
                 <a
                   href="mailto:abhinavxdayal@gmail.com"
