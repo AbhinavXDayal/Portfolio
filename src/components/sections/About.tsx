@@ -4,7 +4,7 @@ export const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="w-full py-8 md:py-12 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
+      className="w-full py-4 md:py-6 bg-transparent text-[var(--foreground)]"
     >
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left Column Text */}
@@ -77,46 +77,69 @@ export const About: React.FC = () => {
                 {/* Code Content */}
                 <div className="space-y-0.5 font-mono">
                   <div>
-                    <span className="text-[#7EA984] font-semibold">const</span>{' '}
-                    <span className="text-[var(--foreground)] font-semibold">developer</span>{' '}
-                    <span className="text-[var(--muted-foreground)]">=</span>{' '}
-                    <span className="text-[#91A89B]">{'{'}</span>
+                    <span className="text-[#7EA984] font-semibold">const</span>{" "}
+                    <span className="text-[var(--foreground)] font-semibold">
+                      developer
+                    </span>{" "}
+                    <span className="text-[var(--muted-foreground)]">=</span>{" "}
+                    <span className="text-[#91A89B]">{"{"}</span>
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#A3CEB3] font-medium">name:</span>{' '}
-                    <span className="text-[#BCE4C7] font-medium">"Abhinav Dayal"</span>,
+                    <span className="text-[#A3CEB3] font-medium">name:</span>{" "}
+                    <span className="text-[#BCE4C7] font-medium">
+                      "Abhinav Dayal"
+                    </span>
+                    ,
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#A3CEB3] font-medium">role:</span>{' '}
-                    <span className="text-[#BCE4C7] font-medium">"App Developer"</span>,
+                    <span className="text-[#A3CEB3] font-medium">role:</span>{" "}
+                    <span className="text-[#BCE4C7] font-medium">
+                      "App Developer"
+                    </span>
+                    ,
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#A3CEB3] font-medium">mobile:</span>{' '}
+                    <span className="text-[#A3CEB3] font-medium">mobile:</span>{" "}
                     <span className="text-[#91A89B]">[</span>
-                    <span className="text-[#BCE4C7] font-medium">"React Native"</span>,{' '}
-                    <span className="text-[#BCE4C7] font-medium">"Expo"</span>
+                    <span className="text-[#BCE4C7] font-medium">
+                      "React Native"
+                    </span>
+                    , <span className="text-[#BCE4C7] font-medium">"Expo"</span>
                     <span className="text-[#91A89B]">]</span>,
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#A3CEB3] font-medium">frontend:</span>{' '}
+                    <span className="text-[#A3CEB3] font-medium">
+                      frontend:
+                    </span>{" "}
                     <span className="text-[#91A89B]">[</span>
-                    <span className="text-[#BCE4C7] font-medium">"React.js"</span>,{' '}
-                    <span className="text-[#BCE4C7] font-medium">"TypeScript"</span>
+                    <span className="text-[#BCE4C7] font-medium">
+                      "React.js"
+                    </span>
+                    ,{" "}
+                    <span className="text-[#BCE4C7] font-medium">
+                      "TypeScript"
+                    </span>
                     <span className="text-[#91A89B]">]</span>,
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#A3CEB3] font-medium">tools:</span>{' '}
+                    <span className="text-[#A3CEB3] font-medium">tools:</span>{" "}
                     <span className="text-[#91A89B]">[</span>
-                    <span className="text-[#BCE4C7] font-medium">"GCP"</span>,{' '}
-                    <span className="text-[#BCE4C7] font-medium">"REST APIs"</span>
+                    <span className="text-[#BCE4C7] font-medium">
+                      "GCP"
+                    </span>,{" "}
+                    <span className="text-[#BCE4C7] font-medium">
+                      "REST APIs"
+                    </span>
                     <span className="text-[#91A89B]">]</span>,
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#A3CEB3] font-medium">focus:</span>{' '}
-                    <span className="text-[#BCE4C7] font-medium">"Cross-Platform Mobile Apps"</span>
+                    <span className="text-[#A3CEB3] font-medium">focus:</span>{" "}
+                    <span className="text-[#BCE4C7] font-medium">
+                      "Cross-Platform Mobile Apps"
+                    </span>
                   </div>
                   <div>
-                    <span className="text-[#91A89B]">{'}'}</span>;
+                    <span className="text-[#91A89B]">{"}"}</span>;
                     <span className="inline-block w-1.5 h-3.5 ml-1 bg-[#7EA984] animate-pulse align-middle"></span>
                   </div>
                 </div>

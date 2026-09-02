@@ -30,10 +30,10 @@ export const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="w-full py-8 md:py-12 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
+      className="w-full py-4 md:py-6 bg-transparent text-[var(--foreground)]"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-6">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-4">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Contact Me
           </h2>

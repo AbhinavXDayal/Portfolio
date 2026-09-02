@@ -61,16 +61,16 @@ export const Experience: React.FC = () => {
   return (
     <section
       id="experience"
-      className="w-full py-8 md:py-12 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
+      className="w-full py-4 md:py-6 bg-transparent text-[var(--foreground)]"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-6">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-4">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Work Experience
           </h2>
         </div>
 
-        <div className="relative border-l border-[var(--border)] ml-3 md:ml-28 space-y-6">
+        <div className="relative border-l border-[var(--border)] ml-3 md:ml-28 space-y-4">
           {experiences.map((exp) => (
             <div key={exp.company} className="relative pl-5 md:pl-8 group">
               {/* Timeline dot */}

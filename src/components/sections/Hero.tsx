@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 export const Hero: React.FC = () => {
   const scrollToContact = () => {
-    const el = document.getElementById('contact');
+    const el = document.getElementById("contact");
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -29,11 +29,13 @@ export const Hero: React.FC = () => {
             App Developer
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-[var(--muted-foreground)] mb-4 leading-relaxed max-w-xl">
-            I build{' '}
+            I build{" "}
             <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
               cross-platform mobile
-            </span>{' '}
-            and high-performance web applications using React Native, React.js, and TypeScript with reusable component architecture and RESTful API integrations.
+            </span>{" "}
+            and high-performance web applications using React Native, React.js,
+            and TypeScript with reusable component architecture and RESTful API
+            integrations.
           </p>
 
           {/* Action Buttons */}
@@ -46,7 +48,7 @@ export const Hero: React.FC = () => {
               }}
               className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-5 py-2.5 rounded-[var(--radius)] text-sm hover:opacity-90 transition-all shadow-sm inline-flex items-center gap-2 cursor-pointer"
             >
-              Contact Me{' '}
+              Contact Me{" "}
               <svg
                 stroke="currentColor"
                 fill="none"

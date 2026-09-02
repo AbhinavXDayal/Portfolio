@@ -4,7 +4,7 @@ export const GithubActivity: React.FC = () => {
   return (
     <section
       id="github"
-      className="w-full py-6 md:py-8 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
+      className="w-full py-4 md:py-5 bg-transparent text-[var(--foreground)]"
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Heading & Profile Link */}
