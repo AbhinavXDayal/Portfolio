@@ -13,11 +13,8 @@ export const Hero: React.FC = () => {
       id="hero"
       className="w-full min-h-[85vh] lg:min-h-[calc(100vh-4rem)] flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden py-12 lg:py-0"
     >
-      {/* Background Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,#000_50%,transparent_100%)] pointer-events-none"></div>
-
-      {/* Top Center Glow */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(ellipse_at_center,var(--primary)/0.12_0%,transparent_70%)] blur-3xl pointer-events-none"></div>
+      {/* Top Center Warm Glow */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(ellipse_at_center,#E9CCB1/0.25_0%,transparent_70%)] blur-3xl pointer-events-none"></div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-12">
         {/* Left Column Content */}
@@ -168,7 +165,7 @@ export const Hero: React.FC = () => {
 
         {/* Right Column Profile Avatar */}
         <div className="relative w-full max-w-xs flex justify-center">
-          <div className="absolute -inset-6 sm:-inset-10 rounded-full bg-[radial-gradient(circle_at_center,var(--foreground)/0.06_0%,transparent_70%)] blur-2xl pointer-events-none"></div>
+          <div className="absolute -inset-6 sm:-inset-10 rounded-full bg-[radial-gradient(circle_at_center,#E9CCB1/0.45_0%,transparent_70%)] blur-2xl pointer-events-none"></div>
           <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-[290px] md:h-[290px] rounded-full overflow-hidden ring-1 ring-[var(--border)] shadow-xl transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
             <img
               src="/portfolio pic.jpeg"

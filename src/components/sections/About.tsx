@@ -61,47 +61,47 @@ export const About: React.FC = () => {
                 {/* Code Content */}
                 <div className="space-y-1 font-mono">
                   <div>
-                    <span className="text-indigo-500 dark:text-indigo-400 font-semibold">const</span>{' '}
+                    <span className="text-[#8B5E3C] font-semibold">const</span>{' '}
                     <span className="text-[var(--foreground)] font-semibold">developer</span>{' '}
                     <span className="text-[var(--muted-foreground)]">=</span>{' '}
-                    <span className="text-amber-500 dark:text-amber-400">{'{'}</span>
+                    <span className="text-[#8C7A6B]">{'{'}</span>
                   </div>
                   <div className="pl-4">
-                    <span className="text-sky-500 dark:text-sky-400 font-medium">name:</span>{' '}
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Abhinav Dayal"</span>,
+                    <span className="text-[#4A453F] font-medium">name:</span>{' '}
+                    <span className="text-[#2D6A4F] font-medium">"Abhinav Dayal"</span>,
                   </div>
                   <div className="pl-4">
-                    <span className="text-sky-500 dark:text-sky-400 font-medium">role:</span>{' '}
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"App Developer"</span>,
+                    <span className="text-[#4A453F] font-medium">role:</span>{' '}
+                    <span className="text-[#2D6A4F] font-medium">"App Developer"</span>,
                   </div>
                   <div className="pl-4">
-                    <span className="text-sky-500 dark:text-sky-400 font-medium">mobile:</span>{' '}
-                    <span className="text-amber-500 dark:text-amber-400">[</span>
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"React Native"</span>,{' '}
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Expo"</span>
-                    <span className="text-amber-500 dark:text-amber-400">]</span>,
+                    <span className="text-[#4A453F] font-medium">mobile:</span>{' '}
+                    <span className="text-[#8C7A6B]">[</span>
+                    <span className="text-[#2D6A4F] font-medium">"React Native"</span>,{' '}
+                    <span className="text-[#2D6A4F] font-medium">"Expo"</span>
+                    <span className="text-[#8C7A6B]">]</span>,
                   </div>
                   <div className="pl-4">
-                    <span className="text-sky-500 dark:text-sky-400 font-medium">frontend:</span>{' '}
-                    <span className="text-amber-500 dark:text-amber-400">[</span>
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"React.js"</span>,{' '}
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"TypeScript"</span>
-                    <span className="text-amber-500 dark:text-amber-400">]</span>,
+                    <span className="text-[#4A453F] font-medium">frontend:</span>{' '}
+                    <span className="text-[#8C7A6B]">[</span>
+                    <span className="text-[#2D6A4F] font-medium">"React.js"</span>,{' '}
+                    <span className="text-[#2D6A4F] font-medium">"TypeScript"</span>
+                    <span className="text-[#8C7A6B]">]</span>,
                   </div>
                   <div className="pl-4">
-                    <span className="text-sky-500 dark:text-sky-400 font-medium">tools:</span>{' '}
-                    <span className="text-amber-500 dark:text-amber-400">[</span>
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"GCP"</span>,{' '}
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"REST APIs"</span>
-                    <span className="text-amber-500 dark:text-amber-400">]</span>,
+                    <span className="text-[#4A453F] font-medium">tools:</span>{' '}
+                    <span className="text-[#8C7A6B]">[</span>
+                    <span className="text-[#2D6A4F] font-medium">"GCP"</span>,{' '}
+                    <span className="text-[#2D6A4F] font-medium">"REST APIs"</span>
+                    <span className="text-[#8C7A6B]">]</span>,
                   </div>
                   <div className="pl-4">
-                    <span className="text-sky-500 dark:text-sky-400 font-medium">focus:</span>{' '}
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Cross-Platform Mobile Apps"</span>
+                    <span className="text-[#4A453F] font-medium">focus:</span>{' '}
+                    <span className="text-[#2D6A4F] font-medium">"Cross-Platform Mobile Apps"</span>
                   </div>
                   <div>
-                    <span className="text-amber-500 dark:text-amber-400">{'}'}</span>;
-                    <span className="inline-block w-2 h-4 ml-1.5 bg-indigo-500 dark:bg-indigo-400 animate-pulse align-middle"></span>
+                    <span className="text-[#8C7A6B]">{'}'}</span>;
+                    <span className="inline-block w-2 h-4 ml-1.5 bg-[var(--foreground)] animate-pulse align-middle"></span>
                   </div>
                 </div>
               </div>

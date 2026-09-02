@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
@@ -8,26 +8,36 @@ import { Projects } from './components/sections/Projects';
 import { Education } from './components/sections/Education';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/layout/Footer';
+import { DotMatrix } from './components/ui/DotMatrix';
 
 export const App: React.FC = () => {
-  useEffect(() => {
-    // Keep dark mode active permanently
-    document.documentElement.classList.add('dark');
-  }, []);
-
   return (
-    <div className="relative z-10 flex flex-col min-h-screen bg-[var(--background)] text-[var(--foreground)] selection:bg-[var(--foreground)] selection:text-[var(--background)]">
-      <Navbar />
-      <main className="flex-grow w-full">
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Education />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="relative min-h-screen bg-[var(--background)] text-[var(--foreground)] selection:bg-[#E9CCB1] selection:text-[#1D1A18] overflow-x-hidden">
+      {/* 1. Dynamic Interactive Dot Matrix Canvas */}
+      <DotMatrix />
+
+      {/* 2. Dynamic Ambient Moving Elements in Quasi-Neutral Palette */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-60">
+        <div className="absolute -top-32 -left-32 w-[540px] h-[540px] rounded-full bg-[#E9CCB1]/45 blur-[120px] animate-float-slow"></div>
+        <div className="absolute top-[30%] -right-40 w-[620px] h-[620px] rounded-full bg-[#E4DAC2]/50 blur-[130px] animate-float-reverse"></div>
+        <div className="absolute top-[60%] -left-32 w-[520px] h-[520px] rounded-full bg-[#EBCFC4]/45 blur-[120px] animate-float-slow"></div>
+        <div className="absolute -bottom-32 right-10 w-[580px] h-[580px] rounded-full bg-[#D3C4BE]/45 blur-[130px] animate-float-reverse"></div>
+      </div>
+
+      {/* 3. Main Site Content */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow w-full">
+          <Hero />
+          <About />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Education />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };

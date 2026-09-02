@@ -4,74 +4,148 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #09090b;
-    --muted: #f4f4f5;
-    --muted-foreground: #52525b;
-    --brand-accent: #18181b;
-    --popover: #ffffff;
-    --popover-foreground: #09090b;
-    --card: #ffffff;
-    --card-foreground: #09090b;
-    --border: #e4e4e7;
-    --input: #e4e4e7;
-    --primary: #18181b;
-    --primary-foreground: #fafafa;
-    --secondary: #f4f4f5;
-    --secondary-foreground: #18181b;
-    --accent: #f4f4f5;
-    --accent-foreground: #18181b;
-    --destructive: #ef4444;
-    --destructive-foreground: #fafafa;
-    --ring: #18181b;
+    /* "My Very Favorite Quasi-Neutrals" Palette */
+    --background: #F4EEE1; /* Primary Warm Ivory */
+    --background-alt: #F3ECE7; /* Soft Almond Linen */
+    --foreground: #1D1A18; /* Deep Rich Charcoal */
+    --muted: #E8E6D9; /* Ecru Bone */
+    --muted-foreground: #655E57; /* Elegant Warm Gray */
+    --brand-accent: #1D1A18;
+    --popover: #FAF8F5;
+    --popover-foreground: #1D1A18;
+    --card: #FAF8F5; /* Crisp Elevated Quasi-Neutral Card */
+    --card-foreground: #1D1A18;
+    --border: #D3C4BE; /* Soft Taupe Border */
+    --border-subtle: #E4DAC2; /* Subtle Champagne Border */
+    --input: #E8E6D9;
+    --primary: #1D1A18;
+    --primary-foreground: #F4EEE1;
+    --secondary: #E9CCB1; /* Warm Sandy Peach */
+    --secondary-foreground: #1D1A18;
+    --accent: #EFEEEE; /* Soft Pale Neutral */
+    --accent-foreground: #1D1A18;
+    --destructive: #b91c1c;
+    --destructive-foreground: #FAF8F5;
+    --ring: #C4BDAC;
     --radius: 0.5rem;
+
+    /* Palette Swatches */
+    --color-efeeee: #EFEEEE;
+    --color-e9ccb1: #E9CCB1;
+    --color-d3c4be: #D3C4BE;
+    --color-e4dac2: #E4DAC2;
+    --color-f4eee1: #F4EEE1;
+    --color-c4bdac: #C4BDAC;
+    --color-ebcfc4: #EBCFC4;
+    --color-e8e6d9: #E8E6D9;
+    --color-999999: #999999;
+    --color-f3ece7: #F3ECE7;
   }
 
   html.dark, :root.dark, .dark {
-    --background: #09090b;
-    --foreground: #fafafa;
-    --muted: #27272a;
-    --muted-foreground: #a1a1aa;
-    --brand-accent: #ffffff;
-    --popover: #09090b;
-    --popover-foreground: #fafafa;
-    --card: #18181b;
-    --card-foreground: #fafafa;
-    --border: #27272a;
-    --input: #27272a;
-    --primary: #fafafa;
-    --primary-foreground: #18181b;
-    --secondary: #27272a;
-    --secondary-foreground: #fafafa;
-    --accent: #27272a;
-    --accent-foreground: #fafafa;
-    --destructive: #7f1d1d;
-    --destructive-foreground: #fafafa;
-    --ring: #d4d4d8;
+    --background: #F4EEE1;
+    --background-alt: #F3ECE7;
+    --foreground: #1D1A18;
+    --muted: #E8E6D9;
+    --muted-foreground: #655E57;
+    --brand-accent: #1D1A18;
+    --popover: #FAF8F5;
+    --popover-foreground: #1D1A18;
+    --card: #FAF8F5;
+    --card-foreground: #1D1A18;
+    --border: #D3C4BE;
+    --border-subtle: #E4DAC2;
+    --input: #E8E6D9;
+    --primary: #1D1A18;
+    --primary-foreground: #F4EEE1;
+    --secondary: #E9CCB1;
+    --secondary-foreground: #1D1A18;
+    --accent: #EFEEEE;
+    --accent-foreground: #1D1A18;
+    --destructive: #b91c1c;
+    --destructive-foreground: #FAF8F5;
+    --ring: #C4BDAC;
   }
 
   html {
     scroll-behavior: smooth;
+    background-color: var(--background);
+    color: var(--foreground);
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
-    transition: background-color 0.2s ease, color 0.2s ease;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #E9CCB1;
+    color: #1D1A18;
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar in Quasi-Neutral tones */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: #F4EEE1;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--muted);
+  background: #C4BDAC;
   border-radius: 9999px;
+  border: 2px solid #F4EEE1;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--muted-foreground);
+  background: #999999;
+}
+
+/* Dynamic Ambient Floating Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(35px, -45px) scale(1.08);
+  }
+  66% {
+    transform: translate(-25px, 20px) scale(0.95);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-40px, 30px) scale(1.05);
+  }
+  66% {
+    transform: translate(30px, -35px) scale(0.92);
+  }
+}
+
+@keyframes pulseAmbient {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.12);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 18s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 22s ease-in-out infinite;
+}
+
+.animate-pulse-ambient {
+  animation: pulseAmbient 12s ease-in-out infinite;
 }
