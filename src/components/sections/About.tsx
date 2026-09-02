@@ -13,13 +13,13 @@ export const About: React.FC = () => {
             About Me
           </h2>
           <p className="text-base md:text-lg text-[var(--muted-foreground)] leading-relaxed">
-            I'm a <span className="text-[var(--foreground)] font-semibold">Full Stack Developer</span> who enjoys building complete web applications—not just the UI, but the APIs, database logic, authentication, file handling, and deployment behind them.
+            I'm an <span className="text-[var(--foreground)] font-semibold">App Developer</span> specializing in cross-platform mobile and web application development using React Native, Expo, and React.js.
           </p>
           <p className="text-base md:text-lg text-[var(--muted-foreground)] leading-relaxed">
-            I've worked with <span className="text-[var(--foreground)] font-medium">Next.js, React, TypeScript, Node.js, Express,</span> and <span className="text-[var(--foreground)] font-medium">Python/FastAPI</span>, building applications backed by <span className="text-[var(--foreground)] font-medium">MongoDB</span> and <span className="text-[var(--foreground)] font-medium">MySQL</span> and integrating services such as <span className="text-[var(--foreground)] font-medium">Cloudflare R2</span> and third-party APIs.
+            I build responsive, component-driven user interfaces and mobile screens integrated with <span className="text-[var(--foreground)] font-medium">RESTful APIs, Axios, and state management</span>, delivering hospital management workflows, healthcare platforms, and interactive web applications.
           </p>
           <p className="text-base md:text-lg text-[var(--muted-foreground)] leading-relaxed">
-            I'm currently focused on becoming a stronger <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">backend-oriented engineer</span>—improving my API design, database architecture, system design, and problem-solving skills while continuing to build production applications.
+            Currently developing production-grade mobile applications at <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">Aronix Web Technology</span>, focusing on reusable architecture, smooth navigation flows, and Google Cloud Platform integrations.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export const About: React.FC = () => {
                 <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1 rounded bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] font-medium text-xs shadow-xs">
-                <span className="text-sky-500 font-bold">TS</span> pratham.ts
+                <span className="text-sky-500 font-bold">TS</span> abhinav.ts
               </div>
               <div className="flex items-center gap-1.5 text-[11px] text-[var(--muted-foreground)] font-sans">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -67,33 +67,37 @@ export const About: React.FC = () => {
                     <span className="text-amber-500 dark:text-amber-400">{'{'}</span>
                   </div>
                   <div className="pl-4">
+                    <span className="text-sky-500 dark:text-sky-400 font-medium">name:</span>{' '}
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Abhinav Dayal"</span>,
+                  </div>
+                  <div className="pl-4">
                     <span className="text-sky-500 dark:text-sky-400 font-medium">role:</span>{' '}
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Full Stack Developer"</span>,
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"App Developer"</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-sky-500 dark:text-sky-400 font-medium">mobile:</span>{' '}
+                    <span className="text-amber-500 dark:text-amber-400">[</span>
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"React Native"</span>,{' '}
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Expo"</span>
+                    <span className="text-amber-500 dark:text-amber-400">]</span>,
                   </div>
                   <div className="pl-4">
                     <span className="text-sky-500 dark:text-sky-400 font-medium">frontend:</span>{' '}
                     <span className="text-amber-500 dark:text-amber-400">[</span>
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Next.js"</span>,{' '}
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"React.js"</span>,{' '}
                     <span className="text-emerald-500 dark:text-emerald-400 font-medium">"TypeScript"</span>
                     <span className="text-amber-500 dark:text-amber-400">]</span>,
                   </div>
                   <div className="pl-4">
-                    <span className="text-sky-500 dark:text-sky-400 font-medium">backend:</span>{' '}
+                    <span className="text-sky-500 dark:text-sky-400 font-medium">tools:</span>{' '}
                     <span className="text-amber-500 dark:text-amber-400">[</span>
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Node.js"</span>,{' '}
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"FastAPI"</span>
-                    <span className="text-amber-500 dark:text-amber-400">]</span>,
-                  </div>
-                  <div className="pl-4">
-                    <span className="text-sky-500 dark:text-sky-400 font-medium">database:</span>{' '}
-                    <span className="text-amber-500 dark:text-amber-400">[</span>
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"MongoDB"</span>,{' '}
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"SQL"</span>
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"GCP"</span>,{' '}
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"REST APIs"</span>
                     <span className="text-amber-500 dark:text-amber-400">]</span>,
                   </div>
                   <div className="pl-4">
                     <span className="text-sky-500 dark:text-sky-400 font-medium">focus:</span>{' '}
-                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Fullstack Engineering"</span>
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Cross-Platform Mobile Apps"</span>
                   </div>
                   <div>
                     <span className="text-amber-500 dark:text-amber-400">{'}'}</span>;

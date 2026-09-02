@@ -26,17 +26,17 @@ export const Hero: React.FC = () => {
             Hi, I'm
           </p>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-1 sm:mb-3 text-[var(--foreground)]">
-            Pratham Verma
+            Abhinav Dayal
           </h1>
           <h2 className="text-lg sm:text-2xl font-semibold text-[var(--muted-foreground)] mb-4 sm:mb-6 tracking-wide">
-            Full Stack Developer
+            App Developer
           </h2>
           <p className="text-sm sm:text-lg text-[var(--muted-foreground)] mb-6 sm:mb-8 leading-relaxed max-w-xl">
             I build{' '}
             <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
-              production-ready
+              cross-platform mobile
             </span>{' '}
-            web applications, from modern Next.js frontends to scalable REST APIs and backend services using Node.js and FastAPI.
+            and high-performance web applications using React Native, React.js, and TypeScript with reusable component architecture and RESTful API integrations.
           </p>
 
           {/* Action Buttons */}
@@ -55,7 +55,7 @@ export const Hero: React.FC = () => {
               }}
               className="bg-[var(--background)] text-[var(--foreground)] font-medium px-6 py-3 rounded-[var(--radius)] text-base border border-[var(--border)] hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 transition-all inline-flex items-center gap-2 cursor-pointer"
             >
-              Resume{' '}
+              Contact Me{' '}
               <svg
                 stroke="currentColor"
                 fill="none"
@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
           {/* Social Links Pills */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm font-medium">
             <a
-              href="https://github.com/prathamverma77"
+              href="https://github.com/AbhinavXDayal"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
@@ -99,7 +99,7 @@ export const Hero: React.FC = () => {
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/prathamverma77/"
+              href="https://linkedin.com/in/abhinavxdayal"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
@@ -123,7 +123,7 @@ export const Hero: React.FC = () => {
               LinkedIn
             </a>
             <a
-              href="https://x.com/Pratham39423901"
+              href="https://abhinavxportfolio.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
@@ -140,12 +140,14 @@ export const Hero: React.FC = () => {
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
               </svg>
-              Twitter / X
+              Portfolio
             </a>
             <a
-              href="mailto:prathamverma1980@gmail.com"
+              href="mailto:abhinavxdayal@gmail.com"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
             >
               <svg
@@ -168,13 +170,13 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column Profile Image */}
+        {/* Right Column Profile Avatar */}
         <div className="relative w-full max-w-xs flex justify-center">
           <div className="absolute -inset-6 sm:-inset-10 rounded-full bg-[radial-gradient(circle_at_center,var(--foreground)/0.06_0%,transparent_70%)] blur-2xl pointer-events-none"></div>
           <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-[290px] md:h-[290px] rounded-full overflow-hidden ring-1 ring-[var(--border)] shadow-xl transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
             <img
               src="/portfolio pic.jpeg"
-              alt="Pratham Verma"
+              alt="Abhinav Dayal"
               className="w-full h-full object-cover object-[center_55%] scale-135 transition-transform duration-700 ease-out group-hover:scale-140"
             />
             <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-[var(--foreground)]/10 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_65%,var(--background)/0.25_100%)]"></div>

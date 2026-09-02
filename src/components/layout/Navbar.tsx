@@ -27,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
           }}
           className="font-extrabold text-xl tracking-tight text-[var(--foreground)] hover:text-[var(--brand-accent)] transition-colors flex items-center gap-1"
         >
-          Pratham
+          Abhinav
         </a>
 
         {/* Desktop Navigation */}

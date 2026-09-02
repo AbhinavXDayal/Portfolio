@@ -46,7 +46,7 @@ export const Contact: React.FC = () => {
           {/* Left Column Contact Details */}
           <div className="flex flex-col space-y-6 text-center lg:text-left">
             <p className="text-base md:text-lg text-[var(--muted-foreground)] leading-relaxed">
-              I am currently open to new opportunities, freelance projects, and collaborations. Have a question or want to work together? Feel free to send a message!
+              I am currently open to app development opportunities, freelance mobile projects, and engineering collaborations. Feel free to reach out via email or phone!
             </p>
 
             <div className="space-y-4 pt-2">
@@ -60,10 +60,28 @@ export const Contact: React.FC = () => {
                     Email
                   </h4>
                   <a
-                    href="mailto:prathamverma1980@gmail.com"
+                    href="mailto:abhinavxdayal@gmail.com"
                     className="text-sm font-medium text-[var(--foreground)] hover:underline"
                   >
-                    prathamverma1980@gmail.com
+                    abhinavxdayal@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              {/* Phone Card */}
+              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-center sm:text-left">
+                <div className="p-2.5 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-lg">
+                  📱
+                </div>
+                <div>
+                  <h4 className="text-xs font-semibold text-[var(--muted-foreground)] uppercase">
+                    Phone
+                  </h4>
+                  <a
+                    href="tel:+918318215585"
+                    className="text-sm font-medium text-[var(--foreground)] hover:underline"
+                  >
+                    +91 8318215585
                   </a>
                 </div>
               </div>
@@ -78,7 +96,7 @@ export const Contact: React.FC = () => {
                     Location
                   </h4>
                   <p className="text-sm font-medium text-[var(--foreground)]">
-                    India
+                    Delhi / Lucknow, India
                   </p>
                 </div>
               </div>
@@ -90,7 +108,7 @@ export const Contact: React.FC = () => {
               </h4>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3">
                 <a
-                  href="https://github.com/prathamverma77"
+                  href="https://github.com/AbhinavXDayal"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors"
@@ -98,7 +116,7 @@ export const Contact: React.FC = () => {
                   GitHub
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/prathamverma77/"
+                  href="https://linkedin.com/in/abhinavxdayal"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors"
@@ -106,12 +124,12 @@ export const Contact: React.FC = () => {
                   LinkedIn
                 </a>
                 <a
-                  href="https://x.com/Pratham39423901"
+                  href="https://abhinavxportfolio.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors"
                 >
-                  Twitter / X
+                  Portfolio
                 </a>
               </div>
             </div>
@@ -128,7 +146,7 @@ export const Contact: React.FC = () => {
                   Message Sent Successfully!
                 </h3>
                 <p className="text-sm text-[var(--muted-foreground)]">
-                  Thank you for reaching out. I will get back to you as soon as possible.
+                  Thank you for reaching out. I will get back to you promptly.
                 </p>
               </div>
             ) : (

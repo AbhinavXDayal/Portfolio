@@ -4,10 +4,10 @@ export const Footer: React.FC = () => {
   return (
     <footer className="w-full py-6 bg-transparent text-[var(--muted-foreground)] border-t border-[var(--border)]/50 transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-medium text-center sm:text-left">
-        <p>© 2026 Pratham Verma. Built with Next.js &amp; Tailwind CSS.</p>
+        <p>© 2026 Abhinav Dayal. Built with React &amp; Tailwind CSS.</p>
         <div className="flex items-center justify-center gap-4">
           <a
-            href="https://github.com/prathamverma77"
+            href="https://github.com/AbhinavXDayal"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--foreground)] transition-colors"
@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
             GitHub
           </a>
           <a
-            href="https://www.linkedin.com/in/prathamverma77/"
+            href="https://linkedin.com/in/abhinavxdayal"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--foreground)] transition-colors"
@@ -23,12 +23,12 @@ export const Footer: React.FC = () => {
             LinkedIn
           </a>
           <a
-            href="https://x.com/Pratham39423901"
+            href="https://abhinavxportfolio.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--foreground)] transition-colors"
           >
-            Twitter / X
+            Portfolio
           </a>
         </div>
       </div>
