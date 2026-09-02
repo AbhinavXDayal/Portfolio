@@ -30,28 +30,28 @@ export const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="w-full py-4 md:py-6 bg-transparent text-[var(--foreground)]"
+      className="w-full py-3 md:py-4 bg-transparent text-[var(--foreground)]"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-4">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-3">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Contact Me
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-start">
           {/* Left Column Contact Details */}
-          <div className="flex flex-col space-y-4 text-center lg:text-left">
-            <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
+          <div className="flex flex-col space-y-2.5 text-center lg:text-left">
+            <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
               I am open to app development opportunities, mobile projects, and
               engineering collaborations. Feel free to reach out via email or
               phone!
             </p>
 
-            <div className="space-y-2.5 pt-1">
+            <div className="space-y-2">
               {/* Email Card */}
-              <div className="flex items-center space-x-3 p-3 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-left shadow-2xs">
-                <div className="p-2 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-sm">
+              <div className="flex items-center space-x-2.5 p-2.5 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-left shadow-2xs">
+                <div className="p-1.5 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-xs">
                   ✉️
                 </div>
                 <div>
@@ -68,8 +68,8 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Phone Card */}
-              <div className="flex items-center space-x-3 p-3 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-left shadow-2xs">
-                <div className="p-2 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-sm">
+              <div className="flex items-center space-x-2.5 p-2.5 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-left shadow-2xs">
+                <div className="p-1.5 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-xs">
                   📱
                 </div>
                 <div>
@@ -86,8 +86,8 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Location Card */}
-              <div className="flex items-center space-x-3 p-3 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-left shadow-2xs">
-                <div className="p-2 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-sm">
+              <div className="flex items-center space-x-2.5 p-2.5 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-left shadow-2xs">
+                <div className="p-1.5 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-xs">
                   📍
                 </div>
                 <div>
@@ -101,13 +101,13 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-1">
-              <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+            <div className="pt-0.5">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-1.5">
                 <a
                   href="https://github.com/AbhinavXDayal"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors shadow-2xs"
+                  className="px-2.5 py-1 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors shadow-2xs"
                 >
                   GitHub
                 </a>
@@ -115,7 +115,7 @@ export const Contact: React.FC = () => {
                   href="https://linkedin.com/in/abhinavxdayal"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors shadow-2xs"
+                  className="px-2.5 py-1 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors shadow-2xs"
                 >
                   LinkedIn
                 </a>
@@ -123,7 +123,7 @@ export const Contact: React.FC = () => {
                   href="https://abhinavxportfolio.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors shadow-2xs"
+                  className="px-2.5 py-1 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors shadow-2xs"
                 >
                   Portfolio
                 </a>
@@ -131,67 +131,70 @@ export const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column Form */}
-          <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-4 sm:p-5 shadow-xs">
+          {/* Right Column Form - Compact */}
+          <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-3.5 sm:p-4 shadow-xs">
             {submitted ? (
-              <div className="py-6 text-center space-y-2">
-                <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-600 flex items-center justify-center mx-auto text-lg font-bold">
+              <div className="py-4 text-center space-y-1.5">
+                <div className="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-600 flex items-center justify-center mx-auto text-base font-bold">
                   ✓
                 </div>
-                <h3 className="text-base font-bold text-[var(--foreground)]">
+                <h3 className="text-sm font-bold text-[var(--foreground)]">
                   Message Sent!
                 </h3>
-                <p className="text-xs text-[var(--muted-foreground)]">
+                <p className="text-[11px] text-[var(--muted-foreground)]">
                   Thank you for reaching out. I will get back to you promptly.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-3.5">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-[11px] font-semibold text-[var(--muted-foreground)] uppercase mb-1"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    required
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)]/60 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors"
-                  />
+              <form onSubmit={handleSubmit} className="space-y-2.5">
+                {/* 2-Column Name & Email row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-[10px] font-semibold text-[var(--muted-foreground)] uppercase mb-0.5"
+                    >
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      required
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-2.5 py-1.5 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)]/60 text-xs focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-[10px] font-semibold text-[var(--muted-foreground)] uppercase mb-0.5"
+                    >
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      placeholder="you@example.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-2.5 py-1.5 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)]/60 text-xs focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors"
+                    />
+                  </div>
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-[11px] font-semibold text-[var(--muted-foreground)] uppercase mb-1"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    placeholder="you@example.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)]/60 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors"
-                  />
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between mb-1">
+                  <div className="flex items-center justify-between mb-0.5">
                     <label
                       htmlFor="message"
-                      className="block text-[11px] font-semibold text-[var(--muted-foreground)] uppercase"
+                      className="block text-[10px] font-semibold text-[var(--muted-foreground)] uppercase"
                     >
                       Message
                     </label>
-                    <span className="text-[10px] font-mono text-[var(--muted-foreground)]">
+                    <span className="text-[9px] font-mono text-[var(--muted-foreground)]">
                       {formData.message.length} / 500
                     </span>
                   </div>
@@ -199,17 +202,17 @@ export const Contact: React.FC = () => {
                     id="message"
                     required
                     maxLength={500}
-                    rows={3}
+                    rows={2}
                     placeholder="Your message here..."
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)]/60 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors resize-none"
+                    className="w-full px-2.5 py-1.5 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)]/60 text-xs focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors resize-none"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-2.5 px-4 rounded-[var(--radius)] bg-[var(--primary)] text-[var(--primary-foreground)] font-semibold text-xs sm:text-sm hover:opacity-90 active:scale-[0.99] transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-2 px-3 rounded-[var(--radius)] bg-[var(--primary)] text-[var(--primary-foreground)] font-semibold text-xs hover:opacity-90 active:scale-[0.99] transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   Send Message
                 </button>
