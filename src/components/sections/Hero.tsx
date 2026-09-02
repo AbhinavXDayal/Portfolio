@@ -160,89 +160,15 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Profile Avatar & GitHub-style Console */}
-        <div className="relative w-full max-w-sm flex flex-col items-center gap-3 lg:-mt-4">
-          {/* Smaller Profile Avatar moved upwards */}
-          <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden ring-2 ring-[var(--border)] shadow-md transition-all duration-500 ease-out hover:scale-105 hover:ring-[var(--brand-accent)]/50 group">
+        {/* Right Column Profile Avatar */}
+        <div className="relative w-full max-w-xs flex justify-center">
+          <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden ring-2 ring-[var(--border)] shadow-md transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
             <img
               src="/portfolio pic.jpeg"
               alt="Abhinav Dayal"
               className="w-full h-full object-cover object-[center_22%] scale-110 transition-transform duration-700 ease-out group-hover:scale-115"
             />
             <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-[var(--foreground)]/10 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_65%,var(--background)/0.25_100%)]"></div>
-          </div>
-
-          {/* GitHub-style Console Window directly below PFP */}
-          <div className="w-full max-w-[340px] bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-lg shadow-sm overflow-hidden text-left font-mono">
-            {/* Terminal Header */}
-            <div className="flex items-center justify-between px-3 py-1.5 bg-[var(--accent)]/60 border-b border-[var(--border)] text-[11px]">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#E06C75]/80"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-[#E5C07B]/80"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-[#98C379]/80"></span>
-              </div>
-              <div className="flex items-center gap-1 text-[var(--muted-foreground)] text-[10px] font-semibold">
-                <svg
-                  stroke="currentColor"
-                  fill="none"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  className="text-xs"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-                <span>github.com/AbhinavXDayal</span>
-              </div>
-              <span className="text-[10px] text-[var(--muted-foreground)]">
-                bash
-              </span>
-            </div>
-
-            {/* Terminal Console Output */}
-            <div className="p-3 text-[11px] sm:text-xs leading-relaxed space-y-1.5 bg-[#0B1310]/80">
-              <div>
-                <span className="text-[#7EA984] font-semibold">
-                  abhinav@portfolio
-                </span>
-                <span className="text-[var(--muted-foreground)]">:</span>
-                <span className="text-[#A3CEB3]">~</span>
-                <span className="text-[var(--muted-foreground)]">$</span>{" "}
-                <span className="text-[var(--foreground)]">gh status</span>
-              </div>
-              <div className="text-[var(--muted-foreground)] pl-2 text-[10.5px] space-y-0.5">
-                <div>
-                  <span className="text-[#7EA984]">✓</span> Logged in as{" "}
-                  <span className="text-[var(--foreground)] font-semibold">
-                    @AbhinavXDayal
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[#7EA984]">✓</span> Branch:{" "}
-                  <span className="text-[#A3CEB3]">main</span>
-                </div>
-                <div>
-                  <span className="text-[#7EA984]">✓</span> Focus:{" "}
-                  <span className="text-[#BCE4C7]">
-                    React Native &amp; Web Apps
-                  </span>
-                </div>
-              </div>
-              <div className="pt-0.5">
-                <span className="text-[#7EA984] font-semibold">
-                  abhinav@portfolio
-                </span>
-                <span className="text-[var(--muted-foreground)]">:</span>
-                <span className="text-[#A3CEB3]">~</span>
-                <span className="text-[var(--muted-foreground)]">$</span>{" "}
-                <span className="text-[var(--foreground)]">
-                  git commit -m "building smooth UX"
-                </span>
-                <span className="inline-block w-1.5 h-3 ml-1 bg-[#7EA984] animate-pulse align-middle"></span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
