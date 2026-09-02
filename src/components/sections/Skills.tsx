@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 export const Skills: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(true);
-
   const skillCategories = [
     {
       title: "Programming & Web",
@@ -33,61 +31,38 @@ export const Skills: React.FC = () => {
       className="w-full py-4 md:py-6 bg-transparent text-[var(--foreground)]"
     >
       <div className="max-w-6xl mx-auto px-4">
-        {/* Section Header with Toggle */}
-        <div className="flex items-center justify-between mb-4">
+        {/* Section Header */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-4">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Skills
           </h2>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] bg-[var(--card)] hover:bg-[var(--accent)] border border-[var(--border)] transition-all cursor-pointer shadow-2xs group"
-            aria-label="Toggle Skills section"
-          >
-            <span className="text-[11px] font-semibold">
-              {isOpen ? "Collapse" : "Expand"}
-            </span>
-            <svg
-              stroke="currentColor"
-              fill="none"
-              strokeWidth="2.5"
-              viewBox="0 0 24 24"
-              className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                isOpen ? "rotate-180" : ""
-              }`}
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </button>
         </div>
 
-        {isOpen && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 transition-all duration-300">
-            {skillCategories.map((category) => (
-              <div
-                key={category.title}
-                className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-3.5 sm:p-4 shadow-xs hover:border-[var(--foreground)]/30 transition-all duration-200 flex flex-col justify-between"
-              >
-                <div className="flex items-center gap-2 mb-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-accent)]"></span>
-                  <h3 className="text-sm sm:text-base font-bold text-[var(--foreground)] tracking-tight">
-                    {category.title}
-                  </h3>
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-2.5 py-1 text-xs font-semibold rounded-[var(--radius)] bg-[var(--background)]/80 text-[var(--foreground)] border border-[var(--border)] hover:border-[var(--brand-accent)]/50 transition-colors shadow-2xs"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 transition-all duration-300">
+          {skillCategories.map((category) => (
+            <div
+              key={category.title}
+              className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-3.5 sm:p-4 shadow-xs hover:border-[var(--foreground)]/30 transition-all duration-200 flex flex-col justify-between"
+            >
+              <div className="flex items-center gap-2 mb-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-accent)]"></span>
+                <h3 className="text-sm sm:text-base font-bold text-[var(--foreground)] tracking-tight">
+                  {category.title}
+                </h3>
               </div>
-            ))}
-          </div>
-        )}
+              <div className="flex flex-wrap gap-1.5">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2.5 py-1 text-xs font-semibold rounded-[var(--radius)] bg-[var(--background)]/80 text-[var(--foreground)] border border-[var(--border)] hover:border-[var(--brand-accent)]/50 transition-colors shadow-2xs"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
