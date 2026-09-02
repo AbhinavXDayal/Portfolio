@@ -1,50 +1,106 @@
 import React from 'react';
-import { SectionHeading } from '../ui/SectionHeading';
-import { Tag } from '../ui/Tag';
 
 export const About: React.FC = () => {
   return (
-    <section className="about-section" id="about" aria-label="About Me">
-      <div className="container">
-        <SectionHeading
-          number="01"
-          title="ABOUT ME"
-        />
+    <section
+      id="about"
+      className="w-full py-16 md:py-24 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
+    >
+      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        {/* Left Column Text */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-2 text-[var(--foreground)]">
+            About Me
+          </h2>
+          <p className="text-base md:text-lg text-[var(--muted-foreground)] leading-relaxed">
+            I'm a <span className="text-[var(--foreground)] font-semibold">Full Stack Developer</span> who enjoys building complete web applications—not just the UI, but the APIs, database logic, authentication, file handling, and deployment behind them.
+          </p>
+          <p className="text-base md:text-lg text-[var(--muted-foreground)] leading-relaxed">
+            I've worked with <span className="text-[var(--foreground)] font-medium">Next.js, React, TypeScript, Node.js, Express,</span> and <span className="text-[var(--foreground)] font-medium">Python/FastAPI</span>, building applications backed by <span className="text-[var(--foreground)] font-medium">MongoDB</span> and <span className="text-[var(--foreground)] font-medium">MySQL</span> and integrating services such as <span className="text-[var(--foreground)] font-medium">Cloudflare R2</span> and third-party APIs.
+          </p>
+          <p className="text-base md:text-lg text-[var(--muted-foreground)] leading-relaxed">
+            I'm currently focused on becoming a stronger <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">backend-oriented engineer</span>—improving my API design, database architecture, system design, and problem-solving skills while continuing to build production applications.
+          </p>
+        </div>
 
-        <div className="about-v4-grid">
-          {/* Left: Large Statement & Metadata */}
-          <div className="about-v4-left">
-            <h3 className="about-statement">
-              Building high-reliability mobile applications and modern web interfaces with precision.
-            </h3>
-
-            <div className="about-meta-row mono">
-              <span className="meta-pill">Based in India</span>
-              <span className="meta-sep">•</span>
-              <span className="meta-pill">App Development</span>
-              <span className="meta-sep">•</span>
-              <span className="meta-pill">Web Development</span>
+        {/* Right Column Terminal Window */}
+        <div className="flex justify-center items-center">
+          <div className="w-full max-w-lg rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] shadow-xl overflow-hidden font-mono text-sm group hover:border-[var(--foreground)]/30 transition-all duration-500 relative">
+            {/* Window Header */}
+            <div className="flex items-center justify-between px-4 py-3 bg-[var(--accent)]/50 border-b border-[var(--border)] text-xs">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+                <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+                <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1 rounded bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] font-medium text-xs shadow-xs">
+                <span className="text-sky-500 font-bold">TS</span> pratham.ts
+              </div>
+              <div className="flex items-center gap-1.5 text-[11px] text-[var(--muted-foreground)] font-sans">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                UTF-8
+              </div>
             </div>
-          </div>
 
-          {/* Right: Concise Factual Narrative & Technologies */}
-          <div className="about-v4-right">
-            <p className="about-v4-text">
-              I am an <span className="text-highlight">App Developer</span> specializing in cross-platform mobile engineering with <span className="text-highlight">React Native, React.js, and TypeScript</span>.
-            </p>
-            <p className="about-v4-text">
-              At <span className="text-highlight">Aronix Web Technology</span>, I develop responsive mobile screens, navigation architectures, and RESTful API integrations for a hospital management application. Grounded by earlier web development at <span className="text-highlight">PCS Management Consultancy</span> and training at <span className="text-highlight">EICT Academy, IIT Kanpur</span>, I focus on component-based architecture and clean, maintainable code.
-            </p>
+            {/* Code Body */}
+            <div className="p-4 sm:p-6 overflow-x-auto leading-relaxed text-xs sm:text-sm">
+              <div className="flex gap-4">
+                {/* Line Numbers */}
+                <div className="select-none text-[var(--muted-foreground)]/40 text-right space-y-1 font-mono text-xs">
+                  <div>1</div>
+                  <div>2</div>
+                  <div>3</div>
+                  <div>4</div>
+                  <div>5</div>
+                  <div>6</div>
+                  <div>7</div>
+                  <div>8</div>
+                  <div>9</div>
+                </div>
 
-            <div className="about-tags-cloud">
-              <Tag label="React Native" variant="accent" size="sm" />
-              <Tag label="React.js" variant="accent" size="sm" />
-              <Tag label="TypeScript" variant="accent" size="sm" />
-              <Tag label="JavaScript" variant="subtle" size="sm" />
-              <Tag label="REST APIs" variant="subtle" size="sm" />
-              <Tag label="Expo" variant="subtle" size="sm" />
-              <Tag label="State Management" variant="subtle" size="sm" />
-              <Tag label="Axios" variant="subtle" size="sm" />
+                {/* Code Content */}
+                <div className="space-y-1 font-mono">
+                  <div>
+                    <span className="text-indigo-500 dark:text-indigo-400 font-semibold">const</span>{' '}
+                    <span className="text-[var(--foreground)] font-semibold">developer</span>{' '}
+                    <span className="text-[var(--muted-foreground)]">=</span>{' '}
+                    <span className="text-amber-500 dark:text-amber-400">{'{'}</span>
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-sky-500 dark:text-sky-400 font-medium">role:</span>{' '}
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Full Stack Developer"</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-sky-500 dark:text-sky-400 font-medium">frontend:</span>{' '}
+                    <span className="text-amber-500 dark:text-amber-400">[</span>
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Next.js"</span>,{' '}
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"TypeScript"</span>
+                    <span className="text-amber-500 dark:text-amber-400">]</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-sky-500 dark:text-sky-400 font-medium">backend:</span>{' '}
+                    <span className="text-amber-500 dark:text-amber-400">[</span>
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Node.js"</span>,{' '}
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"FastAPI"</span>
+                    <span className="text-amber-500 dark:text-amber-400">]</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-sky-500 dark:text-sky-400 font-medium">database:</span>{' '}
+                    <span className="text-amber-500 dark:text-amber-400">[</span>
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"MongoDB"</span>,{' '}
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"SQL"</span>
+                    <span className="text-amber-500 dark:text-amber-400">]</span>,
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-sky-500 dark:text-sky-400 font-medium">focus:</span>{' '}
+                    <span className="text-emerald-500 dark:text-emerald-400 font-medium">"Fullstack Engineering"</span>
+                  </div>
+                  <div>
+                    <span className="text-amber-500 dark:text-amber-400">{'}'}</span>;
+                    <span className="inline-block w-2 h-4 ml-1.5 bg-indigo-500 dark:bg-indigo-400 animate-pulse align-middle"></span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

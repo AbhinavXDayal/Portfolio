@@ -1,188 +1,182 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, FileText } from 'lucide-react';
-import { useScrollProgress } from '../../hooks/useScrollProgress';
-import { useActiveSection } from '../../hooks/useActiveSection';
-import { scrollToSection } from '../../lib/utils';
-import { personalInfo } from '../../data/social';
+import React, { useState } from 'react';
 
-const navLinks = [
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'education', label: 'Education' },
-  { id: 'contact', label: 'Contact' },
-];
+interface NavbarProps {
+  isDark: boolean;
+  toggleTheme: () => void;
+}
 
-export const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const scrollProgress = useScrollProgress();
-  const activeSection = useActiveSection(['about', 'skills', 'experience', 'projects', 'education', 'contact']);
+export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768 && isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isMobileMenuOpen]);
-
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+  const scrollToSection = (id: string) => {
+    setMobileMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [isMobileMenuOpen]);
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    scrollToSection(id);
-    setIsMobileMenuOpen(false);
   };
 
   return (
-    <>
-      <header
-        className={`site-navbar ${isScrolled ? 'navbar-scrolled' : ''}`}
-        role="banner"
-      >
-        <div className="navbar-container">
+    <nav className="sticky top-0 z-50 bg-[var(--background)]/80 backdrop-blur-md text-[var(--foreground)] border-b border-[var(--border)] transition-colors duration-200">
+      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <a
+          href="#hero"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('hero');
+          }}
+          className="font-extrabold text-xl tracking-tight text-[var(--foreground)] hover:text-[var(--brand-accent)] transition-colors flex items-center gap-1"
+        >
+          Pratham
+        </a>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-2 text-sm font-medium">
           <a
-            href="#"
+            href="#hero"
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              scrollToSection('hero');
             }}
-            className="navbar-brand"
-            aria-label="Abhinav Dayal - Home"
+            className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
           >
-            <span className="brand-name">ABHINAV DAYAL</span>
+            Home
           </a>
-
-          {/* Desktop Navigation */}
-          <nav className="desktop-nav" aria-label="Main Navigation">
-            <ul className="nav-list">
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.id;
-                return (
-                  <li key={link.id} className="nav-item">
-                    <a
-                      href={`#${link.id}`}
-                      onClick={(e) => handleNavClick(e, link.id)}
-                      className={`nav-link ${isActive ? 'active' : ''}`}
-                    >
-                      <span>{link.label}</span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-
-            <div className="nav-actions">
-              <a
-                href={personalInfo.resumeUrl}
-                onClick={(e) => {
-                  if (personalInfo.resumeUrl.startsWith('#')) {
-                    handleNavClick(e, personalInfo.resumeUrl.replace('#', ''));
-                  }
-                }}
-                className="resume-btn"
-                aria-label="Contact / Resume"
-              >
-                <span>Resume</span>
-              </a>
-            </div>
-          </nav>
-
-          {/* Mobile Hamburger Button */}
-          <button
-            type="button"
-            className="mobile-menu-toggle"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-
-        {/* Scroll Progress Bar */}
-        <div
-          className="navbar-progress-bar"
-          style={{ width: `${scrollProgress}%` }}
-          aria-hidden="true"
-        />
-      </header>
-
-      {/* Mobile Drawer Overlay */}
-      <div
-        className={`mobile-drawer-backdrop ${isMobileMenuOpen ? 'open' : ''}`}
-        onClick={() => setIsMobileMenuOpen(false)}
-        aria-hidden={!isMobileMenuOpen}
-      />
-
-      <aside
-        className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}
-        aria-label="Mobile Navigation"
-        aria-hidden={!isMobileMenuOpen}
-      >
-        <div className="mobile-drawer-header">
-          <span className="mobile-drawer-title mono">Menu</span>
-          <button
-            className="mobile-drawer-close"
-            onClick={() => setIsMobileMenuOpen(false)}
-            aria-label="Close menu"
-          >
-            <X size={18} />
-          </button>
-        </div>
-
-        <nav className="mobile-nav-list">
-          {navLinks.map((link, idx) => {
-            const isActive = activeSection === link.id;
-            return (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                onClick={(e) => handleNavClick(e, link.id)}
-                className={`mobile-nav-link ${isActive ? 'active' : ''}`}
-              >
-                <span className="mobile-nav-num mono">0{idx + 1}</span>
-                <span className="mobile-nav-text">{link.label}</span>
-                <ArrowUpRight size={15} className="mobile-nav-arrow" />
-              </a>
-            );
-          })}
-        </nav>
-
-        <div className="mobile-drawer-footer">
           <a
-            href={personalInfo.resumeUrl}
+            href="#about"
             onClick={(e) => {
-              if (personalInfo.resumeUrl.startsWith('#')) {
-                handleNavClick(e, personalInfo.resumeUrl.replace('#', ''));
-              }
+              e.preventDefault();
+              scrollToSection('about');
             }}
-            className="mobile-resume-btn"
+            className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
           >
-            <FileText size={15} />
-            <span>View Resume</span>
+            About
+          </a>
+          <a
+            href="#stack"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('stack');
+            }}
+            className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
+          >
+            Tech Stack
+          </a>
+          <a
+            href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('projects');
+            }}
+            className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
+          >
+            Projects
+          </a>
+          <a
+            href="#experience"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('experience');
+            }}
+            className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
+          >
+            Experience
+          </a>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] border border-[var(--border)] transition-colors cursor-pointer text-sm"
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? '☀️' : '🌙'}
+          </button>
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="ml-2 px-4 py-2 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
+          >
+            Hire Me
+          </button>
+        </div>
+
+        {/* Mobile Navigation controls */}
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="px-3.5 py-1.5 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
+          >
+            Hire Me
+          </button>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] border border-[var(--border)] transition-colors cursor-pointer text-sm"
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? '☀️' : '🌙'}
+          </button>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--ring)] transition-colors cursor-pointer text-base"
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? '✕' : '☰'}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 py-4 space-y-2">
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('hero');
+            }}
+            className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
+          >
+            Home
+          </a>
+          <a
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('about');
+            }}
+            className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
+          >
+            About
+          </a>
+          <a
+            href="#stack"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('stack');
+            }}
+            className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
+          >
+            Tech Stack
+          </a>
+          <a
+            href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('projects');
+            }}
+            className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
+          >
+            Projects
+          </a>
+          <a
+            href="#experience"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('experience');
+            }}
+            className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
+          >
+            Experience
           </a>
         </div>
-      </aside>
-    </>
+      )}
+    </nav>
   );
 };

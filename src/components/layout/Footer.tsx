@@ -1,51 +1,35 @@
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
-import { personalInfo, socialLinks } from '../../data/social';
 
 export const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
   return (
-    <footer className="footer-v4" role="contentinfo">
-      <div className="container footer-v4-container">
-        <div className="footer-v4-left">
-          <span className="footer-v4-name">{personalInfo.name}</span>
-          <span className="footer-v4-sep mono">/</span>
-          <span className="footer-v4-role mono">{personalInfo.role}</span>
-          <span className="footer-v4-sep mono">/</span>
-          <span className="footer-v4-copy mono">© {currentYear}</span>
-        </div>
-
-        <div className="footer-v4-right">
-          <div className="footer-v4-socials">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.url}
-                target={link.isExternal ? '_blank' : undefined}
-                rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                className="footer-v4-link mono"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          <button
-            onClick={scrollToTop}
-            className="footer-v4-top-btn mono"
-            aria-label="Back to top"
+    <footer className="w-full py-6 bg-transparent text-[var(--muted-foreground)] border-t border-[var(--border)]/50 transition-colors duration-200">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-medium text-center sm:text-left">
+        <p>© 2026 Pratham Verma. Built with Next.js &amp; Tailwind CSS.</p>
+        <div className="flex items-center justify-center gap-4">
+          <a
+            href="https://github.com/prathamverma77"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--foreground)] transition-colors"
           >
-            <span>TOP</span>
-            <ArrowUp size={11} />
-          </button>
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/prathamverma77/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--foreground)] transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://x.com/Pratham39423901"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--foreground)] transition-colors"
+          >
+            Twitter / X
+          </a>
         </div>
       </div>
     </footer>

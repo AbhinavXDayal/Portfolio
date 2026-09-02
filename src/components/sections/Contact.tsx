@@ -1,85 +1,206 @@
 import React, { useState } from 'react';
-import { SectionHeading } from '../ui/SectionHeading';
-import { Button } from '../ui/Button';
-import { personalInfo, socialLinks } from '../../data/social';
-import { ArrowRight, Copy, Check } from 'lucide-react';
 
 export const Contact: React.FC = () => {
-  const [copied, setCopied] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(personalInfo.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2400);
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({ name: '', email: '', message: '' });
+    }, 4000);
   };
 
   return (
-    <section className="contact-section" id="contact" aria-label="Contact">
-      <div className="container">
-        <SectionHeading
-          number="06"
-          title="CONTACT ME"
-        />
+    <section
+      id="contact"
+      className="w-full py-16 md:py-24 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
+    >
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-12">
+          <span className="text-sm font-semibold tracking-wider uppercase text-[var(--muted-foreground)] mb-2">
+            Let's Connect
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--foreground)]">
+            Contact Me
+          </h2>
+        </div>
 
-        <div className="contact-v4-container">
-          <div className="contact-v4-main">
-            <h3 className="contact-v4-headline">
-              LET'S BUILD SOMETHING.
-            </h3>
-
-            <p className="contact-v4-subtext">
-              Have a project or engineering role in mind? My inbox is open for high-impact mobile and web opportunities.
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          {/* Left Column Contact Details */}
+          <div className="flex flex-col space-y-6 text-center lg:text-left">
+            <p className="text-base md:text-lg text-[var(--muted-foreground)] leading-relaxed">
+              I am currently open to new opportunities, freelance projects, and collaborations. Have a question or want to work together? Feel free to send a message!
             </p>
 
-            {/* Quick Email & CTA Row */}
-            <div className="contact-v4-action-bar">
-              <div className="contact-v4-email-box">
-                <span className="contact-v4-email-str mono">{personalInfo.email}</span>
-                <button
-                  onClick={handleCopyEmail}
-                  className="contact-v4-copy-btn mono"
-                  title="Copy email address"
-                  aria-label="Copy email"
-                >
-                  {copied ? (
-                    <>
-                      <Check size={12} className="text-emerald" />
-                      <span>Copied</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy size={12} />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </button>
+            <div className="space-y-4 pt-2">
+              {/* Email Card */}
+              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-center sm:text-left">
+                <div className="p-2.5 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-lg">
+                  ✉️
+                </div>
+                <div>
+                  <h4 className="text-xs font-semibold text-[var(--muted-foreground)] uppercase">
+                    Email
+                  </h4>
+                  <a
+                    href="mailto:prathamverma1980@gmail.com"
+                    className="text-sm font-medium text-[var(--foreground)] hover:underline"
+                  >
+                    prathamverma1980@gmail.com
+                  </a>
+                </div>
               </div>
 
-              <Button
-                variant="primary"
-                size="md"
-                href={`mailto:${personalInfo.email}`}
-                icon={<ArrowRight size={15} />}
-              >
-                Let's Talk
-              </Button>
+              {/* Location Card */}
+              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-center sm:text-left">
+                <div className="p-2.5 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-lg">
+                  📍
+                </div>
+                <div>
+                  <h4 className="text-xs font-semibold text-[var(--muted-foreground)] uppercase">
+                    Location
+                  </h4>
+                  <p className="text-sm font-medium text-[var(--foreground)]">
+                    India
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* Clean Horizontal Social Links Row */}
-            <div className="contact-v4-social-row">
-              {socialLinks.map((link) => (
+            <div className="pt-2">
+              <h4 className="text-xs font-semibold text-[var(--muted-foreground)] uppercase mb-3 text-center lg:text-left">
+                Follow &amp; Connect
+              </h4>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3">
                 <a
-                  key={link.label}
-                  href={link.url}
-                  target={link.isExternal ? '_blank' : undefined}
-                  rel={link.isExternal ? 'noopener noreferrer' : undefined}
-                  className="contact-v4-social-link mono"
+                  href="https://github.com/prathamverma77"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors"
                 >
-                  <span>{link.label}</span>
-                  <span className="social-arrow">↗</span>
+                  GitHub
                 </a>
-              ))}
+                <a
+                  href="https://www.linkedin.com/in/prathamverma77/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="https://x.com/Pratham39423901"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors"
+                >
+                  Twitter / X
+                </a>
+              </div>
             </div>
+          </div>
+
+          {/* Right Column Form */}
+          <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-6 md:p-8 shadow-sm">
+            {submitted ? (
+              <div className="py-8 text-center space-y-3">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center mx-auto text-xl">
+                  ✓
+                </div>
+                <h3 className="text-lg font-bold text-[var(--foreground)]">
+                  Message Sent Successfully!
+                </h3>
+                <p className="text-sm text-[var(--muted-foreground)]">
+                  Thank you for reaching out. I will get back to you as soon as possible.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-xs font-semibold text-[var(--muted-foreground)] uppercase mb-2"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    placeholder="Your Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2.5 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--ring)] transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-xs font-semibold text-[var(--muted-foreground)] uppercase mb-2"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    required
+                    placeholder="you@example.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2.5 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--ring)] transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-xs font-semibold text-[var(--muted-foreground)] uppercase"
+                    >
+                      Message
+                    </label>
+                    <span className="text-[11px] font-mono text-[var(--muted-foreground)]">
+                      {formData.message.length} / 500 chars
+                    </span>
+                  </div>
+                  <textarea
+                    id="message"
+                    required
+                    maxLength={500}
+                    rows={4}
+                    placeholder="Your message here (max 500 characters)..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2.5 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--ring)] transition-colors resize-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 px-6 rounded-[var(--radius)] bg-[var(--primary)] text-[var(--primary-foreground)] font-semibold text-sm hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-50 shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  Send Message
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>

@@ -1,58 +1,183 @@
 import React from 'react';
-import { ArrowDownRight, Mail } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { StatusIndicator } from '../ui/StatusIndicator';
-import { personalInfo } from '../../data/social';
-import { scrollToSection } from '../../lib/utils';
 
 export const Hero: React.FC = () => {
+  const scrollToContact = () => {
+    const el = document.getElementById('contact');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="hero-section" id="hero" aria-label="Hero Section">
-      <div className="container hero-container">
-        <div className="hero-content">
-          {/* Status & Tech Pill */}
-          <div className="hero-meta-strip animate-fade-in">
-            <StatusIndicator statusText={personalInfo.status} />
-            <span className="hero-tech-mono mono">
-              React Native <span className="text-accent">•</span> React.js <span className="text-accent">•</span> TypeScript
-            </span>
-          </div>
+    <section
+      id="hero"
+      className="w-full min-h-[85vh] lg:min-h-[calc(100vh-4rem)] flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden py-12 lg:py-0"
+    >
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_70%_70%_at_50%_50%,#000_50%,transparent_100%)] pointer-events-none"></div>
 
-          {/* Large Clean Typography */}
-          <div className="hero-headline-block animate-fade-in-up">
-            <h1 className="hero-name">
-              <span>ABHINAV DAYAL</span>
-            </h1>
-            <div className="hero-subline-row">
-              <span className="hero-role-tag mono">APP DEVELOPER</span>
-              <span className="hero-location-text mono">Delhi / Lucknow, India</span>
-            </div>
-          </div>
+      {/* Top Center Glow */}
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(ellipse_at_center,var(--primary)/0.12_0%,transparent_70%)] blur-3xl pointer-events-none"></div>
 
-          {/* Supporting Intro Line */}
-          <p className="hero-intro-text animate-fade-in-up">
-            {personalInfo.tagline}
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-12">
+        {/* Left Column Content */}
+        <div className="max-w-2xl text-center lg:text-left">
+          <p className="text-base sm:text-lg md:text-xl font-medium text-[var(--primary)] mb-0.5 sm:mb-2">
+            Hi, I'm
+          </p>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-1 sm:mb-3 text-[var(--foreground)]">
+            Pratham Verma
+          </h1>
+          <h2 className="text-lg sm:text-2xl font-semibold text-[var(--muted-foreground)] mb-4 sm:mb-6 tracking-wide">
+            Full Stack Developer
+          </h2>
+          <p className="text-sm sm:text-lg text-[var(--muted-foreground)] mb-6 sm:mb-8 leading-relaxed max-w-xl">
+            I build{' '}
+            <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
+              production-ready
+            </span>{' '}
+            web applications, from modern Next.js frontends to scalable REST APIs and backend services using Node.js and FastAPI.
           </p>
 
           {/* Action Buttons */}
-          <div className="hero-buttons-row animate-fade-in-up">
-            <Button
-              variant="primary"
-              size="md"
-              onClick={() => scrollToSection('projects')}
-              icon={<ArrowDownRight size={15} />}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8">
+            <button
+              onClick={scrollToContact}
+              className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-6 py-3 rounded-[var(--radius)] text-base hover:opacity-90 transition-all shadow-md inline-flex items-center gap-2 cursor-pointer"
             >
-              View Work
-            </Button>
+              Hire Me
+            </button>
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToContact();
+              }}
+              className="bg-[var(--background)] text-[var(--foreground)] font-medium px-6 py-3 rounded-[var(--radius)] text-base border border-[var(--border)] hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 transition-all inline-flex items-center gap-2 cursor-pointer"
+            >
+              Resume{' '}
+              <svg
+                stroke="currentColor"
+                fill="none"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-lg"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+          </div>
 
-            <Button
-              variant="outline"
-              size="md"
-              onClick={() => scrollToSection('contact')}
-              icon={<Mail size={15} />}
+          {/* Social Links Pills */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm font-medium">
+            <a
+              href="https://github.com/prathamverma77"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
             >
-              Contact Me
-            </Button>
+              <svg
+                stroke="currentColor"
+                fill="none"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-base"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/prathamverma77/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
+            >
+              <svg
+                stroke="currentColor"
+                fill="none"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-base text-[var(--foreground)]"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              LinkedIn
+            </a>
+            <a
+              href="https://x.com/Pratham39423901"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
+            >
+              <svg
+                stroke="currentColor"
+                fill="none"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-base text-[var(--foreground)]"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+              Twitter / X
+            </a>
+            <a
+              href="mailto:prathamverma1980@gmail.com"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
+            >
+              <svg
+                stroke="currentColor"
+                fill="none"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-base text-[var(--foreground)]"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Email
+            </a>
+          </div>
+        </div>
+
+        {/* Right Column Profile Image */}
+        <div className="relative w-full max-w-xs flex justify-center">
+          <div className="absolute -inset-6 sm:-inset-10 rounded-full bg-[radial-gradient(circle_at_center,var(--foreground)/0.06_0%,transparent_70%)] blur-2xl pointer-events-none"></div>
+          <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-[290px] md:h-[290px] rounded-full overflow-hidden ring-1 ring-[var(--border)] shadow-xl transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
+            <img
+              src="/portfolio pic.jpeg"
+              alt="Pratham Verma"
+              className="w-full h-full object-cover object-[center_55%] scale-135 transition-transform duration-700 ease-out group-hover:scale-140"
+            />
+            <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-[var(--foreground)]/10 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_65%,var(--background)/0.25_100%)]"></div>
           </div>
         </div>
       </div>

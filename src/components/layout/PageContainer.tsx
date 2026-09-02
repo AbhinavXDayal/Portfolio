@@ -1,7 +1,4 @@
 import React from 'react';
-import { DotMatrix } from '../ui/DotMatrix';
-import { Navbar } from './Navbar';
-import { Footer } from './Footer';
 
 interface PageContainerProps {
   children: React.ReactNode;
@@ -9,13 +6,10 @@ interface PageContainerProps {
 
 export const PageContainer: React.FC<PageContainerProps> = ({ children }) => {
   return (
-    <div className="portfolio-app-root">
-      <DotMatrix />
-      <Navbar />
-      <main id="main-content" className="main-content" tabIndex={-1}>
+    <div className="relative z-10 flex flex-col min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+      <main id="main-content" className="flex-grow w-full">
         {children}
       </main>
-      <Footer />
     </div>
   );
 };
