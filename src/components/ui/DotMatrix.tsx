@@ -1,19 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 
-interface Particle {
+interface GraphNode {
   x: number;
   y: number;
   vx: number;
   vy: number;
-  size: number;
-  angle: number;
-  angularSpeed: number;
-  swayPhase: number;
-  swaySpeed: number;
+  radius: number;
   color: string;
-  glowColor: string;
   alpha: number;
-  type: 'leaf' | 'firefly' | 'sprout' | 'seed';
 }
 
 export const DotMatrix: React.FC = () => {
@@ -37,57 +31,30 @@ export const DotMatrix: React.FC = () => {
       targetY: -1000,
     };
 
-    // Soft nature colors
-    const colors = [
-      { fill: '#74C69D', glow: 'rgba(116, 198, 157, 0.45)' }, // fresh mint
-      { fill: '#52B788', glow: 'rgba(82, 183, 136, 0.45)' },  // emerald leaf
-      { fill: '#95D5B2', glow: 'rgba(149, 213, 178, 0.5)' },  // light spring green
-      { fill: '#B7E4C7', glow: 'rgba(183, 228, 199, 0.5)' },  // soft glowing moss
-      { fill: '#D8F3DC', glow: 'rgba(216, 243, 220, 0.55)' }, // dewy pale sprout
-      { fill: '#FFE6A7', glow: 'rgba(255, 230, 167, 0.45)' }, // golden firefly spore
+    // Soft nature matte colors for graph nodes
+    const nodeColors = [
+      'rgba(126, 169, 132, 0.45)', // herbal sage
+      'rgba(91, 139, 103, 0.45)',  // forest green
+      'rgba(163, 206, 179, 0.45)', // tender mint
     ];
 
-    // Grid config
-    const spacing = 38;
-    const baseGridRadius = 0.55;
+    // Grid config: reduced quantity, clean spacing
+    const spacing = 44;
+    const baseDotRadius = 0.5;
 
-    // Dynamic moving particles: leaves, fireflies, sprouts, and seeds
-    const count = Math.min(Math.floor((width * height) / 22000), 55);
-    const particles: Particle[] = [];
+    // Sparse Graph Nodes (reduced overall quantity: only 16 to 22 nodes across screen)
+    const nodeCount = Math.min(Math.floor((width * height) / 48000), 20);
+    const nodes: GraphNode[] = [];
 
-    const types: ('leaf' | 'firefly' | 'sprout' | 'seed')[] = [
-      'firefly',
-      'leaf',
-      'firefly',
-      'sprout',
-      'leaf',
-      'seed',
-    ];
-
-    for (let i = 0; i < count; i++) {
-      const col = colors[i % colors.length];
-      const type = types[i % types.length];
-
-      particles.push({
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        // Leaves drift downward-right, fireflies float upwards/freely
-        vx: type === 'leaf' ? 0.3 + Math.random() * 0.5 : (Math.random() - 0.5) * 0.7,
-        vy: type === 'leaf' ? 0.4 + Math.random() * 0.6 : (Math.random() - 0.5) * 0.6 - 0.15,
-        size:
-          type === 'leaf'
-            ? 11 + Math.random() * 9
-            : type === 'sprout'
-            ? 14 + Math.random() * 6
-            : 2.5 + Math.random() * 2.5,
-        angle: Math.random() * Math.PI * 2,
-        angularSpeed: (Math.random() - 0.5) * 0.025,
-        swayPhase: Math.random() * Math.PI * 2,
-        swaySpeed: 0.02 + Math.random() * 0.03,
-        color: col.fill,
-        glowColor: col.glow,
-        alpha: 0.4 + Math.random() * 0.4,
-        type,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        radius: 1.2 + Math.random() * 0.6, // small matte points (NO glow)
+        color: nodeColors[i % nodeColors.length],
+        alpha: 0.35 + Math.random() * 0.25,
       });
     }
 
@@ -115,228 +82,114 @@ export const DotMatrix: React.FC = () => {
 
     let time = 0;
 
-    // Draw single leaf
-    const drawLeaf = (
-      c: CanvasRenderingContext2D,
-      x: number,
-      y: number,
-      size: number,
-      rot: number,
-      color: string,
-      alpha: number
-    ) => {
-      c.save();
-      c.translate(x, y);
-      c.rotate(rot);
-      c.globalAlpha = alpha;
-
-      c.beginPath();
-      c.moveTo(0, 0);
-      c.bezierCurveTo(size * 0.45, -size * 0.4, size * 0.85, -size * 0.28, size, 0);
-      c.bezierCurveTo(size * 0.85, size * 0.28, size * 0.45, size * 0.4, 0, 0);
-      c.fillStyle = color;
-      c.fill();
-
-      // Stem & vein
-      c.beginPath();
-      c.moveTo(-size * 0.15, 0);
-      c.lineTo(size * 0.88, 0);
-      c.strokeStyle = 'rgba(235, 245, 238, 0.4)';
-      c.lineWidth = 0.8;
-      c.stroke();
-
-      c.restore();
-    };
-
-    // Draw sprouting plant
-    const drawSprout = (
-      c: CanvasRenderingContext2D,
-      x: number,
-      y: number,
-      size: number,
-      sway: number,
-      color: string,
-      alpha: number
-    ) => {
-      c.save();
-      c.translate(x, y);
-      c.globalAlpha = alpha;
-
-      // Stem
-      c.beginPath();
-      c.moveTo(0, 0);
-      c.quadraticCurveTo(sway * 3, -size * 0.5, sway * 5, -size * 0.85);
-      c.strokeStyle = 'rgba(116, 198, 157, 0.65)';
-      c.lineWidth = 1.1;
-      c.stroke();
-
-      // Left leaf
-      c.save();
-      c.translate(sway * 5, -size * 0.85);
-      c.rotate(-0.55 + sway * 0.25);
-      drawLeaf(c, 0, 0, size * 0.7, -0.2, color, 1);
-      c.restore();
-
-      // Right leaf
-      c.save();
-      c.translate(sway * 5, -size * 0.85);
-      c.rotate(0.55 + sway * 0.25);
-      drawLeaf(c, 0, 0, size * 0.65, 0.2, color, 1);
-      c.restore();
-
-      c.restore();
-    };
-
-    // Draw glowing bioluminescent firefly
-    const drawFirefly = (
-      c: CanvasRenderingContext2D,
-      x: number,
-      y: number,
-      size: number,
-      color: string,
-      glowColor: string,
-      alpha: number
-    ) => {
-      c.save();
-      c.globalAlpha = alpha;
-
-      // Outer soft glow halo
-      const grad = c.createRadialGradient(x, y, 0, x, y, size * 3.5);
-      grad.addColorStop(0, glowColor);
-      grad.addColorStop(1, 'rgba(0,0,0,0)');
-      c.fillStyle = grad;
-      c.beginPath();
-      c.arc(x, y, size * 3.5, 0, Math.PI * 2);
-      c.fill();
-
-      // Bright inner glowing core
-      c.fillStyle = color;
-      c.beginPath();
-      c.arc(x, y, size, 0, Math.PI * 2);
-      c.fill();
-
-      c.restore();
-    };
-
     const render = () => {
       if (!canvas || !ctx) return;
-      time += 0.016;
+      time += 0.012;
 
-      // Smooth mouse interpolation
-      mouse.x += (mouse.targetX - mouse.x) * 0.12;
-      mouse.y += (mouse.targetY - mouse.y) * 0.12;
+      // Smooth mouse tracking
+      mouse.x += (mouse.targetX - mouse.x) * 0.1;
+      mouse.y += (mouse.targetY - mouse.y) * 0.1;
 
       ctx.clearRect(0, 0, width, height);
 
       const hasMouse = mouse.x > 0 && mouse.y > 0;
 
-      // 1. Soft dewy background grid
+      // 1. Dynamic Moving Dot Matrix (clean, non-glowing, subtle organic micro-wave)
       for (let x = spacing / 2; x < width; x += spacing) {
         for (let y = spacing / 2; y < height; y += spacing) {
-          let radius = baseGridRadius;
-          let alpha = 0.055;
+          // Gentle ambient wave motion
+          const wave = Math.sin(time + (x * 0.015) + (y * 0.015)) * 0.35;
+          let dotRadius = baseDotRadius;
+          let alpha = 0.045 + wave * 0.01;
 
           if (hasMouse) {
             const dx = mouse.x - x;
             const dy = mouse.y - y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 100) {
-              const factor = 1 - dist / 100;
-              radius = baseGridRadius + factor * 0.45;
-              alpha = 0.055 + factor * 0.14;
+            if (dist < 90) {
+              const factor = 1 - dist / 90;
+              dotRadius = baseDotRadius + factor * 0.4;
+              alpha = 0.05 + factor * 0.1;
             }
           }
 
-          ctx.fillStyle = `rgba(116, 198, 157, ${alpha})`;
+          // Clean matte dot (NO blur, NO glow)
+          ctx.fillStyle = `rgba(126, 169, 132, ${alpha})`;
           ctx.beginPath();
-          ctx.arc(x, y, radius, 0, Math.PI * 2);
+          ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
           ctx.fill();
         }
       }
 
-      // 2. Dynamic Moving Nature Elements
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
+      // 2. Update Dynamic Moving Graph Nodes
+      for (let i = 0; i < nodes.length; i++) {
+        const node = nodes[i];
 
-        // Smooth swaying motion
-        const sway = Math.sin(time * 2 + p.swayPhase);
+        node.x += node.vx + Math.sin(time + i) * 0.15;
+        node.y += node.vy + Math.cos(time + i) * 0.15;
 
-        if (p.type === 'leaf') {
-          p.x += p.vx + sway * 0.35;
-          p.y += p.vy + Math.cos(time + p.swayPhase) * 0.2;
-          p.angle += p.angularSpeed + sway * 0.01;
-        } else if (p.type === 'sprout') {
-          p.x += p.vx * 0.4 + sway * 0.2;
-          p.y += p.vy * 0.4;
-          p.angle += p.angularSpeed;
-        } else {
-          // Fireflies and floating seeds float organically in currents
-          p.x += p.vx + Math.sin(time * 1.5 + p.swayPhase) * 0.4;
-          p.y += p.vy + Math.cos(time * 1.8 + p.swayPhase) * 0.4;
-        }
+        // Screen wrap
+        if (node.x < -15) node.x = width + 15;
+        if (node.x > width + 15) node.x = -15;
+        if (node.y < -15) node.y = height + 15;
+        if (node.y > height + 15) node.y = -15;
 
-        // Screen wrap (seamless continuous motion)
-        if (p.x < -30) p.x = width + 30;
-        if (p.x > width + 30) p.x = -30;
-        if (p.y > height + 30) {
-          p.y = -30;
-          p.x = Math.random() * width;
-        }
-        if (p.y < -30) {
-          p.y = height + 30;
-          p.x = Math.random() * width;
-        }
-
-        // Mouse interaction (leaves and fireflies gently disperse with wind)
+        // Mouse gentle deflection
         if (hasMouse) {
-          const dx = mouse.x - p.x;
-          const dy = mouse.y - p.y;
+          const dx = mouse.x - node.x;
+          const dy = mouse.y - node.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 140) {
-            const force = (1 - dist / 140) * 1.5;
-            p.x -= (dx / dist) * force;
-            p.y -= (dy / dist) * force;
-            p.angle += force * 0.05;
+          if (dist < 110) {
+            const force = (1 - dist / 110) * 0.8;
+            node.x -= (dx / dist) * force;
+            node.y -= (dy / dist) * force;
           }
-        }
-
-        // Soft pulsing glow
-        const currentAlpha = Math.min(
-          0.85,
-          p.alpha + Math.sin(time * 2.5 + p.swayPhase) * 0.18
-        );
-
-        // Render each dynamic element
-        if (p.type === 'leaf') {
-          drawLeaf(ctx, p.x, p.y, p.size, p.angle, p.color, currentAlpha);
-        } else if (p.type === 'sprout') {
-          drawSprout(ctx, p.x, p.y, p.size, sway, p.color, currentAlpha);
-        } else {
-          drawFirefly(ctx, p.x, p.y, p.size, p.color, p.glowColor, currentAlpha);
         }
       }
 
-      // 3. Faint filaments connecting nearby glowing fireflies
-      const maxConnect = 90;
-      for (let i = 0; i < particles.length; i++) {
-        if (particles[i].type !== 'firefly' && particles[i].type !== 'seed') continue;
-        for (let j = i + 1; j < particles.length; j++) {
-          if (particles[j].type !== 'firefly' && particles[j].type !== 'seed') continue;
-
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
+      // 3. Draw Dynamic Graph Lines / Edges (crisp, matte, thin)
+      const maxDistance = 135;
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < maxConnect) {
-            const lineAlpha = (1 - dist / maxConnect) * 0.12;
-            ctx.strokeStyle = `rgba(116, 198, 157, ${lineAlpha})`;
+          if (dist < maxDistance) {
+            const edgeAlpha = (1 - dist / maxDistance) * 0.15;
+            ctx.strokeStyle = `rgba(126, 169, 132, ${edgeAlpha})`;
             ctx.lineWidth = 0.75;
             ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.stroke();
           }
         }
+
+        // Connection to mouse cursor
+        if (hasMouse) {
+          const dx = mouse.x - nodes[i].x;
+          const dy = mouse.y - nodes[i].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            const edgeAlpha = (1 - dist / 120) * 0.2;
+            ctx.strokeStyle = `rgba(163, 206, 179, ${edgeAlpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // 4. Draw Graph Nodes (crisp matte solid dots, strictly NO glow halos)
+      for (let i = 0; i < nodes.length; i++) {
+        const node = nodes[i];
+        ctx.fillStyle = node.color;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.fill();
       }
 
       animId = requestAnimationFrame(render);

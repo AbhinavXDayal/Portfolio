@@ -11,11 +11,8 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="w-full min-h-[55vh] lg:min-h-[65vh] flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden py-6 lg:py-8"
+      className="w-full flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden pt-3 pb-4 sm:pt-5 sm:pb-6"
     >
-      {/* Top Center Nature Canopy Glow */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse_at_center,#5B8B67/0.22_0%,transparent_70%)] blur-3xl pointer-events-none"></div>
-
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-10">
         {/* Left Column Content */}
         <div className="max-w-2xl text-center lg:text-left">
@@ -165,8 +162,7 @@ export const Hero: React.FC = () => {
 
         {/* Right Column Profile Avatar */}
         <div className="relative w-full max-w-xs flex justify-center">
-          <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-[radial-gradient(circle_at_center,#7EA984/0.35_0%,transparent_70%)] blur-2xl pointer-events-none"></div>
-          <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden ring-2 ring-[var(--border)] shadow-lg transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
+          <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden ring-2 ring-[var(--border)] shadow-md transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
             <img
               src="/portfolio pic.jpeg"
               alt="Abhinav Dayal"
