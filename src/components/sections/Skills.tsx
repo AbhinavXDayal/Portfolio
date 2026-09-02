@@ -3,56 +3,25 @@ import React from "react";
 export const Skills: React.FC = () => {
   const skillCategories = [
     {
-      title: "Mobile & App Development",
-      description:
-        "Cross-platform mobile apps, native tooling & reusable architecture.",
-      skills: [
-        "React Native",
-        "React Native CLI",
-        "Expo",
-        "State Management",
-        "C++",
-        "Mobile UI",
-      ],
+      title: "Programming & Web",
+      skills: ["JavaScript", "C++", "HTML", "CSS"],
     },
     {
-      title: "Frontend & Web",
-      description:
-        "Modern component-driven web interfaces & responsive design.",
-      skills: [
-        "React.js",
-        "TypeScript",
-        "JavaScript",
-        "Tailwind CSS",
-        "HTML5",
-        "CSS3",
-      ],
+      title: "Frameworks & Libraries",
+      skills: ["React.js", "React Native", "React Native CLI", "Expo"],
     },
     {
-      title: "Web & Architecture",
-      description:
-        "RESTful API integrations, data handling & routing architectures.",
+      title: "Web & Application",
       skills: [
         "REST APIs",
         "API Integration",
-        "Axios",
-        "React Router",
         "Responsive Design",
-        "Data Flow",
+        "State Management",
       ],
     },
     {
       title: "Tools & Platforms",
-      description:
-        "Cloud services, version control workflows & dev ecosystems.",
-      skills: [
-        "Git",
-        "GitHub",
-        "Google Cloud Platform (GCP)",
-        "VS Code",
-        "npm",
-        "Vercel",
-      ],
+      skills: ["Git", "GitHub", "Google Cloud Platform", "VS Code"],
     },
   ];
 
@@ -68,23 +37,23 @@ export const Skills: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
           {skillCategories.map((category) => (
             <div
               key={category.title}
-              className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-4 sm:p-5 shadow-xs hover:border-[var(--foreground)]/30 transition-all duration-200"
+              className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-3.5 sm:p-4 shadow-xs hover:border-[var(--foreground)]/30 transition-all duration-200 flex flex-col justify-between"
             >
-              <h3 className="text-base sm:text-lg font-bold mb-1 text-[var(--foreground)]">
-                {category.title}
-              </h3>
-              <p className="text-xs text-[var(--muted-foreground)] mb-3.5 leading-relaxed">
-                {category.description}
-              </p>
+              <div className="flex items-center gap-2 mb-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-accent)]"></span>
+                <h3 className="text-sm sm:text-base font-bold text-[var(--foreground)] tracking-tight">
+                  {category.title}
+                </h3>
+              </div>
               <div className="flex flex-wrap gap-1.5">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 text-xs font-medium rounded-[var(--radius)] bg-[var(--background)] text-[var(--foreground)] border border-[var(--border)] shadow-2xs"
+                    className="px-2.5 py-1 text-xs font-semibold rounded-[var(--radius)] bg-[var(--background)]/80 text-[var(--foreground)] border border-[var(--border)] hover:border-[var(--brand-accent)]/50 transition-colors shadow-2xs"
                   >
                     {skill}
                   </span>
