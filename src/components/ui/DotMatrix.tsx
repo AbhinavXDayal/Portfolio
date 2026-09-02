@@ -1,14 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 
-interface Particle {
+interface NatureLeaf {
   x: number;
   y: number;
   vx: number;
   vy: number;
-  radius: number;
-  baseAlpha: number;
-  phase: number;
+  size: number;
+  angle: number;
+  angularSpeed: number;
+  swayPhase: number;
+  swaySpeed: number;
   color: string;
+  alpha: number;
+  type: 'leaf' | 'sprout' | 'petal';
 }
 
 export const DotMatrix: React.FC = () => {
@@ -32,33 +36,40 @@ export const DotMatrix: React.FC = () => {
       targetY: -1000,
     };
 
-    // Soft palette colors
-    const palette = [
-      '233, 204, 177', // #E9CCB1 (warm peach)
-      '211, 196, 190', // #D3C4BE (soft taupe)
-      '228, 218, 194', // #E4DAC2 (champagne)
-      '196, 189, 172', // #C4BDAC (stone)
+    // Nature palette colors for plants and leaves
+    const plantColors = [
+      '#7EA984', // fresh herbal sage
+      '#5B8B67', // lush leaf green
+      '#A3CEB3', // tender forest mint
+      '#6E9A75', // deep botanical moss
+      '#99B898', // soft olive sage
     ];
 
-    // Grid config: subtle, tiny pinpoint dots
+    // Grid config: very soft organic dew-drop matrix
     const spacing = 36;
     const baseGridRadius = 0.55;
     const hoverRadius = 110;
 
-    // Gentle micro-particles
-    const particleCount = Math.min(Math.floor((width * height) / 45000), 22);
-    const particles: Particle[] = [];
+    // Dynamic floating plants and drifting leaves
+    const plantCount = Math.min(Math.floor((width * height) / 38000), 28);
+    const plants: NatureLeaf[] = [];
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
+    const types: ('leaf' | 'sprout' | 'petal')[] = ['leaf', 'leaf', 'sprout', 'petal'];
+
+    for (let i = 0; i < plantCount; i++) {
+      plants.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        radius: 0.8 + Math.random() * 0.5,
-        baseAlpha: 0.15 + Math.random() * 0.15,
-        phase: Math.random() * Math.PI * 2,
-        color: palette[i % palette.length],
+        vx: (Math.random() - 0.4) * 0.45,
+        vy: 0.25 + Math.random() * 0.4, // gentle drifting downward/diagonal like gentle breeze
+        size: 9 + Math.random() * 8,
+        angle: Math.random() * Math.PI * 2,
+        angularSpeed: (Math.random() - 0.5) * 0.015,
+        swayPhase: Math.random() * Math.PI * 2,
+        swaySpeed: 0.02 + Math.random() * 0.02,
+        color: plantColors[i % plantColors.length],
+        alpha: 0.22 + Math.random() * 0.35,
+        type: types[i % types.length],
       });
     }
 
@@ -87,9 +98,113 @@ export const DotMatrix: React.FC = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let time = 0;
 
+    // Helper: draw single curved leaf blade with central vein
+    const drawLeafShape = (
+      c: CanvasRenderingContext2D,
+      x: number,
+      y: number,
+      size: number,
+      rot: number,
+      color: string,
+      alpha: number
+    ) => {
+      c.save();
+      c.translate(x, y);
+      c.rotate(rot);
+      c.globalAlpha = alpha;
+
+      // Leaf body
+      c.beginPath();
+      c.moveTo(0, 0);
+      c.bezierCurveTo(size * 0.45, -size * 0.42, size * 0.85, -size * 0.3, size, 0);
+      c.bezierCurveTo(size * 0.85, size * 0.3, size * 0.45, size * 0.42, 0, 0);
+      c.fillStyle = color;
+      c.fill();
+
+      // Delicate leaf vein
+      c.beginPath();
+      c.moveTo(0, 0);
+      c.lineTo(size * 0.88, 0);
+      c.strokeStyle = 'rgba(234, 241, 236, 0.35)';
+      c.lineWidth = 0.6;
+      c.stroke();
+
+      c.restore();
+    };
+
+    // Helper: draw little sprouting two-leaf seedling
+    const drawSproutShape = (
+      c: CanvasRenderingContext2D,
+      x: number,
+      y: number,
+      size: number,
+      sway: number,
+      color: string,
+      alpha: number
+    ) => {
+      c.save();
+      c.translate(x, y);
+      c.globalAlpha = alpha;
+
+      // Tiny curved stem
+      c.beginPath();
+      c.moveTo(0, 0);
+      c.quadraticCurveTo(sway * 3, -size * 0.5, sway * 5, -size * 0.85);
+      c.strokeStyle = 'rgba(126, 169, 132, 0.5)';
+      c.lineWidth = 0.9;
+      c.stroke();
+
+      // Left cotyledon leaf
+      c.save();
+      c.translate(sway * 5, -size * 0.85);
+      c.rotate(-0.55 + sway * 0.25);
+      drawLeafShape(c, 0, 0, size * 0.7, -0.2, color, 1);
+      c.restore();
+
+      // Right cotyledon leaf
+      c.save();
+      c.translate(sway * 5, -size * 0.85);
+      c.rotate(0.55 + sway * 0.25);
+      drawLeafShape(c, 0, 0, size * 0.65, 0.2, color, 1);
+      c.restore();
+
+      c.restore();
+    };
+
+    // Helper: draw little drifting petal/clover
+    const drawPetalShape = (
+      c: CanvasRenderingContext2D,
+      x: number,
+      y: number,
+      size: number,
+      rot: number,
+      color: string,
+      alpha: number
+    ) => {
+      c.save();
+      c.translate(x, y);
+      c.rotate(rot);
+      c.globalAlpha = alpha;
+
+      c.beginPath();
+      c.arc(0, -size * 0.3, size * 0.35, 0, Math.PI * 2);
+      c.fillStyle = color;
+      c.fill();
+
+      c.beginPath();
+      c.arc(-size * 0.25, size * 0.1, size * 0.3, 0, Math.PI * 2);
+      c.fill();
+
+      c.beginPath();
+      c.arc(size * 0.25, size * 0.1, size * 0.3, 0, Math.PI * 2);
+      c.fill();
+
+      c.restore();
+    };
+
     const render = () => {
       if (!canvas || !ctx) return;
-      time += 0.012;
+      time += 0.016;
 
       // Smooth mouse interpolation
       mouse.x += (mouse.targetX - mouse.x) * 0.1;
@@ -99,11 +214,11 @@ export const DotMatrix: React.FC = () => {
 
       const hasMouse = mouse.x > 0 && mouse.y > 0;
 
-      // 1. Subtle, faint pinpoint dot matrix
+      // 1. Soft, organic dewy dot matrix
       for (let x = spacing / 2; x < width; x += spacing) {
         for (let y = spacing / 2; y < height; y += spacing) {
           let radius = baseGridRadius;
-          let alpha = 0.06;
+          let alpha = 0.055;
 
           if (hasMouse && !prefersReducedMotion) {
             const dx = mouse.x - x;
@@ -113,90 +228,62 @@ export const DotMatrix: React.FC = () => {
             if (dist < hoverRadius) {
               const factor = 1 - dist / hoverRadius;
               radius = baseGridRadius + factor * 0.45;
-              alpha = 0.06 + factor * 0.12;
+              alpha = 0.055 + factor * 0.12;
             }
           }
 
-          ctx.fillStyle = `rgba(180, 172, 160, ${alpha})`;
+          ctx.fillStyle = `rgba(126, 169, 132, ${alpha})`;
           ctx.beginPath();
           ctx.arc(x, y, radius, 0, Math.PI * 2);
           ctx.fill();
         }
       }
 
-      // 2. Faint micro-particles and fine filaments
+      // 2. Dynamic Moving Plants & Drifting Nature Leaves
       if (!prefersReducedMotion) {
-        for (let i = 0; i < particles.length; i++) {
-          const p = particles[i];
+        for (let i = 0; i < plants.length; i++) {
+          const p = plants[i];
 
-          p.x += p.vx + Math.sin(time + p.phase) * 0.12;
-          p.y += p.vy + Math.cos(time + p.phase) * 0.12;
+          // Gentle organic swaying
+          const sway = Math.sin(time * 1.5 + p.swayPhase);
+          p.x += p.vx + sway * 0.28;
+          p.y += p.vy + Math.cos(time + p.swayPhase) * 0.15;
+          p.angle += p.angularSpeed + sway * 0.008;
 
-          if (p.x < -20) p.x = width + 20;
-          if (p.x > width + 20) p.x = -20;
-          if (p.y < -20) p.y = height + 20;
-          if (p.y > height + 20) p.y = -20;
+          // Wrap edges smoothly (flow with nature breeze)
+          if (p.x < -30) p.x = width + 30;
+          if (p.x > width + 30) p.x = -30;
+          if (p.y > height + 30) {
+            p.y = -30;
+            p.x = Math.random() * width;
+          }
+          if (p.y < -30) p.y = height + 30;
 
+          // Gentle wind interaction with mouse cursor
           if (hasMouse) {
             const dx = mouse.x - p.x;
             const dy = mouse.y - p.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 120) {
-              const force = (1 - dist / 120) * 0.5;
-              p.x += (dx / dist) * force;
-              p.y += (dy / dist) * force;
-            }
-          }
-        }
-
-        // Faint connection lines between nearby particles
-        const maxConnectDist = 110;
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const p1 = particles[i];
-            const p2 = particles[j];
-            const dx = p1.x - p2.x;
-            const dy = p1.y - p2.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < maxConnectDist) {
-              const lineAlpha = (1 - dist / maxConnectDist) * 0.08;
-              ctx.strokeStyle = `rgba(196, 189, 172, ${lineAlpha})`;
-              ctx.lineWidth = 0.7;
-              ctx.beginPath();
-              ctx.moveTo(p1.x, p1.y);
-              ctx.lineTo(p2.x, p2.y);
-              ctx.stroke();
+            if (dist < 130) {
+              const force = (1 - dist / 130) * 1.2;
+              // Leaves gently blow away from cursor like wind
+              p.x -= (dx / dist) * force;
+              p.y -= (dy / dist) * force;
+              p.angle += force * 0.04;
             }
           }
 
-          if (hasMouse) {
-            const p = particles[i];
-            const dx = mouse.x - p.x;
-            const dy = mouse.y - p.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
+          // Subtle organic pulsing alpha
+          const currentAlpha = Math.min(0.55, p.alpha + Math.sin(time * 1.2 + p.swayPhase) * 0.06);
 
-            if (dist < 120) {
-              const lineAlpha = (1 - dist / 120) * 0.12;
-              ctx.strokeStyle = `rgba(233, 204, 177, ${lineAlpha})`;
-              ctx.lineWidth = 0.8;
-              ctx.beginPath();
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(mouse.x, mouse.y);
-              ctx.stroke();
-            }
+          // Draw the respective little plant or leaf
+          if (p.type === 'leaf') {
+            drawLeafShape(ctx, p.x, p.y, p.size, p.angle, p.color, currentAlpha);
+          } else if (p.type === 'sprout') {
+            drawSproutShape(ctx, p.x, p.y, p.size, sway, p.color, currentAlpha);
+          } else {
+            drawPetalShape(ctx, p.x, p.y, p.size * 0.6, p.angle, p.color, currentAlpha);
           }
-        }
-
-        // Draw small pinpoint particle dots (NO large outer halo)
-        for (let i = 0; i < particles.length; i++) {
-          const p = particles[i];
-          const pulsingAlpha = p.baseAlpha + Math.sin(time * 2 + p.phase) * 0.05;
-
-          ctx.fillStyle = `rgba(${p.color}, ${Math.min(0.4, pulsingAlpha)})`;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-          ctx.fill();
         }
       }
 

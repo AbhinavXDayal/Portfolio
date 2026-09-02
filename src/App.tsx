@@ -12,15 +12,15 @@ import { DotMatrix } from './components/ui/DotMatrix';
 
 export const App: React.FC = () => {
   return (
-    <div className="relative min-h-screen bg-[var(--background)] text-[var(--foreground)] selection:bg-[#E9CCB1] selection:text-[#1C1B19] overflow-x-hidden">
-      {/* 1. Subtle, delicate dot matrix canvas */}
+    <div className="relative min-h-screen bg-[var(--background)] text-[var(--foreground)] selection:bg-[#3E6349] selection:text-[#F2F7F4] overflow-x-hidden">
+      {/* 1. Dynamic Botanical Nature Canvas: Moving Plants, Leaves & Dew Matrix */}
       <DotMatrix />
 
-      {/* 2. Soft, ultra-diffuse ambient background lighting */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-15">
-        <div className="absolute -top-32 -left-32 w-[480px] h-[480px] rounded-full bg-[#E9CCB1]/15 blur-[160px] animate-float-slow"></div>
-        <div className="absolute top-[35%] -right-40 w-[540px] h-[540px] rounded-full bg-[#E4DAC2]/12 blur-[160px] animate-float-reverse"></div>
-        <div className="absolute top-[65%] -left-32 w-[480px] h-[480px] rounded-full bg-[#EBCFC4]/15 blur-[160px] animate-float-slow"></div>
+      {/* 2. Soft Forest Canopy Ambient Lighting */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-25">
+        <div className="absolute -top-32 -left-32 w-[520px] h-[520px] rounded-full bg-[#5B8B67]/15 blur-[150px] animate-float-slow"></div>
+        <div className="absolute top-[35%] -right-40 w-[580px] h-[580px] rounded-full bg-[#7EA984]/12 blur-[160px] animate-float-reverse"></div>
+        <div className="absolute top-[65%] -left-32 w-[500px] h-[500px] rounded-full bg-[#3E6349]/15 blur-[150px] animate-float-slow"></div>
       </div>
 
       {/* 3. Main Site Content */}
