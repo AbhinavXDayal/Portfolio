@@ -44,10 +44,7 @@ export const Experience: React.FC = () => {
       className="w-full py-8 md:py-12 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-8">
-          <span className="text-xs font-semibold tracking-wider uppercase text-[var(--muted-foreground)] mb-1">
-            Career &amp; Journey
-          </span>
+        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-6">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Work Experience
           </h2>

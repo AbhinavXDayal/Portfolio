@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const About: React.FC = () => {
   return (
@@ -13,13 +13,29 @@ export const About: React.FC = () => {
             About Me
           </h2>
           <p className="text-sm md:text-base text-[var(--muted-foreground)] leading-relaxed">
-            I'm an <span className="text-[var(--foreground)] font-semibold">App Developer</span> specializing in cross-platform mobile and web application development using React Native, Expo, and React.js.
+            I'm an{" "}
+            <span className="text-[var(--foreground)] font-semibold">
+              App Developer
+            </span>{" "}
+            specializing in cross-platform mobile and web application
+            development using React Native, Expo, and React.js.
           </p>
           <p className="text-sm md:text-base text-[var(--muted-foreground)] leading-relaxed">
-            I build responsive, component-driven user interfaces and mobile screens integrated with <span className="text-[var(--foreground)] font-medium">RESTful APIs, Axios, and state management</span>, delivering hospital management workflows, healthcare platforms, and interactive web applications.
+            I build responsive, component-driven user interfaces and mobile
+            screens integrated with{" "}
+            <span className="text-[var(--foreground)] font-medium">
+              RESTful APIs, Axios, and state management
+            </span>
+            , delivering hospital management workflows, healthcare platforms,
+            and interactive web applications.
           </p>
           <p className="text-sm md:text-base text-[var(--muted-foreground)] leading-relaxed">
-            Currently developing production-grade mobile applications at <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">Aronix Web Technology</span>, focusing on reusable architecture, smooth navigation flows, and Google Cloud Platform integrations.
+            Currently developing production-grade mobile applications at{" "}
+            <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
+              Aronix Web Technology
+            </span>
+            , focusing on reusable architecture, smooth navigation flows, and
+            Google Cloud Platform integrations.
           </p>
         </div>
 
@@ -61,47 +77,70 @@ export const About: React.FC = () => {
                 {/* Code Content */}
                 <div className="space-y-0.5 font-mono">
                   <div>
-                    <span className="text-[#E9CCB1] font-semibold">const</span>{' '}
-                    <span className="text-[var(--foreground)] font-semibold">developer</span>{' '}
-                    <span className="text-[var(--muted-foreground)]">=</span>{' '}
-                    <span className="text-[#A29C93]">{'{'}</span>
+                    <span className="text-[#8B5E3C] font-semibold">const</span>{" "}
+                    <span className="text-[var(--foreground)] font-semibold">
+                      developer
+                    </span>{" "}
+                    <span className="text-[var(--muted-foreground)]">=</span>{" "}
+                    <span className="text-[#8C7A6B]">{"{"}</span>
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#C4BDAC] font-medium">name:</span>{' '}
-                    <span className="text-[#E4DAC2] font-medium">"Abhinav Dayal"</span>,
+                    <span className="text-[#4A453F] font-medium">name:</span>{" "}
+                    <span className="text-[#2D6A4F] font-medium">
+                      "Abhinav Dayal"
+                    </span>
+                    ,
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#C4BDAC] font-medium">role:</span>{' '}
-                    <span className="text-[#E4DAC2] font-medium">"App Developer"</span>,
+                    <span className="text-[#4A453F] font-medium">role:</span>{" "}
+                    <span className="text-[#2D6A4F] font-medium">
+                      "App Developer"
+                    </span>
+                    ,
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#C4BDAC] font-medium">mobile:</span>{' '}
-                    <span className="text-[#A29C93]">[</span>
-                    <span className="text-[#E4DAC2] font-medium">"React Native"</span>,{' '}
-                    <span className="text-[#E4DAC2] font-medium">"Expo"</span>
-                    <span className="text-[#A29C93]">]</span>,
+                    <span className="text-[#4A453F] font-medium">mobile:</span>{" "}
+                    <span className="text-[#8C7A6B]">[</span>
+                    <span className="text-[#2D6A4F] font-medium">
+                      "React Native"
+                    </span>
+                    , <span className="text-[#2D6A4F] font-medium">"Expo"</span>
+                    <span className="text-[#8C7A6B]">]</span>,
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#C4BDAC] font-medium">frontend:</span>{' '}
-                    <span className="text-[#A29C93]">[</span>
-                    <span className="text-[#E4DAC2] font-medium">"React.js"</span>,{' '}
-                    <span className="text-[#E4DAC2] font-medium">"TypeScript"</span>
-                    <span className="text-[#A29C93]">]</span>,
+                    <span className="text-[#4A453F] font-medium">
+                      frontend:
+                    </span>{" "}
+                    <span className="text-[#8C7A6B]">[</span>
+                    <span className="text-[#2D6A4F] font-medium">
+                      "React.js"
+                    </span>
+                    ,{" "}
+                    <span className="text-[#2D6A4F] font-medium">
+                      "TypeScript"
+                    </span>
+                    <span className="text-[#8C7A6B]">]</span>,
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#C4BDAC] font-medium">tools:</span>{' '}
-                    <span className="text-[#A29C93]">[</span>
-                    <span className="text-[#E4DAC2] font-medium">"GCP"</span>,{' '}
-                    <span className="text-[#E4DAC2] font-medium">"REST APIs"</span>
-                    <span className="text-[#A29C93]">]</span>,
+                    <span className="text-[#4A453F] font-medium">tools:</span>{" "}
+                    <span className="text-[#8C7A6B]">[</span>
+                    <span className="text-[#2D6A4F] font-medium">
+                      "GCP"
+                    </span>,{" "}
+                    <span className="text-[#2D6A4F] font-medium">
+                      "REST APIs"
+                    </span>
+                    <span className="text-[#8C7A6B]">]</span>,
                   </div>
                   <div className="pl-3">
-                    <span className="text-[#C4BDAC] font-medium">focus:</span>{' '}
-                    <span className="text-[#E4DAC2] font-medium">"Cross-Platform Mobile Apps"</span>
+                    <span className="text-[#4A453F] font-medium">focus:</span>{" "}
+                    <span className="text-[#2D6A4F] font-medium">
+                      "Cross-Platform Mobile Apps"
+                    </span>
                   </div>
                   <div>
-                    <span className="text-[#A29C93]">{'}'}</span>;
-                    <span className="inline-block w-1.5 h-3.5 ml-1 bg-[#E9CCB1] animate-pulse align-middle"></span>
+                    <span className="text-[#8C7A6B]">{"}"}</span>;
+                    <span className="inline-block w-1.5 h-3.5 ml-1 bg-[var(--foreground)] animate-pulse align-middle"></span>
                   </div>
                 </div>
               </div>

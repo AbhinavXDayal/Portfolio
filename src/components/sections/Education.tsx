@@ -8,9 +8,6 @@ export const Education: React.FC = () => {
     >
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col items-center md:items-start text-center md:text-left mb-6">
-          <span className="text-xs font-semibold tracking-wider uppercase text-[var(--muted-foreground)] mb-1">
-            Academic Background
-          </span>
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Education
           </h2>
