@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 export const Hero: React.FC = () => {
   const scrollToContact = () => {
-    const el = document.getElementById('contact');
+    const el = document.getElementById("contact");
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -32,30 +32,26 @@ export const Hero: React.FC = () => {
             App Developer
           </h2>
           <p className="text-sm sm:text-lg text-[var(--muted-foreground)] mb-6 sm:mb-8 leading-relaxed max-w-xl">
-            I build{' '}
+            I build{" "}
             <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
               cross-platform mobile
-            </span>{' '}
-            and high-performance web applications using React Native, React.js, and TypeScript with reusable component architecture and RESTful API integrations.
+            </span>{" "}
+            and high-performance web applications using React Native, React.js,
+            and TypeScript with reusable component architecture and RESTful API
+            integrations.
           </p>
 
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8">
-            <button
-              onClick={scrollToContact}
-              className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-6 py-3 rounded-[var(--radius)] text-base hover:opacity-90 transition-all shadow-md inline-flex items-center gap-2 cursor-pointer"
-            >
-              Hire Me
-            </button>
             <a
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToContact();
               }}
-              className="bg-[var(--background)] text-[var(--foreground)] font-medium px-6 py-3 rounded-[var(--radius)] text-base border border-[var(--border)] hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 transition-all inline-flex items-center gap-2 cursor-pointer"
+              className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-6 py-3 rounded-[var(--radius)] text-base hover:opacity-90 transition-all shadow-md inline-flex items-center gap-2 cursor-pointer"
             >
-              Contact Me{' '}
+              Contact Me{" "}
               <svg
                 stroke="currentColor"
                 fill="none"

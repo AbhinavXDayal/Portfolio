@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 
-interface NavbarProps {
-  isDark: boolean;
-  toggleTheme: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
+export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
@@ -17,7 +12,6 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
   };
 
   const navItems = [
-    { label: 'Home', id: 'hero' },
     { label: 'About', id: 'about' },
     { label: 'Skills', id: 'skills' },
     { label: 'Experience', id: 'experience' },
@@ -41,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1.5 lg:gap-2 text-sm font-medium">
+        <div className="hidden md:flex items-center gap-2 text-sm font-medium">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -50,23 +44,16 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
                 e.preventDefault();
                 scrollToSection(item.id);
               }}
-              className="px-2.5 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
+              className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
             >
               {item.label}
             </a>
           ))}
           <button
-            onClick={toggleTheme}
-            className="p-2 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] border border-[var(--border)] transition-colors cursor-pointer text-sm ml-1"
-            aria-label="Toggle dark mode"
-          >
-            {isDark ? '☀️' : '🌙'}
-          </button>
-          <button
             onClick={() => scrollToSection('contact')}
             className="ml-2 px-4 py-2 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
           >
-            Hire Me
+            Contact Me
           </button>
         </div>
 
@@ -76,14 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
             onClick={() => scrollToSection('contact')}
             className="px-3.5 py-1.5 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
           >
-            Hire Me
-          </button>
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] border border-[var(--border)] transition-colors cursor-pointer text-sm"
-            aria-label="Toggle dark mode"
-          >
-            {isDark ? '☀️' : '🌙'}
+            Contact Me
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
