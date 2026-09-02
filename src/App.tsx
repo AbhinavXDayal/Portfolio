@@ -11,16 +11,16 @@ import { DotMatrix } from './components/ui/DotMatrix';
 
 export const App: React.FC = () => {
   return (
-    <div className="relative min-h-screen bg-[var(--background)] text-[var(--foreground)] selection:bg-[#E9CCB1] selection:text-[#1D1A18] overflow-x-hidden">
+    <div className="relative min-h-screen bg-[var(--background)] text-[var(--foreground)] selection:bg-[#E9CCB1] selection:text-[#141312] overflow-x-hidden">
       {/* 1. Dynamic Interactive Dot Matrix Canvas */}
       <DotMatrix />
 
-      {/* 2. Dynamic Ambient Moving Elements in Quasi-Neutral Palette */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-60">
-        <div className="absolute -top-32 -left-32 w-[540px] h-[540px] rounded-full bg-[#E9CCB1]/45 blur-[120px] animate-float-slow"></div>
-        <div className="absolute top-[30%] -right-40 w-[620px] h-[620px] rounded-full bg-[#E4DAC2]/50 blur-[130px] animate-float-reverse"></div>
-        <div className="absolute top-[60%] -left-32 w-[520px] h-[520px] rounded-full bg-[#EBCFC4]/45 blur-[120px] animate-float-slow"></div>
-        <div className="absolute -bottom-32 right-10 w-[580px] h-[580px] rounded-full bg-[#D3C4BE]/45 blur-[130px] animate-float-reverse"></div>
+      {/* 2. Dynamic Ambient Moving Elements in Darkish Dullish Quasi-Neutral Palette */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-35">
+        <div className="absolute -top-32 -left-32 w-[540px] h-[540px] rounded-full bg-[#E9CCB1]/20 blur-[130px] animate-float-slow"></div>
+        <div className="absolute top-[30%] -right-40 w-[620px] h-[620px] rounded-full bg-[#E4DAC2]/16 blur-[140px] animate-float-reverse"></div>
+        <div className="absolute top-[60%] -left-32 w-[520px] h-[520px] rounded-full bg-[#EBCFC4]/18 blur-[130px] animate-float-slow"></div>
+        <div className="absolute -bottom-32 right-10 w-[580px] h-[580px] rounded-full bg-[#D3C4BE]/18 blur-[140px] animate-float-reverse"></div>
       </div>
 
       {/* 3. Main Site Content */}

@@ -3,33 +3,33 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* "My Very Favorite Quasi-Neutrals" Palette */
-    --background: #F4EEE1; /* Primary Warm Ivory */
-    --background-alt: #F3ECE7; /* Soft Almond Linen */
-    --foreground: #1D1A18; /* Deep Rich Charcoal */
-    --muted: #E8E6D9; /* Ecru Bone */
-    --muted-foreground: #655E57; /* Elegant Warm Gray */
-    --brand-accent: #1D1A18;
-    --popover: #FAF8F5;
-    --popover-foreground: #1D1A18;
-    --card: #FAF8F5; /* Crisp Elevated Quasi-Neutral Card */
-    --card-foreground: #1D1A18;
-    --border: #D3C4BE; /* Soft Taupe Border */
-    --border-subtle: #E4DAC2; /* Subtle Champagne Border */
-    --input: #E8E6D9;
-    --primary: #1D1A18;
-    --primary-foreground: #F4EEE1;
-    --secondary: #E9CCB1; /* Warm Sandy Peach */
-    --secondary-foreground: #1D1A18;
-    --accent: #EFEEEE; /* Soft Pale Neutral */
-    --accent-foreground: #1D1A18;
-    --destructive: #b91c1c;
-    --destructive-foreground: #FAF8F5;
+  :root, html.dark, :root.dark, .dark {
+    /* Darkish Dullish Quasi-Neutrals Theme */
+    --background: #141312; /* Darkish Dullish Charcoal Background */
+    --background-alt: #181716; /* Muted Darkish Surface */
+    --foreground: #F4EEE1; /* Warm Ivory Quasi-Neutral Text */
+    --muted: #242220; /* Darkish Dullish Muted Layer */
+    --muted-foreground: #A29C93; /* Muted Warm Gray */
+    --brand-accent: #E9CCB1; /* Warm Sandy Peach Accent */
+    --popover: #1C1B19;
+    --popover-foreground: #F4EEE1;
+    --card: #1C1B19; /* Darkish Dullish Elevated Card */
+    --card-foreground: #F4EEE1;
+    --border: #2E2B28; /* Subtle Muted Warm Border */
+    --border-subtle: #242220;
+    --input: #242220;
+    --primary: #F4EEE1; /* Warm Ivory Primary Button */
+    --primary-foreground: #141312; /* Dark Text on Primary Button */
+    --secondary: #242220;
+    --secondary-foreground: #F4EEE1;
+    --accent: #23211F; /* Darkish Dullish Accent Pill */
+    --accent-foreground: #F4EEE1;
+    --destructive: #7f1d1d;
+    --destructive-foreground: #F4EEE1;
     --ring: #C4BDAC;
     --radius: 0.5rem;
 
-    /* Palette Swatches */
+    /* Quasi-Neutral Palette Swatches */
     --color-efeeee: #EFEEEE;
     --color-e9ccb1: #E9CCB1;
     --color-d3c4be: #D3C4BE;
@@ -40,31 +40,6 @@
     --color-e8e6d9: #E8E6D9;
     --color-999999: #999999;
     --color-f3ece7: #F3ECE7;
-  }
-
-  html.dark, :root.dark, .dark {
-    --background: #F4EEE1;
-    --background-alt: #F3ECE7;
-    --foreground: #1D1A18;
-    --muted: #E8E6D9;
-    --muted-foreground: #655E57;
-    --brand-accent: #1D1A18;
-    --popover: #FAF8F5;
-    --popover-foreground: #1D1A18;
-    --card: #FAF8F5;
-    --card-foreground: #1D1A18;
-    --border: #D3C4BE;
-    --border-subtle: #E4DAC2;
-    --input: #E8E6D9;
-    --primary: #1D1A18;
-    --primary-foreground: #F4EEE1;
-    --secondary: #E9CCB1;
-    --secondary-foreground: #1D1A18;
-    --accent: #EFEEEE;
-    --accent-foreground: #1D1A18;
-    --destructive: #b91c1c;
-    --destructive-foreground: #FAF8F5;
-    --ring: #C4BDAC;
   }
 
   html {
@@ -82,24 +57,24 @@
 
   ::selection {
     background-color: #E9CCB1;
-    color: #1D1A18;
+    color: #141312;
   }
 }
 
-/* Custom Scrollbar in Quasi-Neutral tones */
+/* Custom Scrollbar in Darkish Dullish Quasi-Neutral tones */
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #F4EEE1;
+  background: #141312;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C4BDAC;
+  background: #2E2B28;
   border-radius: 9999px;
-  border: 2px solid #F4EEE1;
+  border: 2px solid #141312;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #999999;
+  background: #44403B;
 }
 
 /* Dynamic Ambient Floating Animations */
@@ -129,11 +104,11 @@
 
 @keyframes pulseAmbient {
   0%, 100% {
-    opacity: 0.35;
+    opacity: 0.25;
     transform: scale(1);
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.5;
     transform: scale(1.12);
   }
 }
