@@ -14,8 +14,8 @@ export const Education: React.FC = () => {
           </h2>
         </div>
 
-        <div className="max-w-2xl transition-all duration-300">
-          <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-4 sm:p-5 shadow-xs hover:border-[var(--foreground)]/30 transition-all duration-200">
+        <div className="w-full transition-all duration-300">
+          <div className="w-full bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-4 sm:p-5 shadow-xs hover:border-[var(--foreground)]/30 transition-all duration-200">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-3 pb-2.5 border-b border-[var(--border)]/60">
               <div className="flex items-center gap-2.5">
                 <div className="p-2 rounded-md bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)]">
