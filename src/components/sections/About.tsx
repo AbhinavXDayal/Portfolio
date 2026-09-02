@@ -97,31 +97,20 @@ export const About: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center transition-all duration-300">
           {/* Left Column Text */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-2.5">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
               I'm an{" "}
               <span className="text-[var(--foreground)] font-semibold">
                 App Developer
               </span>{" "}
-              specializing in cross-platform mobile and web application
-              development using React Native, Expo, and React.js.
-            </p>
-            <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
-              I build responsive, component-driven user interfaces and mobile
-              screens integrated with{" "}
-              <span className="text-[var(--foreground)] font-medium">
-                RESTful APIs, Axios, and state management
-              </span>
-              , delivering hospital management workflows, healthcare platforms,
-              and interactive web applications.
-            </p>
-            <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
-              Currently developing production-grade mobile applications at{" "}
+              at{" "}
               <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
                 Aronix Web Technology
               </span>
-              , focusing on reusable architecture, smooth navigation flows, and
-              Google Cloud Platform integrations.
+              , specializing in cross-platform mobile and web applications using
+              React Native, React.js, and TypeScript. I architect responsive,
+              component-driven user interfaces with smooth navigation flows and
+              robust RESTful API integrations.
             </p>
           </div>
 
