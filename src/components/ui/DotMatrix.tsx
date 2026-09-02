@@ -28,7 +28,7 @@ export const DotMatrix: React.FC = () => {
       ctx.scale(dpr, dpr);
 
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = 'rgba(189, 175, 153, 0.04)';
+      ctx.fillStyle = 'rgba(143, 114, 82, 0.08)'; // Refined warm soft beige texture
 
       for (let x = spacing / 2; x < width; x += spacing) {
         for (let y = spacing / 2; y < height; y += spacing) {

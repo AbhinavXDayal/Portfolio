@@ -1,15 +1,15 @@
 :root {
-  /* Color Palette - Soft Beige & Dark Warm Taupe System */
-  --background: #171512;
-  --surface: #201d18;
-  --surface-soft: #25211b;
-  --cream: #e9e0d2;
-  --text: #d8d0c3;
-  --muted: #9e9588;
-  --beige: #bdaf99;
-  --beige-soft: #c9bba5;
-  --border: rgba(220, 205, 180, 0.12);
-  --border-subtle: rgba(220, 205, 180, 0.07);
+  /* Color Palette - True Soft Beige & Warm Linen Aesthetic */
+  --background: #f6f3ee;
+  --surface: #ffffff;
+  --surface-soft: #ede8df;
+  --cream: #1e1b18;
+  --text: #423d36;
+  --muted: #786f63;
+  --beige: #8f7252;
+  --beige-soft: #a68968;
+  --border: rgba(143, 114, 82, 0.16);
+  --border-subtle: rgba(143, 114, 82, 0.09);
 
   /* Typography System */
   --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -25,7 +25,7 @@
   --text-small: 0.85rem;
   --text-xs: 0.75rem;
 
-  /* Compact Editorial Spacing (40-50% reduced vertical scrolling) */
+  /* Compact Editorial Spacing */
   --section-padding-y: clamp(2.25rem, 3.8vw, 3.5rem);
   --container-max-width: 1140px;
   --container-padding-x: clamp(1.25rem, 3.5vw, 2.5rem);
