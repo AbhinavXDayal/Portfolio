@@ -19,7 +19,6 @@ export function useActiveSection(sectionIds: string[], offset = 120): string {
         }
       }
 
-      // If at top
       if (window.scrollY < 200) {
         setActiveSection('');
       }
@@ -33,4 +32,3 @@ export function useActiveSection(sectionIds: string[], offset = 120): string {
 
   return activeSection;
 }
-

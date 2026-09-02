@@ -1,35 +1,41 @@
 :root {
-  /* Color Palette - Dark Soft-Beige & Linen Editorial Palette */
-  --bg: #13110f;
-  --bg-subtle: #191714;
-  --bg-surface: #1e1c18;
-  --text-main: #ede6dc;
-  --text-sub: #b3a99c;
-  --text-dim: #787064;
-  --accent: #c4ad8f;
-  --accent-soft: rgba(196, 173, 143, 0.08);
-  --line: rgba(220, 205, 185, 0.09);
-  --line-focus: rgba(196, 173, 143, 0.28);
+  /* Color Palette - Soft Beige & Dark Warm Taupe System */
+  --background: #171512;
+  --surface: #201d18;
+  --surface-soft: #25211b;
+  --cream: #e9e0d2;
+  --text: #d8d0c3;
+  --muted: #9e9588;
+  --beige: #bdaf99;
+  --beige-soft: #c9bba5;
+  --border: rgba(220, 205, 180, 0.12);
+  --border-subtle: rgba(220, 205, 180, 0.07);
 
   /* Typography System */
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
 
   /* Typography Scales */
-  --text-hero: clamp(2.4rem, 5vw, 3.75rem);
-  --text-h1: clamp(1.6rem, 2.8vw, 2.25rem);
-  --text-h2: clamp(1.2rem, 1.8vw, 1.5rem);
-  --text-h3: clamp(1rem, 1.2vw, 1.15rem);
-  --text-body: 0.95rem;
-  --text-small: 0.84rem;
+  --text-hero: clamp(2.5rem, 5.5vw, 4.25rem);
+  --text-h1: clamp(1.75rem, 3vw, 2.5rem);
+  --text-h2: clamp(1.25rem, 2vw, 1.75rem);
+  --text-h3: clamp(1.05rem, 1.3vw, 1.25rem);
+  --text-body: clamp(0.92rem, 0.3vw + 0.82rem, 1rem);
+  --text-small: 0.85rem;
   --text-xs: 0.75rem;
 
-  /* Single-Column Editorial Container */
-  --container-max-width: 780px;
-  --container-padding-x: clamp(1.25rem, 4vw, 2rem);
-  --section-gap: clamp(3.5rem, 6vw, 5.5rem);
+  /* Compact Editorial Spacing (40-50% reduced vertical scrolling) */
+  --section-padding-y: clamp(2.25rem, 3.8vw, 3.5rem);
+  --container-max-width: 1140px;
+  --container-padding-x: clamp(1.25rem, 3.5vw, 2.5rem);
 
-  /* Smooth Transitions */
-  --transition: 180ms ease;
+  /* Radii & Transitions */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-full: 9999px;
+
+  --transition-fast: 180ms ease;
+  --transition-base: 280ms cubic-bezier(0.16, 1, 0.3, 1);
 }

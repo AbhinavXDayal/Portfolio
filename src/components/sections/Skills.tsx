@@ -1,43 +1,54 @@
 import React from 'react';
+import { SectionHeading } from '../ui/SectionHeading';
 
-interface SkillCatalogItem {
+interface SkillGroup {
   category: string;
-  skills: string[];
+  items: string[];
 }
 
-const skillCatalog: SkillCatalogItem[] = [
+const skillGroups: SkillGroup[] = [
   {
-    category: 'Programming & Web',
-    skills: ['JavaScript', 'TypeScript', 'C++', 'HTML5', 'CSS3'],
+    category: 'PROGRAMMING',
+    items: ['JavaScript', 'TypeScript', 'C++', 'HTML', 'CSS'],
   },
   {
-    category: 'Frameworks & Mobile',
-    skills: ['React Native', 'React.js', 'React Native CLI', 'Expo'],
+    category: 'FRAMEWORKS',
+    items: ['React.js', 'React Native', 'React Native CLI', 'Expo'],
   },
   {
-    category: 'Application Architecture',
-    skills: ['REST APIs', 'API Integration', 'State Management', 'Responsive Design'],
+    category: 'APPLICATION',
+    items: ['REST APIs', 'API Integration', 'Responsive Design', 'State Management'],
   },
   {
-    category: 'Tooling & Platforms',
-    skills: ['Git', 'GitHub', 'Google Cloud Platform', 'VS Code'],
+    category: 'TOOLS',
+    items: ['Git', 'GitHub', 'Google Cloud Platform', 'VS Code'],
   },
 ];
 
 export const Skills: React.FC = () => {
   return (
-    <section className="editorial-section" id="skills" aria-label="Technical Skills">
-      <h2 className="section-title mono">Skills</h2>
+    <section className="skills-section" id="skills" aria-label="Technical Skills">
+      <div className="container">
+        <SectionHeading
+          number="02"
+          title="SKILLS"
+        />
 
-      <div className="skills-grid">
-        {skillCatalog.map((group) => (
-          <div key={group.category} className="skill-row">
-            <span className="skill-category-label mono">{group.category}</span>
-            <p className="skill-list-text">
-              {group.skills.join(' • ')}
-            </p>
-          </div>
-        ))}
+        <div className="skills-v4-horizontal-grid">
+          {skillGroups.map((group) => (
+            <div key={group.category} className="skill-v4-group">
+              <h3 className="skill-v4-cat-heading mono">{group.category}</h3>
+              <ul className="skill-v4-list">
+                {group.items.map((item) => (
+                  <li key={item} className="skill-v4-item">
+                    <span className="skill-v4-dash" aria-hidden="true">—</span>
+                    <span className="skill-v4-text">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,19 +1,25 @@
 import React from 'react';
+import { SectionHeading } from '../ui/SectionHeading';
 
 export const Education: React.FC = () => {
   return (
-    <section className="editorial-section" id="education" aria-label="Education">
-      <h2 className="section-title mono">Education</h2>
+    <section className="education-section" id="education" aria-label="Education">
+      <div className="container">
+        <SectionHeading
+          number="05"
+          title="EDUCATION"
+        />
 
-      <div className="education-row">
-        <div className="education-main">
-          <h3 className="education-degree">Bachelor of Computer Applications (BCA)</h3>
-          <p className="education-inst">
+        <div className="education-v4-row">
+          <div className="edu-v4-degree">
+            Bachelor of Computer Applications (BCA)
+          </div>
+          <div className="edu-v4-inst">
             SRMCEM — Shri Ramswaroop Memorial College of Engineering and Management
-          </p>
-        </div>
-        <div className="education-year mono">
-          Jul 2025
+          </div>
+          <div className="edu-v4-year mono">
+            Graduated 2025
+          </div>
         </div>
       </div>
     </section>

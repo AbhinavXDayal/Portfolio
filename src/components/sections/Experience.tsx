@@ -1,35 +1,46 @@
 import React from 'react';
+import { SectionHeading } from '../ui/SectionHeading';
 import { experiences } from '../../data/experience';
 
 export const Experience: React.FC = () => {
   return (
-    <section className="editorial-section" id="experience" aria-label="Work Experience">
-      <h2 className="section-title mono">Experience</h2>
+    <section className="experience-section" id="experience" aria-label="Work Experience">
+      <div className="container">
+        <SectionHeading
+          number="03"
+          title="EXPERIENCE"
+        />
 
-      <div className="experience-list">
-        {experiences.map((exp) => (
-          <article key={exp.id} className="experience-item">
-            <div className="experience-header">
-              <div className="role-and-company">
-                <h3 className="role-title">{exp.role}</h3>
-                <span className="company-name">{exp.company}</span>
+        <div className="experience-v4-list">
+          {experiences.map((exp) => (
+            <div key={exp.id} className="experience-v4-row">
+              {/* Date & Location Column */}
+              <div className="exp-v4-date-col mono">
+                <span className="exp-v4-period">{exp.period}</span>
+                <span className="exp-v4-location">{exp.location}</span>
+                {exp.isCurrent && <span className="exp-v4-present-tag">PRESENT</span>}
               </div>
-              <div className="period-and-loc mono">
-                <span>{exp.period}</span>
-                <span className="loc-dim"> — {exp.location}</span>
+
+              {/* Role & Company Column */}
+              <div className="exp-v4-role-col">
+                <h3 className="exp-v4-role">{exp.role}</h3>
+                <span className="exp-v4-company">{exp.company}</span>
+              </div>
+
+              {/* Description Column */}
+              <div className="exp-v4-desc-col">
+                <ul className="exp-v4-bullet-list">
+                  {exp.highlights.map((bullet, idx) => (
+                    <li key={idx} className="exp-v4-bullet-item">
+                      <span className="bullet-dash" aria-hidden="true">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-
-            <ul className="bullet-list">
-              {exp.highlights.map((highlight, idx) => (
-                <li key={idx} className="bullet-item">
-                  <span className="bullet-dash" aria-hidden="true">—</span>
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
