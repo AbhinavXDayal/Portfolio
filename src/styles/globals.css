@@ -2,7 +2,7 @@
 @import './animations.css';
 
 /* ==========================================================================
-   CSS RESET & CORE FOUNDATIONS (HIGH-CONTRAST SOFT BEIGE & DISTINCT CARDS)
+   CSS RESET & CORE FOUNDATIONS (MUTED DULLISH BEIGE AESTHETIC)
    ========================================================================== */
 
 *, *::before, *::after {
@@ -48,7 +48,7 @@ body {
 
 /* Selection */
 ::selection {
-  background-color: rgba(135, 85, 46, 0.25);
+  background-color: rgba(122, 75, 36, 0.28);
   color: var(--cream);
 }
 
@@ -60,11 +60,11 @@ body {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(135, 85, 46, 0.3);
+  background: rgba(95, 60, 30, 0.35);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(135, 85, 46, 0.55);
+  background: rgba(95, 60, 30, 0.6);
 }
 
 /* Focus Outline */
@@ -167,14 +167,14 @@ img, svg {
   background-color: var(--beige);
   color: #ffffff;
   border: 1px solid var(--beige);
-  box-shadow: 0 2px 8px rgba(135, 85, 46, 0.25);
+  box-shadow: 0 2px 8px rgba(95, 60, 30, 0.28);
 }
 
 .btn-primary:hover {
   background-color: var(--beige-soft);
   border-color: var(--beige-soft);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(135, 85, 46, 0.35);
+  box-shadow: 0 4px 14px rgba(95, 60, 30, 0.38);
 }
 
 .btn-outline {
@@ -187,7 +187,7 @@ img, svg {
 .btn-outline:hover {
   border-color: var(--beige);
   color: var(--beige);
-  background-color: rgba(135, 85, 46, 0.08);
+  background-color: rgba(122, 75, 36, 0.08);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -228,9 +228,9 @@ img, svg {
 }
 
 .tag-accent {
-  background: rgba(135, 85, 46, 0.12);
+  background: rgba(122, 75, 36, 0.12);
   color: var(--beige);
-  border: 1px solid rgba(135, 85, 46, 0.28);
+  border: 1px solid rgba(122, 75, 36, 0.28);
   font-weight: 600;
 }
 
@@ -315,7 +315,7 @@ img, svg {
 }
 
 /* ==========================================================================
-   NAVBAR & MOBILE DRAWER (COMPACT 52PX WITH WARM CONTRAST)
+   NAVBAR & MOBILE DRAWER (MUTED DULLISH BEIGE BLUR)
    ========================================================================== */
 
 .site-navbar {
@@ -328,7 +328,7 @@ img, svg {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgba(243, 239, 233, 0.95);
+  background: rgba(216, 207, 191, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-card);
@@ -429,7 +429,7 @@ img, svg {
 .mobile-drawer-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(20, 17, 14, 0.45);
+  background: rgba(18, 15, 12, 0.45);
   backdrop-filter: blur(4px);
   z-index: 105;
   opacity: 0;
@@ -457,7 +457,7 @@ img, svg {
   padding: 1.25rem 1rem;
   transform: translateX(100%);
   transition: transform var(--transition-base);
-  box-shadow: -6px 0 20px rgba(70, 45, 20, 0.12);
+  box-shadow: -6px 0 20px rgba(60, 40, 20, 0.14);
 }
 
 .mobile-drawer.open {
@@ -538,7 +538,7 @@ img, svg {
   font-weight: 600;
   font-size: 0.82rem;
   border-radius: var(--radius-sm);
-  box-shadow: 0 2px 8px rgba(135, 85, 46, 0.25);
+  box-shadow: 0 2px 8px rgba(95, 60, 30, 0.28);
 }
 
 /* ==========================================================================
@@ -603,7 +603,7 @@ img, svg {
   background: var(--beige);
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-sm);
-  box-shadow: 0 2px 6px rgba(135, 85, 46, 0.2);
+  box-shadow: 0 2px 6px rgba(95, 60, 30, 0.22);
 }
 
 .hero-location-text {
@@ -941,7 +941,7 @@ img, svg {
 
 .project-v4-item:hover .project-v4-frame {
   transform: scale(1.012);
-  border-color: rgba(135, 85, 46, 0.35);
+  border-color: rgba(95, 60, 30, 0.35);
 }
 
 .project-mockup-wrapper {
@@ -1209,7 +1209,7 @@ img, svg {
    ========================================================================== */
 
 .footer-v4 {
-  background: var(--surface-card);
+  background: #cdc2b0;
   border-top: 1px solid var(--border-card);
   padding-top: 0.85rem;
   padding-bottom: 0.85rem;

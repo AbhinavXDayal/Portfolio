@@ -32,22 +32,22 @@ export const DotMatrix: React.FC = () => {
     };
 
     // Grid config
-    const spacing = 32;
-    const baseGridRadius = 0.85;
-    const hoverRadius = 135;
+    const spacing = 30;
+    const baseGridRadius = 0.9;
+    const hoverRadius = 140;
 
     // Floating dynamic particles
-    const particleCount = Math.min(Math.floor((width * height) / 32000), 42);
+    const particleCount = Math.min(Math.floor((width * height) / 30000), 40);
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
+        vx: (Math.random() - 0.5) * 0.42,
+        vy: (Math.random() - 0.5) * 0.42,
         radius: 1.5 + Math.random() * 1.5,
-        baseAlpha: 0.15 + Math.random() * 0.2,
+        baseAlpha: 0.18 + Math.random() * 0.22,
         phase: Math.random() * Math.PI * 2,
       });
     }
@@ -89,11 +89,11 @@ export const DotMatrix: React.FC = () => {
 
       const hasMouse = mouse.x > 0 && mouse.y > 0;
 
-      // 1. Draw Subtle Static/Interactive Dot Matrix Grid
+      // 1. Draw Static/Interactive Dot Matrix Grid in rich warm tone
       for (let x = spacing / 2; x < width; x += spacing) {
         for (let y = spacing / 2; y < height; y += spacing) {
           let radius = baseGridRadius;
-          let alpha = 0.12;
+          let alpha = 0.15;
 
           if (hasMouse && !prefersReducedMotion) {
             const dx = mouse.x - x;
@@ -103,26 +103,26 @@ export const DotMatrix: React.FC = () => {
             if (dist < hoverRadius) {
               const factor = 1 - dist / hoverRadius;
               radius = baseGridRadius + factor * 1.6;
-              alpha = 0.12 + factor * 0.42;
+              alpha = 0.15 + factor * 0.45;
             }
           }
 
-          ctx.fillStyle = `rgba(135, 85, 46, ${alpha})`;
+          ctx.fillStyle = `rgba(95, 60, 30, ${alpha})`;
           ctx.beginPath();
           ctx.arc(x, y, radius, 0, Math.PI * 2);
           ctx.fill();
         }
       }
 
-      // 2. Draw & Update Moving Dynamic Floating Nodes & Constellation Lines
+      // 2. Moving Dynamic Floating Nodes & Constellation Lines
       if (!prefersReducedMotion) {
         // Update particles
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i];
 
           // Gentle ambient wave motion
-          p.x += p.vx + Math.sin(time + p.phase) * 0.15;
-          p.y += p.vy + Math.cos(time + p.phase) * 0.15;
+          p.x += p.vx + Math.sin(time + p.phase) * 0.14;
+          p.y += p.vy + Math.cos(time + p.phase) * 0.14;
 
           // Wrap edges
           if (p.x < -20) p.x = width + 20;
@@ -136,7 +136,7 @@ export const DotMatrix: React.FC = () => {
             const dy = mouse.y - p.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
             if (dist < 150) {
-              const force = (1 - dist / 150) * 0.8;
+              const force = (1 - dist / 150) * 0.75;
               p.x += (dx / dist) * force;
               p.y += (dy / dist) * force;
             }
@@ -154,9 +154,9 @@ export const DotMatrix: React.FC = () => {
             const dist = Math.sqrt(dx * dx + dy * dy);
 
             if (dist < maxConnectDist) {
-              const lineAlpha = (1 - dist / maxConnectDist) * 0.16;
-              ctx.strokeStyle = `rgba(135, 85, 46, ${lineAlpha})`;
-              ctx.lineWidth = 0.85;
+              const lineAlpha = (1 - dist / maxConnectDist) * 0.22;
+              ctx.strokeStyle = `rgba(95, 60, 30, ${lineAlpha})`;
+              ctx.lineWidth = 0.9;
               ctx.beginPath();
               ctx.moveTo(p1.x, p1.y);
               ctx.lineTo(p2.x, p2.y);
@@ -172,9 +172,9 @@ export const DotMatrix: React.FC = () => {
             const dist = Math.sqrt(dx * dx + dy * dy);
 
             if (dist < 140) {
-              const lineAlpha = (1 - dist / 140) * 0.28;
-              ctx.strokeStyle = `rgba(135, 85, 46, ${lineAlpha})`;
-              ctx.lineWidth = 1;
+              const lineAlpha = (1 - dist / 140) * 0.35;
+              ctx.strokeStyle = `rgba(95, 60, 30, ${lineAlpha})`;
+              ctx.lineWidth = 1.1;
               ctx.beginPath();
               ctx.moveTo(p.x, p.y);
               ctx.lineTo(mouse.x, mouse.y);
@@ -189,13 +189,13 @@ export const DotMatrix: React.FC = () => {
           const pulsingAlpha = p.baseAlpha + Math.sin(time * 2 + p.phase) * 0.08;
 
           // Outer soft glow
-          ctx.fillStyle = `rgba(135, 85, 46, ${Math.max(0.04, pulsingAlpha * 0.4)})`;
+          ctx.fillStyle = `rgba(95, 60, 30, ${Math.max(0.05, pulsingAlpha * 0.45)})`;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius * 2.2, 0, Math.PI * 2);
           ctx.fill();
 
           // Core dot
-          ctx.fillStyle = `rgba(135, 85, 46, ${pulsingAlpha})`;
+          ctx.fillStyle = `rgba(95, 60, 30, ${pulsingAlpha})`;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
           ctx.fill();
@@ -210,6 +210,7 @@ export const DotMatrix: React.FC = () => {
 
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', handlePointerMove, { passive: true });
+    document.removeEventListener('mouseleave', handlePointerLeave);
     document.addEventListener('mouseleave', handlePointerLeave);
 
     return () => {
