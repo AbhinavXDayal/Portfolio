@@ -113,8 +113,14 @@ export const Experience: React.FC = () => {
         </div>
 
         {isSectionOpen && (
-          /* Flush Full-Width Experience Cards (Aligned with Skills and Projects) */
-          <div className="space-y-3 sm:space-y-3.5 w-full transition-all duration-300">
+          /* Dynamic Botanical Timeline with Flush Left Width */
+          <div className="relative pl-7 sm:pl-8 space-y-3 sm:space-y-3.5 w-full transition-all duration-300">
+            {/* Continuous Botanical Spine Connecting All Jobs */}
+            <div className="absolute left-[11px] sm:left-[13px] top-3.5 bottom-3.5 w-[2px] bg-gradient-to-b from-[#7EA984] via-[#5B8B67]/70 to-[#253930]/40 rounded-full">
+              {/* Animated Energy Droplet flowing down the stem */}
+              <div className="w-[2px] h-10 bg-gradient-to-b from-transparent via-[#A3CEB3] to-transparent animate-pulse"></div>
+            </div>
+
             {experiences.map((exp, idx) => {
               const isSelected = activeExp === idx;
               const isCardOpen = !!expandedCards[exp.company];
@@ -127,107 +133,119 @@ export const Experience: React.FC = () => {
                     toggleCard(exp.company);
                   }}
                   onMouseEnter={() => setActiveExp(idx)}
-                  className={`w-full bg-[var(--card)] text-[var(--card-foreground)] border rounded-[var(--radius)] p-3.5 sm:p-4 shadow-xs transition-all duration-300 cursor-pointer group ${
-                    isSelected
-                      ? "border-[#7EA984]/70 shadow-sm -translate-y-0.5"
-                      : "border-[var(--border)] hover:border-[var(--foreground)]/30"
-                  }`}
+                  className="relative group cursor-pointer"
                 >
-                  {/* Card Header */}
+                  {/* Interactive Timeline Node on the Spine */}
+                  <div className="absolute -left-[23px] sm:-left-[25px] top-3.5 z-20 flex items-center justify-center">
+                    {exp.isCurrent ? (
+                      <div className="relative flex items-center justify-center">
+                        <span className="absolute w-5 h-5 rounded-full bg-[#7EA984]/40 animate-ping"></span>
+                        <span
+                          className={`w-3.5 h-3.5 rounded-full border-2 transition-all duration-300 ${
+                            isSelected
+                              ? "bg-[#A3CEB3] border-[#7EA984] scale-125 ring-4 ring-[#7EA984]/30"
+                              : "bg-[#7EA984] border-[var(--background)]"
+                          }`}
+                        ></span>
+                      </div>
+                    ) : (
+                      <div className="relative flex items-center justify-center">
+                        <span
+                          className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
+                            isSelected
+                              ? "bg-[#7EA984] border-[var(--background)] scale-125 ring-4 ring-[#7EA984]/30"
+                              : "bg-[var(--card)] border-[var(--border)] group-hover:border-[#7EA984]"
+                          }`}
+                        ></span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Experience Card taking the rest of full width */}
                   <div
-                    className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 transition-all duration-200 ${
-                      isCardOpen ? "mb-2.5 pb-2 border-b border-[var(--border)]/60" : ""
+                    className={`w-full bg-[var(--card)] text-[var(--card-foreground)] border rounded-[var(--radius)] p-3.5 sm:p-4 shadow-xs transition-all duration-300 ${
+                      isSelected
+                        ? "border-[#7EA984]/70 shadow-sm -translate-y-0.5"
+                        : "border-[var(--border)] hover:border-[var(--foreground)]/30"
                     }`}
                   >
-                    {/* Left Info with Botanical Node Indicator */}
-                    <div className="flex items-center gap-3">
-                      {/* Timeline Node Badge */}
-                      <div
-                        className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm border transition-all duration-300 shrink-0 ${
-                          exp.isCurrent
-                            ? "bg-[var(--accent)] border-[#7EA984]/60 text-[#A3CEB3]"
-                            : "bg-[var(--accent)] border-[var(--border)] text-[var(--muted-foreground)] group-hover:border-[#7EA984]/40"
-                        }`}
-                      >
-                        {exp.isCurrent ? (
-                          <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7EA984] opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#7EA984]"></span>
-                          </span>
-                        ) : (
-                          <span className="text-xs">💼</span>
-                        )}
-                      </div>
-
+                    {/* Card Header */}
+                    <div
+                      className={`flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 transition-all duration-200 ${
+                        isCardOpen
+                          ? "mb-2.5 pb-2 border-b border-[var(--border)]/60"
+                          : ""
+                      }`}
+                    >
                       <div>
-                        <div className="flex items-center gap-2">
-                          <h3
-                            className={`text-base sm:text-lg font-bold tracking-tight transition-colors ${
-                              isSelected
-                                ? "text-[#A3CEB3]"
-                                : "text-[var(--foreground)]"
-                            }`}
-                          >
-                            {exp.role}
-                          </h3>
-                        </div>
+                        <h3
+                          className={`text-base sm:text-lg font-bold tracking-tight transition-colors ${
+                            isSelected
+                              ? "text-[#A3CEB3]"
+                              : "text-[var(--foreground)]"
+                          }`}
+                        >
+                          {exp.role}
+                        </h3>
                         <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--muted-foreground)]">
                           {exp.company} • {exp.location}
                         </span>
                       </div>
-                    </div>
 
-                    {/* Right Info: Period Badge & Toggle Chevron */}
-                    <div className="flex items-center gap-2 self-end sm:self-center">
-                      <div
-                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[11px] font-semibold transition-colors ${
-                          isSelected
-                            ? "bg-[var(--accent)] border-[#7EA984]/50 text-[#A3CEB3]"
-                            : "bg-[var(--accent)] text-[var(--foreground)] border-[var(--border)]"
-                        }`}
-                      >
-                        {exp.isCurrent && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                        )}
-                        {exp.period}
-                      </div>
-
-                      {/* Card Toggle Chevron */}
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          toggleCard(exp.company);
-                        }}
-                        className="p-1 rounded-md text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors cursor-pointer"
-                        aria-label={isCardOpen ? "Collapse card" : "Expand card"}
-                      >
-                        <svg
-                          stroke="currentColor"
-                          fill="none"
-                          strokeWidth="2.5"
-                          viewBox="0 0 24 24"
-                          className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                            isCardOpen ? "rotate-180" : ""
+                      {/* Right Info: Period Badge & Toggle Chevron */}
+                      <div className="flex items-center gap-2 self-end sm:self-center">
+                        <div
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[11px] font-semibold transition-colors ${
+                            isSelected
+                              ? "bg-[var(--accent)] border-[#7EA984]/50 text-[#A3CEB3]"
+                              : "bg-[var(--accent)] text-[var(--foreground)] border-[var(--border)]"
                           }`}
-                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
+                          {exp.isCurrent && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                          )}
+                          {exp.period}
+                        </div>
 
-                  {/* Collapsible Bullets */}
-                  {isCardOpen && (
-                    <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed text-left pt-0.5 sm:pl-11">
-                      {exp.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="pl-0.5">
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                        {/* Card Toggle Chevron */}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleCard(exp.company);
+                          }}
+                          className="p-1 rounded-md text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors cursor-pointer"
+                          aria-label={
+                            isCardOpen ? "Collapse card" : "Expand card"
+                          }
+                        >
+                          <svg
+                            stroke="currentColor"
+                            fill="none"
+                            strokeWidth="2.5"
+                            viewBox="0 0 24 24"
+                            className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                              isCardOpen ? "rotate-180" : ""
+                            }`}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Collapsible Bullets */}
+                    {isCardOpen && (
+                      <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed text-left pt-0.5">
+                        {exp.bullets.map((bullet, bIdx) => (
+                          <li key={bIdx} className="pl-0.5">
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 </div>
               );
             })}
