@@ -2,7 +2,10 @@ import React from "react";
 
 export const GithubActivity: React.FC = () => {
   return (
-    <section id="github">
+    <section
+      id="github"
+      className="w-full py-4 md:py-5 bg-transparent text-[var(--foreground)]"
+    >
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Heading & Profile Link */}
         <div className="flex flex-col sm:flex-row items-center sm:items-end justify-between gap-3 mb-4 text-center sm:text-left">

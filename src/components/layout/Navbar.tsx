@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
           ))}
           <button
             onClick={() => scrollToSection("contact")}
-            className="ml-2 px-4 py-1.5 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
+            className="ml-2 px-4 py-1.5 rounded-full bg-[#2D6A4F] hover:bg-[#40916C] text-white text-xs font-bold transition-all shadow-[0_2px_10px_rgba(45,106,79,0.35)] cursor-pointer"
           >
             Hire Me
           </button>
@@ -61,7 +61,7 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={() => scrollToSection("contact")}
-            className="px-3.5 py-1.5 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
+            className="px-3.5 py-1.5 rounded-full bg-[#2D6A4F] hover:bg-[#40916C] text-white text-xs font-bold transition-all shadow-xs cursor-pointer"
           >
             Hire Me
           </button>

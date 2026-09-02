@@ -1,54 +1,52 @@
-import React from "react";
+import React from 'react';
 
 export const Hero: React.FC = () => {
   const scrollToContact = () => {
-    const el = document.getElementById("contact");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
     <section
       id="hero"
-      className="w-full flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden pt-3 pb-4 sm:pt-5 sm:pb-6"
+      className="w-full flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden pt-4 pb-5 sm:pt-6 sm:pb-7"
     >
-      {/* Top Center Warm Beige Glow */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse_at_center,#DFD5C4/0.4_0%,transparent_70%)] blur-3xl pointer-events-none"></div>
+      {/* Top Center Emerald Forest Canopy Glow */}
+      <div className="absolute -top-28 left-1/2 -translate-x-1/2 w-[700px] h-[320px] bg-[radial-gradient(ellipse_at_center,#2D6A4F/0.32_0%,transparent_70%)] blur-3xl pointer-events-none"></div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-8">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-5 lg:gap-8">
         {/* Left Column Content */}
         <div className="max-w-2xl text-center lg:text-left">
-          <p className="text-sm sm:text-base font-medium text-[var(--brand-accent)] mb-0.5 inline-flex items-center gap-1.5">
+          <p className="text-sm sm:text-base font-semibold text-[#52B788] mb-1 inline-flex items-center gap-1.5">
             <span>🌿</span> Hi, I'm
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-1 text-[var(--foreground)]">
             Abhinav Dayal
           </h1>
-          <h2 className="text-base sm:text-xl font-semibold text-[var(--muted-foreground)] mb-3 tracking-wide">
+          <h2 className="text-base sm:text-xl font-bold text-[#74C69D] mb-3 tracking-wide">
             App Developer
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-[var(--muted-foreground)] mb-4 leading-relaxed max-w-xl">
-            I build{" "}
-            <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
+            I build{' '}
+            <span className="text-[var(--foreground)] font-semibold underline decoration-[#52B788]/40 underline-offset-4">
               cross-platform mobile
-            </span>{" "}
-            and high-performance web applications using React Native, React.js,
-            and TypeScript with reusable component architecture and RESTful API
-            integrations.
+            </span>{' '}
+            and high-performance web applications using React Native, React.js, and TypeScript with reusable component architecture and RESTful API integrations.
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-5">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-4">
             <a
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToContact();
               }}
-              className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-5 py-2.5 rounded-[var(--radius)] text-sm hover:opacity-90 transition-all shadow-sm inline-flex items-center gap-2 cursor-pointer"
+              className="bg-[#2D6A4F] hover:bg-[#40916C] text-white font-bold px-5 py-2 rounded-[var(--radius)] text-sm transition-all shadow-[0_4px_18px_rgba(45,106,79,0.35)] hover:shadow-[0_6px_22px_rgba(64,145,108,0.45)] inline-flex items-center gap-2 cursor-pointer"
             >
-              Contact Me{" "}
+              Contact Me{' '}
               <svg
                 stroke="currentColor"
                 fill="none"
@@ -73,7 +71,7 @@ export const Hero: React.FC = () => {
               href="https://github.com/AbhinavXDayal"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--accent)] hover:border-[#52B788]/50 text-[var(--foreground)] transition-all shadow-xs"
             >
               <svg
                 stroke="currentColor"
@@ -92,10 +90,10 @@ export const Hero: React.FC = () => {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/abhinavxdayal"
+              href="https://linkedin.com/in/abhinavdayal"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--accent)] hover:border-[#52B788]/50 text-[var(--foreground)] transition-all shadow-xs"
             >
               <svg
                 stroke="currentColor"
@@ -116,10 +114,10 @@ export const Hero: React.FC = () => {
               LinkedIn
             </a>
             <a
-              href="https://abhinavxportfolio.vercel.app"
+              href="https://abhinavportfolio.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--accent)] hover:border-[#52B788]/50 text-[var(--foreground)] transition-all shadow-xs"
             >
               <svg
                 stroke="currentColor"
@@ -141,7 +139,7 @@ export const Hero: React.FC = () => {
             </a>
             <a
               href="mailto:abhinavxdayal@gmail.com"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--accent)] hover:border-[#52B788]/50 text-[var(--foreground)] transition-all shadow-xs"
             >
               <svg
                 stroke="currentColor"
@@ -165,14 +163,14 @@ export const Hero: React.FC = () => {
 
         {/* Right Column Profile Avatar */}
         <div className="relative w-full max-w-xs flex justify-center">
-          <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-[radial-gradient(circle_at_center,#DFD5C4/0.6_0%,transparent_70%)] blur-2xl pointer-events-none"></div>
-          <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden ring-2 ring-[var(--border)] shadow-lg transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
+          <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-[radial-gradient(circle_at_center,#2D6A4F/0.45_0%,transparent_70%)] blur-2xl pointer-events-none"></div>
+          <div className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-full overflow-hidden ring-3 ring-[#2D6A4F] shadow-[0_8px_30px_rgba(8,28,19,0.9)] transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[#52B788] group">
             <img
               src="/portfolio pic.jpeg"
-              alt="Abhinav Dayal"
-              className="w-full h-full object-cover object-[center_22%] scale-110 transition-transform duration-700 ease-out group-hover:scale-115"
+              alt="Abhinav Dayal Profile"
+              className="w-full h-full object-cover object-center filter grayscale contrast-125 transition-transform duration-700 ease-out group-hover:scale-105"
             />
-            <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-[var(--foreground)]/10 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_65%,var(--background)/0.25_100%)]"></div>
+            <div className="absolute inset-0 bg-[#2D6A4F]/10 mix-blend-overlay group-hover:opacity-0 transition-opacity"></div>
           </div>
         </div>
       </div>

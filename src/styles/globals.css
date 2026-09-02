@@ -4,40 +4,41 @@
 
 @layer base {
   :root, html.dark, :root.dark, .dark {
-    /* Natural Organic Warm Beige Palette */
-    --background: #F4EEE1; /* Primary Warm Linen Beige */
-    --background-alt: #EFE8DA; /* Soft Sand Almond */
-    --foreground: #221D18; /* Deep Rich Warm Espresso */
-    --muted: #E8DFD0; /* Muted Warm Beige */
-    --muted-foreground: #6B6256; /* Earthy Taupe Gray */
-    --brand-accent: #7A6244; /* Earthy Warm Timber */
-    --popover: #FAF6EE;
-    --popover-foreground: #221D18;
-    --card: #FAF6EE; /* Crisp Warm Ivory-Beige Card */
-    --card-foreground: #221D18;
-    --border: #DFD5C4; /* Soft Warm Beige Border */
-    --border-subtle: #EBE3D5;
-    --input: #EFE8DA;
-    --primary: #221D18; /* Deep Espresso Primary Action */
-    --primary-foreground: #F4EEE1; /* Beige Text */
-    --secondary: #EBE3D5;
-    --secondary-foreground: #221D18;
-    --accent: #EFE8DA; /* Soft Beige Pill */
-    --accent-foreground: #221D18;
-    --destructive: #991b1b;
-    --destructive-foreground: #FAF6EE;
-    --ring: #7A6244;
+    /* Rich All-Green Nature Botanical Palette */
+    --background: #081C13; /* Rich Deep Forest Green Background */
+    --background-alt: #0C2318;
+    --foreground: #EDF9F1; /* Soft Radiant Pale Sage Ivory */
+    --muted: #123324; /* Forest Pine Dark */
+    --muted-foreground: #8BBE9B; /* Vibrant Eucalyptus Sage */
+    --brand-accent: #52B788; /* Fresh Sprout Green */
+    --popover: #0E2C1E;
+    --popover-foreground: #EDF9F1;
+    --card: #0E2C1E; /* Rich Dark Moss Forest Card */
+    --card-foreground: #EDF9F1;
+    --border: #1D4A34; /* Rich Forest Green Border */
+    --border-subtle: #143827;
+    --input: #123324;
+    --primary: #40916C; /* Lush Vibrant Leaf Green Primary */
+    --primary-foreground: #FFFFFF;
+    --secondary: #173D29;
+    --secondary-foreground: #A7E8C2;
+    --accent: #143A26; /* Deep Botanical Green Accent Pill */
+    --accent-foreground: #9CE3B9; /* Fresh Green Sprout Text */
+    --destructive: #8B3A3A;
+    --destructive-foreground: #EDF9F1;
+    --ring: #52B788;
     --radius: 0.5rem;
 
-    /* Palette Swatches */
-    --color-beige-light: #FAF6EE;
-    --color-beige-base: #F4EEE1;
-    --color-beige-sand: #EFE8DA;
-    --color-beige-muted: #DFD5C4;
-    --color-nature-leaf: #5B7A58;
-    --color-nature-sage: #759772;
-    --color-espresso: #221D18;
-    --color-taupe: #6B6256;
+    /* Nature Botanical Swatches */
+    --nature-forest: #081C13;
+    --nature-moss-dark: #0E2C1E;
+    --nature-moss: #1D4A34;
+    --nature-leaf: #40916C;
+    --nature-sage: #52B788;
+    --nature-mint: #9CE3B9;
+    --nature-cream: #EDF9F1;
+    --nature-earth: #8C7853;
+    --nature-leaf-light: #B7E4C7;
   }
 
   html {
@@ -54,55 +55,37 @@
   }
 
   ::selection {
-    background-color: #DFD5C4;
-    color: #221D18;
+    background-color: #2D6A4F;
+    color: #F4FBF6;
   }
 }
 
-/* Custom Scrollbar in Warm Beige tones */
+/* Custom Scrollbar in Rich Forest Green tones */
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #F4EEE1;
+  background: #081C13;
 }
 ::-webkit-scrollbar-thumb {
-  background: #DFD5C4;
+  background: #1D4A34;
   border-radius: 9999px;
-  border: 2px solid #F4EEE1;
+  border: 2px solid #081C13;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C4B7A2;
+  background: #2D6A4F;
 }
 
-/* Tree & Foliage Swaying Animations */
-@keyframes treeSwayLeft {
-  0%, 100% {
-    transform: rotate(0deg) skewX(0deg);
-  }
-  50% {
-    transform: rotate(1.5deg) skewX(0.7deg);
-  }
-}
-
-@keyframes treeSwayRight {
-  0%, 100% {
-    transform: rotate(0deg) skewX(0deg);
-  }
-  50% {
-    transform: rotate(-1.5deg) skewX(-0.7deg);
-  }
-}
-
+/* Dynamic Ambient Floating Animations for Nature Theme */
 @keyframes floatSlow {
   0%, 100% {
     transform: translate(0px, 0px) scale(1);
   }
   33% {
-    transform: translate(25px, -30px) scale(1.04);
+    transform: translate(25px, -30px) scale(1.05);
   }
   66% {
-    transform: translate(-20px, 15px) scale(0.96);
+    transform: translate(-20px, 15px) scale(0.95);
   }
 }
 
@@ -111,21 +94,29 @@
     transform: translate(0px, 0px) scale(1);
   }
   33% {
-    transform: translate(-30px, 20px) scale(1.03);
+    transform: translate(-30px, 20px) scale(1.04);
   }
   66% {
-    transform: translate(20px, -25px) scale(0.97);
+    transform: translate(20px, -25px) scale(0.96);
   }
 }
 
-.animate-tree-left {
-  transform-origin: bottom center;
-  animation: treeSwayLeft 7s ease-in-out infinite;
+@keyframes treeSwayGentle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1.8deg);
+  }
 }
 
-.animate-tree-right {
-  transform-origin: bottom center;
-  animation: treeSwayRight 8s ease-in-out infinite;
+@keyframes treeSwaySubtle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-1.5deg);
+  }
 }
 
 .animate-float-slow {
@@ -134,4 +125,14 @@
 
 .animate-float-reverse {
   animation: floatReverse 24s ease-in-out infinite;
+}
+
+.animate-tree-sway-left {
+  transform-origin: bottom center;
+  animation: treeSwayGentle 6s ease-in-out infinite;
+}
+
+.animate-tree-sway-right {
+  transform-origin: bottom center;
+  animation: treeSwaySubtle 7s ease-in-out infinite;
 }
