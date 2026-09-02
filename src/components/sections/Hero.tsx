@@ -30,9 +30,8 @@ export const Hero: React.FC = () => {
             <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
               cross-platform mobile
             </span>{" "}
-            and high-performance web applications using React Native, React.js,
-            and TypeScript with reusable component architecture and RESTful API
-            integrations.
+            and high-performance web apps using React Native, React.js, and
+            TypeScript.
           </p>
 
           {/* Action Buttons & Social Links */}
