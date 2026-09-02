@@ -49,10 +49,10 @@ export const Experience: React.FC = () => {
           </h2>
         </div>
 
-        {/* Dynamic Botanical Timeline with Dates */}
-        <div className="relative pl-6 sm:pl-8 md:pl-40 space-y-3.5 sm:space-y-4 transition-all duration-300">
-          {/* Glowing Botanical Spine Line */}
-          <div className="absolute left-[11px] sm:left-[15px] md:left-[139px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-[#7EA984] via-[#5B8B67]/70 to-[#253930]/40 rounded-full">
+        {/* Dynamic Botanical Timeline on the Right Side */}
+        <div className="relative pr-6 sm:pr-8 md:pr-40 space-y-3.5 sm:space-y-4 transition-all duration-300">
+          {/* Glowing Botanical Spine Line on Right */}
+          <div className="absolute right-[11px] sm:right-[15px] md:right-[139px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-[#7EA984] via-[#5B8B67]/70 to-[#253930]/40 rounded-full">
             {/* Animated Energy Droplet flowing down the stem */}
             <div className="w-[2px] h-10 bg-gradient-to-b from-transparent via-[#A3CEB3] to-transparent animate-pulse"></div>
           </div>
@@ -67,8 +67,8 @@ export const Experience: React.FC = () => {
                 onMouseEnter={() => setActiveExp(idx)}
                 className="relative group cursor-pointer"
               >
-                {/* Interactive Timeline Node */}
-                <div className="absolute -left-[19px] sm:-left-[23px] md:-left-[27px] top-3.5 z-20 flex items-center justify-center">
+                {/* Interactive Timeline Node on Right */}
+                <div className="absolute -right-[19px] sm:-right-[23px] md:-right-[27px] top-3.5 z-20 flex items-center justify-center">
                   {exp.isCurrent ? (
                     <div className="relative flex items-center justify-center">
                       <span className="absolute w-5 h-5 rounded-full bg-[#7EA984]/40 animate-ping"></span>
@@ -93,8 +93,8 @@ export const Experience: React.FC = () => {
                   )}
                 </div>
 
-                {/* Left Date Label on Timeline for Desktop */}
-                <div className="hidden md:flex flex-col items-end absolute -left-40 top-2.5 w-32 pr-4 text-right select-none transition-colors duration-200">
+                {/* Right Date Label on Timeline for Desktop */}
+                <div className="hidden md:flex flex-col items-start absolute -right-40 top-2.5 w-32 pl-4 text-left select-none transition-colors duration-200">
                   <span
                     className={`text-xs font-bold uppercase tracking-wider transition-colors ${
                       isSelected
@@ -109,7 +109,7 @@ export const Experience: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Experience Card */}
+                {/* Experience Card (Flush Left with other sections) */}
                 <div
                   className={`bg-[var(--card)] text-[var(--card-foreground)] border rounded-[var(--radius)] p-3 sm:p-4 shadow-xs transition-all duration-300 ${
                     isSelected
@@ -118,7 +118,7 @@ export const Experience: React.FC = () => {
                   }`}
                 >
                   {/* Card Header */}
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-2 pb-2 border-b border-[var(--border)]/60">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 mb-2 pb-2 border-b border-[var(--border)]/60">
                     <div>
                       <h3
                         className={`text-base sm:text-lg font-bold tracking-tight transition-colors ${
@@ -134,20 +134,12 @@ export const Experience: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* Right Info: Period Badge */}
-                    <div className="flex items-center gap-2 self-end sm:self-center">
-                      <div
-                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[11px] font-semibold transition-colors ${
-                          isSelected
-                            ? "bg-[var(--accent)] border-[#7EA984]/50 text-[#A3CEB3]"
-                            : "bg-[var(--accent)] text-[var(--foreground)] border-[var(--border)]"
-                        }`}
-                      >
-                        {exp.isCurrent && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                        )}
-                        {exp.period}
-                      </div>
+                    {/* Mobile Date Badge */}
+                    <div className="md:hidden inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border text-[10px] font-semibold bg-[var(--accent)] text-[var(--foreground)] border-[var(--border)] self-start sm:self-center">
+                      {exp.isCurrent && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      )}
+                      {exp.period}
                     </div>
                   </div>
 
