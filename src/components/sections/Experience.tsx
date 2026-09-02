@@ -113,10 +113,10 @@ export const Experience: React.FC = () => {
         </div>
 
         {isSectionOpen && (
-          /* Dynamic Botanical Timeline with Flush Left Width */
-          <div className="relative pl-7 sm:pl-8 space-y-3 sm:space-y-3.5 w-full transition-all duration-300">
-            {/* Continuous Botanical Spine Connecting All Jobs */}
-            <div className="absolute left-[11px] sm:left-[13px] top-3.5 bottom-3.5 w-[2px] bg-gradient-to-b from-[#7EA984] via-[#5B8B67]/70 to-[#253930]/40 rounded-full">
+          /* Dynamic Botanical Timeline with Dates */
+          <div className="relative pl-6 sm:pl-8 md:pl-40 space-y-3.5 sm:space-y-4 transition-all duration-300">
+            {/* Glowing Botanical Spine Line */}
+            <div className="absolute left-[11px] sm:left-[15px] md:left-[139px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-[#7EA984] via-[#5B8B67]/70 to-[#253930]/40 rounded-full">
               {/* Animated Energy Droplet flowing down the stem */}
               <div className="w-[2px] h-10 bg-gradient-to-b from-transparent via-[#A3CEB3] to-transparent animate-pulse"></div>
             </div>
@@ -135,8 +135,8 @@ export const Experience: React.FC = () => {
                   onMouseEnter={() => setActiveExp(idx)}
                   className="relative group cursor-pointer"
                 >
-                  {/* Interactive Timeline Node on the Spine */}
-                  <div className="absolute -left-[23px] sm:-left-[25px] top-3.5 z-20 flex items-center justify-center">
+                  {/* Interactive Timeline Node */}
+                  <div className="absolute -left-[19px] sm:-left-[23px] md:-left-[27px] top-3.5 z-20 flex items-center justify-center">
                     {exp.isCurrent ? (
                       <div className="relative flex items-center justify-center">
                         <span className="absolute w-5 h-5 rounded-full bg-[#7EA984]/40 animate-ping"></span>
@@ -161,9 +161,25 @@ export const Experience: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Experience Card taking the rest of full width */}
+                  {/* Left Date Label on Timeline for Desktop */}
+                  <div className="hidden md:flex flex-col items-end absolute -left-40 top-2.5 w-32 pr-4 text-right select-none transition-colors duration-200">
+                    <span
+                      className={`text-xs font-bold uppercase tracking-wider transition-colors ${
+                        isSelected
+                          ? "text-[#7EA984]"
+                          : "text-[var(--muted-foreground)]"
+                      }`}
+                    >
+                      {exp.period.split("–")[0]?.trim()}
+                    </span>
+                    <span className="text-[10px] text-[var(--muted-foreground)]/70">
+                      {exp.status}
+                    </span>
+                  </div>
+
+                  {/* Experience Card */}
                   <div
-                    className={`w-full bg-[var(--card)] text-[var(--card-foreground)] border rounded-[var(--radius)] p-3.5 sm:p-4 shadow-xs transition-all duration-300 ${
+                    className={`bg-[var(--card)] text-[var(--card-foreground)] border rounded-[var(--radius)] p-3 sm:p-4 shadow-xs transition-all duration-300 ${
                       isSelected
                         ? "border-[#7EA984]/70 shadow-sm -translate-y-0.5"
                         : "border-[var(--border)] hover:border-[var(--foreground)]/30"
