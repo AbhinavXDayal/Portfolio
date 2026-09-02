@@ -177,7 +177,7 @@ export const Hero: React.FC = () => {
             <img
               src="/portfolio pic.jpeg"
               alt="Abhinav Dayal"
-              className="w-full h-full object-cover object-[center_55%] scale-135 transition-transform duration-700 ease-out group-hover:scale-140"
+              className="w-full h-full object-cover object-[center_22%] scale-110 transition-transform duration-700 ease-out group-hover:scale-115"
             />
             <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-[var(--foreground)]/10 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_65%,var(--background)/0.25_100%)]"></div>
           </div>

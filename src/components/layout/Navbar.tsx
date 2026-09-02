@@ -16,6 +16,16 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
     }
   };
 
+  const navItems = [
+    { label: 'Home', id: 'hero' },
+    { label: 'About', id: 'about' },
+    { label: 'Skills', id: 'skills' },
+    { label: 'Experience', id: 'experience' },
+    { label: 'Projects', id: 'projects' },
+    { label: 'Education', id: 'education' },
+    { label: 'Contact', id: 'contact' },
+  ];
+
   return (
     <nav className="sticky top-0 z-50 bg-[var(--background)]/80 backdrop-blur-md text-[var(--foreground)] border-b border-[var(--border)] transition-colors duration-200">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -31,60 +41,23 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-2 text-sm font-medium">
-          <a
-            href="#hero"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('hero');
-            }}
-            className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('about');
-            }}
-            className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
-          >
-            About
-          </a>
-          <a
-            href="#stack"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('stack');
-            }}
-            className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
-          >
-            Tech Stack
-          </a>
-          <a
-            href="#projects"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('projects');
-            }}
-            className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
-          >
-            Projects
-          </a>
-          <a
-            href="#experience"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('experience');
-            }}
-            className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
-          >
-            Experience
-          </a>
+        <div className="hidden md:flex items-center gap-1.5 lg:gap-2 text-sm font-medium">
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(item.id);
+              }}
+              className="px-2.5 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
+            >
+              {item.label}
+            </a>
+          ))}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] border border-[var(--border)] transition-colors cursor-pointer text-sm"
+            className="p-2 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] border border-[var(--border)] transition-colors cursor-pointer text-sm ml-1"
             aria-label="Toggle dark mode"
           >
             {isDark ? '☀️' : '🌙'}
@@ -125,56 +98,19 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 py-4 space-y-2">
-          <a
-            href="#hero"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('hero');
-            }}
-            className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('about');
-            }}
-            className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
-          >
-            About
-          </a>
-          <a
-            href="#stack"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('stack');
-            }}
-            className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
-          >
-            Tech Stack
-          </a>
-          <a
-            href="#projects"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('projects');
-            }}
-            className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
-          >
-            Projects
-          </a>
-          <a
-            href="#experience"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection('experience');
-            }}
-            className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
-          >
-            Experience
-          </a>
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(item.id);
+              }}
+              className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
       )}
     </nav>

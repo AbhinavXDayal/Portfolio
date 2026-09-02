@@ -3,13 +3,16 @@ import React from 'react';
 export const Skills: React.FC = () => {
   return (
     <section
-      id="stack"
+      id="skills"
       className="w-full py-16 md:py-24 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
     >
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col items-center md:items-start text-center md:text-left mb-12">
+          <span className="text-sm font-semibold tracking-wider uppercase text-[var(--muted-foreground)] mb-2">
+            Technical Proficiency
+          </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--foreground)]">
-            Tech Stack
+            Skills
           </h2>
         </div>
 
