@@ -12,6 +12,14 @@ export const Experience: React.FC = () => {
         "Building responsive and reusable UI components, screens & navigation flows while integrating RESTful APIs for a hospital management application.",
         "Collaborating in the software development lifecycle to implement features, debug issues, optimize application performance & maintain code quality using Git workflows.",
       ],
+      tags: [
+        "React Native",
+        "JavaScript",
+        "TypeScript",
+        "RESTful APIs",
+        "Hospital Management",
+        "Git",
+      ],
     },
     {
       role: "Web Developer Trainee",
@@ -21,6 +29,14 @@ export const Experience: React.FC = () => {
       bullets: [
         "Built & styled responsive web interfaces & internal dashboards using React.js, HTML5 & CSS3 with a focus on usability & cross device compatibility.",
         "Identified, debugged & resolved UI/UX issues across multiple pages, improving visual consistency, responsiveness & user experience.",
+      ],
+      tags: [
+        "React.js",
+        "HTML5",
+        "CSS3",
+        "UI/UX Design",
+        "Web Dashboards",
+        "Cross Device Compatibility",
       ],
     },
     {
@@ -32,6 +48,13 @@ export const Experience: React.FC = () => {
         "Developed responsive web applications using JavaScript & React.js with reusable components & component based architecture.",
         "Practiced database design, data management & application development concepts through guided exercises & hands on mock projects.",
       ],
+      tags: [
+        "JavaScript",
+        "React.js",
+        "Database Design",
+        "Component Architecture",
+        "Web Applications",
+      ],
     },
   ];
 
@@ -41,49 +64,42 @@ export const Experience: React.FC = () => {
       className="w-full py-4 md:py-6 bg-transparent text-[var(--foreground)]"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-5">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-4">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Work Experience
           </h2>
         </div>
 
-        {/* Continuous GitHub Timeline Container */}
-        <div className="relative ml-2 sm:ml-4 md:ml-36 space-y-4">
-          {/* One Continuous Connected Line (Zero SVG, Pure CSS) */}
-          <div className="absolute left-[7px] top-4 bottom-4 w-[2px] bg-[#58A6FF]"></div>
-
+        <div className="relative border-l border-[var(--border)] ml-3 md:ml-28 space-y-4">
           {experiences.map((exp) => (
-            <div key={exp.company} className="relative pl-6 md:pl-8 group">
-              {/* GitHub Double-Ring Commit Node sitting on the continuous line */}
-              <div className="absolute left-[1px] top-4 w-[14px] h-[14px] rounded-full border-2 border-[#58A6FF] bg-[var(--background)] flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-200">
-                <div className="w-[4px] h-[4px] rounded-full bg-[#58A6FF]"></div>
-              </div>
+            <div key={exp.company} className="relative pl-5 md:pl-8 group">
+              {/* Timeline dot */}
+              <div className="absolute -left-[6px] top-1.5 w-3 h-3 rounded-full bg-[var(--foreground)] border-2 border-[var(--background)] group-hover:scale-125 transition-transform duration-200"></div>
 
-              {/* Date on the Left (Desktop: positioned left of timeline) */}
-              <div className="hidden md:block absolute -left-36 top-3.5 text-xs font-semibold text-[var(--muted-foreground)] tracking-wide text-right w-30 pr-3 select-none">
+              {/* Left Date Label for MD+ */}
+              <div className="md:absolute md:-left-32 md:top-1 text-[11px] font-semibold text-[var(--muted-foreground)] uppercase tracking-wider mb-1.5 md:mb-0 text-left md:text-right">
                 {exp.period}
               </div>
 
-              {/* Date on Mobile (above card) */}
-              <div className="md:hidden text-xs font-semibold text-[var(--muted-foreground)] mb-1.5 tracking-wide">
-                {exp.period}
-              </div>
-
-              {/* Clean Experience Card (No hashes, no branch names) */}
-              <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-3.5 sm:p-4.5 shadow-xs hover:border-[var(--brand-accent)]/40 transition-all duration-200">
-                <div className="mb-2.5 pb-2 border-b border-[var(--border)]/60">
-                  <h3 className="text-base sm:text-lg font-bold text-[var(--foreground)] tracking-tight">
-                    {exp.role}
-                  </h3>
-                  <p className="text-xs font-semibold text-[var(--muted-foreground)]">
-                    {exp.company} • {exp.location}
-                  </p>
+              {/* Card Content */}
+              <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-4 sm:p-5 shadow-xs hover:border-[var(--foreground)]/30 transition-all duration-200">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-3 pb-2.5 border-b border-[var(--border)]/60">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-[var(--foreground)] tracking-tight">
+                      {exp.role}
+                    </h3>
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--muted-foreground)]">
+                      {exp.company} • {exp.location}
+                    </span>
+                  </div>
+                  <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] text-[11px] font-semibold shadow-2xs">
+                    {exp.period}
+                  </div>
                 </div>
 
-                {/* Bullets */}
                 <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed text-left">
-                  {exp.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="pl-0.5">
+                  {exp.bullets.map((bullet, idx) => (
+                    <li key={idx} className="pl-0.5">
                       <span>{bullet}</span>
                     </li>
                   ))}
