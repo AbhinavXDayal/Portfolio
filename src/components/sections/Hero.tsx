@@ -196,13 +196,17 @@ export const Hero: React.FC = () => {
                 </svg>
                 <span>github.com/AbhinavXDayal</span>
               </div>
-              <span className="text-[10px] text-[var(--muted-foreground)]">bash</span>
+              <span className="text-[10px] text-[var(--muted-foreground)]">
+                bash
+              </span>
             </div>
 
             {/* Terminal Console Output */}
             <div className="p-3 text-[11px] sm:text-xs leading-relaxed space-y-1.5 bg-[#0B1310]/80">
               <div>
-                <span className="text-[#7EA984] font-semibold">abhinav@portfolio</span>
+                <span className="text-[#7EA984] font-semibold">
+                  abhinav@portfolio
+                </span>
                 <span className="text-[var(--muted-foreground)]">:</span>
                 <span className="text-[#A3CEB3]">~</span>
                 <span className="text-[var(--muted-foreground)]">$</span>{" "}
@@ -210,21 +214,32 @@ export const Hero: React.FC = () => {
               </div>
               <div className="text-[var(--muted-foreground)] pl-2 text-[10.5px] space-y-0.5">
                 <div>
-                  <span className="text-[#7EA984]">✓</span> Logged in as <span className="text-[var(--foreground)] font-semibold">@AbhinavXDayal</span>
+                  <span className="text-[#7EA984]">✓</span> Logged in as{" "}
+                  <span className="text-[var(--foreground)] font-semibold">
+                    @AbhinavXDayal
+                  </span>
                 </div>
                 <div>
-                  <span className="text-[#7EA984]">✓</span> Branch: <span className="text-[#A3CEB3]">main</span>
+                  <span className="text-[#7EA984]">✓</span> Branch:{" "}
+                  <span className="text-[#A3CEB3]">main</span>
                 </div>
                 <div>
-                  <span className="text-[#7EA984]">✓</span> Focus: <span className="text-[#BCE4C7]">React Native &amp; Web Apps</span>
+                  <span className="text-[#7EA984]">✓</span> Focus:{" "}
+                  <span className="text-[#BCE4C7]">
+                    React Native &amp; Web Apps
+                  </span>
                 </div>
               </div>
               <div className="pt-0.5">
-                <span className="text-[#7EA984] font-semibold">abhinav@portfolio</span>
+                <span className="text-[#7EA984] font-semibold">
+                  abhinav@portfolio
+                </span>
                 <span className="text-[var(--muted-foreground)]">:</span>
                 <span className="text-[#A3CEB3]">~</span>
                 <span className="text-[var(--muted-foreground)]">$</span>{" "}
-                <span className="text-[var(--foreground)]">git commit -m "building smooth UX"</span>
+                <span className="text-[var(--foreground)]">
+                  git commit -m "building smooth UX"
+                </span>
                 <span className="inline-block w-1.5 h-3 ml-1 bg-[#7EA984] animate-pulse align-middle"></span>
               </div>
             </div>
