@@ -11,11 +11,8 @@ export const Experience: React.FC = () => {
       period: "Jul 2026 – Present",
       status: "Present • Ongoing",
       isCurrent: true,
-      bullets: [
-        "Developing cross platform mobile applications using React Native, JavaScript & TypeScript with reusable components & component based architecture.",
-        "Building responsive and reusable UI components, screens & navigation flows while integrating RESTful APIs for a hospital management application.",
-        "Collaborating in the software development lifecycle to implement features, debug issues, optimize application performance & maintain code quality using Git workflows.",
-      ],
+      summary:
+        "Developing production-ready cross-platform mobile apps with React Native and TypeScript, architecting responsive UI workflows and integrating RESTful APIs for healthcare platforms.",
     },
     {
       role: "Web Developer Trainee",
@@ -24,10 +21,8 @@ export const Experience: React.FC = () => {
       period: "Dec 2024 – Feb 2025",
       status: "3 Months",
       isCurrent: false,
-      bullets: [
-        "Built & styled responsive web interfaces & internal dashboards using React.js, HTML5 & CSS3 with a focus on usability & cross device compatibility.",
-        "Identified, debugged & resolved UI/UX issues across multiple pages, improving visual consistency, responsiveness & user experience.",
-      ],
+      summary:
+        "Engineered responsive web interfaces and internal dashboards using React.js, optimizing usability and resolving UI/UX issues for cross-device compatibility.",
     },
     {
       role: "Summer Training Intern",
@@ -36,10 +31,8 @@ export const Experience: React.FC = () => {
       period: "Jul 2024 – Aug 2024",
       status: "2 Months",
       isCurrent: false,
-      bullets: [
-        "Developed responsive web applications using JavaScript & React.js with reusable components & component based architecture.",
-        "Practiced database design, data management & application development concepts through guided exercises & hands on mock projects.",
-      ],
+      summary:
+        "Developed component-driven web applications using JavaScript and React.js while practicing relational database design and modern state architecture.",
     },
   ];
 
@@ -125,7 +118,7 @@ export const Experience: React.FC = () => {
                   }`}
                 >
                   {/* Card Header */}
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-2.5 pb-2 border-b border-[var(--border)]/60">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-2 pb-2 border-b border-[var(--border)]/60">
                     <div>
                       <h3
                         className={`text-base sm:text-lg font-bold tracking-tight transition-colors ${
@@ -158,14 +151,10 @@ export const Experience: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Accomplishment Bullets */}
-                  <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed text-left pt-0.5">
-                    {exp.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="pl-0.5">
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* 1-2 Line Concise Summary */}
+                  <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed text-left">
+                    {exp.summary}
+                  </p>
                 </div>
               </div>
             );
