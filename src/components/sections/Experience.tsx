@@ -43,16 +43,16 @@ export const Experience: React.FC = () => {
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-4">
+        <div className="flex flex-col items-start text-left mb-4">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Work Experience
           </h2>
         </div>
 
-        {/* Dynamic Botanical Timeline on the Right Side */}
-        <div className="relative pr-6 sm:pr-8 md:pr-40 space-y-3.5 sm:space-y-4 transition-all duration-300">
-          {/* Glowing Botanical Spine Line on Right */}
-          <div className="absolute right-[11px] sm:right-[15px] md:right-[139px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-[#7EA984] via-[#5B8B67]/70 to-[#253930]/40 rounded-full">
+        {/* Dynamic Botanical Timeline with Dates Left-Aligned Directly Under Headline */}
+        <div className="relative space-y-3.5 sm:space-y-4 w-full">
+          {/* Continuous Botanical Spine Line */}
+          <div className="absolute left-[131px] sm:left-[171px] md:left-[191px] top-3.5 bottom-3.5 w-[2px] bg-gradient-to-b from-[#7EA984] via-[#5B8B67]/70 to-[#253930]/40 rounded-full pointer-events-none">
             {/* Animated Energy Droplet flowing down the stem */}
             <div className="w-[2px] h-10 bg-gradient-to-b from-transparent via-[#A3CEB3] to-transparent animate-pulse"></div>
           </div>
@@ -65,10 +65,26 @@ export const Experience: React.FC = () => {
                 key={exp.company}
                 onClick={() => setActiveExp(idx)}
                 onMouseEnter={() => setActiveExp(idx)}
-                className="relative group cursor-pointer"
+                className="flex items-start group cursor-pointer"
               >
-                {/* Interactive Timeline Node on Right */}
-                <div className="absolute -right-[19px] sm:-right-[23px] md:-right-[27px] top-3.5 z-20 flex items-center justify-center">
+                {/* 1. Date Label Left-Aligned Directly Under 'Work Experience' Headline */}
+                <div className="w-[120px] sm:w-[160px] md:w-[180px] shrink-0 pt-3 text-left select-none pr-3">
+                  <span
+                    className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider block transition-colors leading-tight ${
+                      isSelected
+                        ? "text-[#7EA984]"
+                        : "text-[var(--foreground)]"
+                    }`}
+                  >
+                    {exp.period}
+                  </span>
+                  <span className="text-[10px] text-[var(--muted-foreground)] block mt-0.5">
+                    {exp.status}
+                  </span>
+                </div>
+
+                {/* 2. Interactive Timeline Node */}
+                <div className="relative z-10 w-6 flex items-center justify-center shrink-0 pt-3.5">
                   {exp.isCurrent ? (
                     <div className="relative flex items-center justify-center">
                       <span className="absolute w-5 h-5 rounded-full bg-[#7EA984]/40 animate-ping"></span>
@@ -93,33 +109,17 @@ export const Experience: React.FC = () => {
                   )}
                 </div>
 
-                {/* Right Date Label on Timeline for Desktop */}
-                <div className="hidden md:flex flex-col items-start absolute -right-40 top-2.5 w-32 pl-4 text-left select-none transition-colors duration-200">
-                  <span
-                    className={`text-xs font-bold uppercase tracking-wider transition-colors ${
+                {/* 3. Experience Card */}
+                <div className="flex-1 min-w-0 pl-3 sm:pl-4">
+                  <div
+                    className={`w-full bg-[var(--card)] text-[var(--card-foreground)] border rounded-[var(--radius)] p-3 sm:p-4 shadow-xs transition-all duration-300 ${
                       isSelected
-                        ? "text-[#7EA984]"
-                        : "text-[var(--muted-foreground)]"
+                        ? "border-[#7EA984]/70 shadow-sm -translate-y-0.5"
+                        : "border-[var(--border)] hover:border-[var(--foreground)]/30"
                     }`}
                   >
-                    {exp.period.split("–")[0]?.trim()}
-                  </span>
-                  <span className="text-[10px] text-[var(--muted-foreground)]/70">
-                    {exp.status}
-                  </span>
-                </div>
-
-                {/* Experience Card (Flush Left with other sections) */}
-                <div
-                  className={`bg-[var(--card)] text-[var(--card-foreground)] border rounded-[var(--radius)] p-3 sm:p-4 shadow-xs transition-all duration-300 ${
-                    isSelected
-                      ? "border-[#7EA984]/70 shadow-sm -translate-y-0.5"
-                      : "border-[var(--border)] hover:border-[var(--foreground)]/30"
-                  }`}
-                >
-                  {/* Card Header */}
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 mb-2 pb-2 border-b border-[var(--border)]/60">
-                    <div>
+                    {/* Card Header */}
+                    <div className="mb-2 pb-1.5 border-b border-[var(--border)]/60">
                       <h3
                         className={`text-base sm:text-lg font-bold tracking-tight transition-colors ${
                           isSelected
@@ -134,19 +134,11 @@ export const Experience: React.FC = () => {
                       </span>
                     </div>
 
-                    {/* Mobile Date Badge */}
-                    <div className="md:hidden inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border text-[10px] font-semibold bg-[var(--accent)] text-[var(--foreground)] border-[var(--border)] self-start sm:self-center">
-                      {exp.isCurrent && (
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                      )}
-                      {exp.period}
-                    </div>
+                    {/* 1-2 Line Concise Summary */}
+                    <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed text-left">
+                      {exp.summary}
+                    </p>
                   </div>
-
-                  {/* 1-2 Line Concise Summary */}
-                  <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed text-left">
-                    {exp.summary}
-                  </p>
                 </div>
               </div>
             );
