@@ -8,6 +8,7 @@ import { Projects } from './components/sections/Projects';
 import { Education } from './components/sections/Education';
 import { Contact } from './components/sections/Contact';
 import { DotMatrix } from './components/ui/DotMatrix';
+import { ScrollToTop } from './components/ui/ScrollToTop';
 
 export const App: React.FC = () => {
   return (
@@ -15,7 +16,10 @@ export const App: React.FC = () => {
       {/* 1. Dynamic Moving Graph & Dot Matrix Canvas (Matte, Non-Glowing) */}
       <DotMatrix />
 
-      {/* 2. Main Site Content */}
+      {/* 2. Floating Scroll-To-Top Arrow Button */}
+      <ScrollToTop />
+
+      {/* 3. Main Site Content */}
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
         <main className="flex-grow w-full pb-10">
