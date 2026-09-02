@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
-import { GithubActivity } from './components/sections/GithubActivity';
 import { About } from './components/sections/About';
 import { Skills } from './components/sections/Skills';
 import { Experience } from './components/sections/Experience';
@@ -21,7 +20,6 @@ export const App: React.FC = () => {
         <Navbar />
         <main className="flex-grow w-full pb-10">
           <Hero />
-          <GithubActivity />
           <About />
           <Skills />
           <Experience />
