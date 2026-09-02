@@ -4,41 +4,41 @@
 
 @layer base {
   :root, html.dark, :root.dark, .dark {
-    /* Rich All-Green Nature Botanical Palette */
-    --background: #081C13; /* Rich Deep Forest Green Background */
-    --background-alt: #0C2318;
-    --foreground: #EDF9F1; /* Soft Radiant Pale Sage Ivory */
-    --muted: #123324; /* Forest Pine Dark */
-    --muted-foreground: #8BBE9B; /* Vibrant Eucalyptus Sage */
-    --brand-accent: #52B788; /* Fresh Sprout Green */
-    --popover: #0E2C1E;
-    --popover-foreground: #EDF9F1;
-    --card: #0E2C1E; /* Rich Dark Moss Forest Card */
-    --card-foreground: #EDF9F1;
-    --border: #1D4A34; /* Rich Forest Green Border */
-    --border-subtle: #143827;
-    --input: #123324;
-    --primary: #40916C; /* Lush Vibrant Leaf Green Primary */
-    --primary-foreground: #FFFFFF;
-    --secondary: #173D29;
-    --secondary-foreground: #A7E8C2;
-    --accent: #143A26; /* Deep Botanical Green Accent Pill */
-    --accent-foreground: #9CE3B9; /* Fresh Green Sprout Text */
+    /* Soft Dark & Greenish Nature Botanical Palette */
+    --background: #0E1613; /* Deep Dark Botanical Forest Moss */
+    --background-alt: #121C18;
+    --foreground: #EAF1EC; /* Soft Tranquil Pale Sage Ivory */
+    --muted: #1A2822; /* Forest Undergrowth Dark */
+    --muted-foreground: #91A89B; /* Soft Eucalyptus Sage Gray */
+    --brand-accent: #7EA984; /* Fresh Herbal Sage */
+    --popover: #15221D;
+    --popover-foreground: #EAF1EC;
+    --card: #15221D; /* Elevated Dark Forest Moss Card */
+    --card-foreground: #EAF1EC;
+    --border: #253930; /* Organic Forest Pine Border */
+    --border-subtle: #1B2B24;
+    --input: #1A2922;
+    --primary: #EAF1EC; /* Crisp Pale Sage Primary */
+    --primary-foreground: #0E1613; /* Deep Forest Text */
+    --secondary: #1F3229;
+    --secondary-foreground: #A3CEB3;
+    --accent: #1A2A23; /* Dark Botanical Accent Pill */
+    --accent-foreground: #A8D5B8; /* Delicate Forest Mint */
     --destructive: #8B3A3A;
-    --destructive-foreground: #EDF9F1;
-    --ring: #52B788;
+    --destructive-foreground: #EAF1EC;
+    --ring: #5B8B67;
     --radius: 0.5rem;
 
     /* Nature Botanical Swatches */
-    --nature-forest: #081C13;
-    --nature-moss-dark: #0E2C1E;
-    --nature-moss: #1D4A34;
-    --nature-leaf: #40916C;
-    --nature-sage: #52B788;
-    --nature-mint: #9CE3B9;
-    --nature-cream: #EDF9F1;
+    --nature-forest: #0E1613;
+    --nature-moss-dark: #15221D;
+    --nature-moss: #253930;
+    --nature-leaf: #5B8B67;
+    --nature-sage: #7EA984;
+    --nature-mint: #A3CEB3;
+    --nature-cream: #EAF1EC;
     --nature-earth: #8C7853;
-    --nature-leaf-light: #B7E4C7;
+    --nature-leaf-light: #B8DFC6;
   }
 
   html {
@@ -55,25 +55,25 @@
   }
 
   ::selection {
-    background-color: #2D6A4F;
-    color: #F4FBF6;
+    background-color: #3E6349;
+    color: #F2F7F4;
   }
 }
 
-/* Custom Scrollbar in Rich Forest Green tones */
+/* Custom Scrollbar in Darkish Forest Greenish tones */
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #081C13;
+  background: #0E1613;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1D4A34;
+  background: #253930;
   border-radius: 9999px;
-  border: 2px solid #081C13;
+  border: 2px solid #0E1613;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2D6A4F;
+  background: #3B584B;
 }
 
 /* Dynamic Ambient Floating Animations for Nature Theme */
@@ -82,10 +82,10 @@
     transform: translate(0px, 0px) scale(1);
   }
   33% {
-    transform: translate(25px, -30px) scale(1.05);
+    transform: translate(25px, -30px) scale(1.04);
   }
   66% {
-    transform: translate(-20px, 15px) scale(0.95);
+    transform: translate(-20px, 15px) scale(0.96);
   }
 }
 
@@ -94,28 +94,19 @@
     transform: translate(0px, 0px) scale(1);
   }
   33% {
-    transform: translate(-30px, 20px) scale(1.04);
+    transform: translate(-30px, 20px) scale(1.03);
   }
   66% {
-    transform: translate(20px, -25px) scale(0.96);
+    transform: translate(20px, -25px) scale(0.97);
   }
 }
 
-@keyframes treeSwayGentle {
+@keyframes leafSway {
   0%, 100% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) translateY(0px);
   }
   50% {
-    transform: rotate(1.8deg);
-  }
-}
-
-@keyframes treeSwaySubtle {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(-1.5deg);
+    transform: rotate(8deg) translateY(-4px);
   }
 }
 
@@ -127,12 +118,6 @@
   animation: floatReverse 24s ease-in-out infinite;
 }
 
-.animate-tree-sway-left {
-  transform-origin: bottom center;
-  animation: treeSwayGentle 6s ease-in-out infinite;
-}
-
-.animate-tree-sway-right {
-  transform-origin: bottom center;
-  animation: treeSwaySubtle 7s ease-in-out infinite;
+.animate-leaf-sway {
+  animation: leafSway 4s ease-in-out infinite;
 }

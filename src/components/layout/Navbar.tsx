@@ -44,14 +44,14 @@ export const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection(item.id);
               }}
-              className="px-3 py-1.5 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
+              className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
             >
               {item.label}
             </a>
           ))}
           <button
             onClick={() => scrollToSection("contact")}
-            className="ml-2 px-4 py-1.5 rounded-full bg-[#2D6A4F] hover:bg-[#40916C] text-white text-xs font-bold transition-all shadow-[0_2px_10px_rgba(45,106,79,0.35)] cursor-pointer"
+            className="ml-2 px-4 py-1.5 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
           >
             Hire Me
           </button>
@@ -61,13 +61,13 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={() => scrollToSection("contact")}
-            className="px-3.5 py-1.5 rounded-full bg-[#2D6A4F] hover:bg-[#40916C] text-white text-xs font-bold transition-all shadow-xs cursor-pointer"
+            className="px-3.5 py-1.5 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
           >
             Hire Me
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors cursor-pointer text-base"
+            className="p-2 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--ring)] transition-colors cursor-pointer text-base"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? "✕" : "☰"}
@@ -77,7 +77,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 py-3 space-y-1.5">
+        <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 py-4 space-y-2">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -86,7 +86,7 @@ export const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection(item.id);
               }}
-              className="block px-3 py-1.5 rounded-[var(--radius)] text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
+              className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
             >
               {item.label}
             </a>
