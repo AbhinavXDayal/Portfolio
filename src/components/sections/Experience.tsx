@@ -70,7 +70,6 @@ export const Experience: React.FC = () => {
           </h2>
         </div>
 
-        <div className="relative border-l border-[var(--border)] ml-3 md:ml-28 space-y-4">
           {experiences.map((exp) => (
             <div key={exp.company} className="relative pl-5 md:pl-8 group">
               {/* Timeline dot */}
