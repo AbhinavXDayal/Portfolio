@@ -56,3 +56,4 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
+

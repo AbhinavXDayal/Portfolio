@@ -32,3 +32,4 @@ export function useActiveSection(sectionIds: string[], offset = 120): string {
 
   return activeSection;
 }
+

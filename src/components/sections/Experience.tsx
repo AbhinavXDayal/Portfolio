@@ -41,7 +41,7 @@ export const Experience: React.FC = () => {
       id="experience"
       className="w-full py-4 md:py-6 bg-transparent text-[var(--foreground)]"
     >
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <div className="flex flex-col items-start text-left mb-4">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
@@ -148,3 +148,4 @@ export const Experience: React.FC = () => {
     </section>
   );
 };
+

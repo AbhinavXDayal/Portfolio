@@ -13,7 +13,7 @@ export const Hero: React.FC = () => {
       id="hero"
       className="w-full flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden pt-1 pb-2 sm:pt-2 sm:pb-3"
     >
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-8">
         {/* Left Column Content */}
         <div className="max-w-2xl text-center lg:text-left">
           <p className="text-xs sm:text-sm font-medium text-[var(--brand-accent)] mb-0.5 inline-flex items-center gap-1.5">
@@ -174,3 +174,4 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+

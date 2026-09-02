@@ -6,7 +6,7 @@ export const GithubActivity: React.FC = () => {
       id="github"
       className="w-full py-4 md:py-5 bg-transparent text-[var(--foreground)]"
     >
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Header: @AbhinavXDayal ↗ Button replacing "GitHub Activity" title */}
         <div className="flex items-center justify-between mb-3">
           <a
@@ -58,3 +58,4 @@ export const GithubActivity: React.FC = () => {
     </section>
   );
 };
+

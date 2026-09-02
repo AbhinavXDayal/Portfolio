@@ -250,3 +250,4 @@ export const ProjectMockup: React.FC<ProjectMockupProps> = ({ projectKey, title 
     </div>
   );
 };
+

@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-[var(--background)]/85 backdrop-blur-md text-[var(--foreground)] transition-colors duration-200">
-      <div className="max-w-6xl mx-auto px-4 h-12 sm:h-13 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 h-12 sm:h-13 flex items-center justify-between">
         <a
           href="#hero"
           onClick={(e) => {
@@ -95,3 +95,4 @@ export const Navbar: React.FC = () => {
     </nav>
   );
 };
+

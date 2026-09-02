@@ -32,7 +32,7 @@ export const Contact: React.FC = () => {
       id="contact"
       className="w-full py-2.5 md:py-4 bg-transparent text-[var(--foreground)]"
     >
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left mb-2.5">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
@@ -215,3 +215,4 @@ export const Contact: React.FC = () => {
     </section>
   );
 };
+
