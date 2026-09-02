@@ -97,25 +97,13 @@ export const Experience: React.FC = () => {
                   </div>
                 </div>
 
-                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed mb-3.5 text-left">
+                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed text-left">
                   {exp.bullets.map((bullet, idx) => (
                     <li key={idx} className="pl-0.5">
                       <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
-
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {exp.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 text-[11px] font-medium rounded-[var(--radius)] bg-[var(--background)] text-[var(--muted-foreground)] border border-[var(--border)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           ))}
