@@ -44,7 +44,7 @@ export const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection(item.id);
               }}
-              className="px-3 py-2 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
+              className="px-3 py-1.5 rounded-[var(--radius)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)] transition-colors text-xs font-semibold"
             >
               {item.label}
             </a>
@@ -67,7 +67,7 @@ export const Navbar: React.FC = () => {
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--ring)] transition-colors cursor-pointer text-base"
+            className="p-1.5 rounded-[var(--radius)] text-[var(--foreground)] hover:bg-[var(--accent)] focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors cursor-pointer text-base"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? "✕" : "☰"}
@@ -77,7 +77,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 py-4 space-y-2">
+        <div className="md:hidden border-t border-[var(--border)] bg-[var(--background)] px-4 py-3 space-y-1.5">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -86,7 +86,7 @@ export const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection(item.id);
               }}
-              className="block px-3 py-2 rounded-[var(--radius)] text-sm font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
+              className="block px-3 py-1.5 rounded-[var(--radius)] text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--accent)]"
             >
               {item.label}
             </a>

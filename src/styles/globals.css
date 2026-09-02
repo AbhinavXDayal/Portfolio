@@ -4,41 +4,40 @@
 
 @layer base {
   :root, html.dark, :root.dark, .dark {
-    /* Soft Dark & Greenish Nature Botanical Palette */
-    --background: #0E1613; /* Deep Dark Botanical Forest Moss */
-    --background-alt: #121C18;
-    --foreground: #EAF1EC; /* Soft Tranquil Pale Sage Ivory */
-    --muted: #1A2822; /* Forest Undergrowth Dark */
-    --muted-foreground: #91A89B; /* Soft Eucalyptus Sage Gray */
-    --brand-accent: #7EA984; /* Fresh Herbal Sage */
-    --popover: #15221D;
-    --popover-foreground: #EAF1EC;
-    --card: #15221D; /* Elevated Dark Forest Moss Card */
-    --card-foreground: #EAF1EC;
-    --border: #253930; /* Organic Forest Pine Border */
-    --border-subtle: #1B2B24;
-    --input: #1A2922;
-    --primary: #EAF1EC; /* Crisp Pale Sage Primary */
-    --primary-foreground: #0E1613; /* Deep Forest Text */
-    --secondary: #1F3229;
-    --secondary-foreground: #A3CEB3;
-    --accent: #1A2A23; /* Dark Botanical Accent Pill */
-    --accent-foreground: #A8D5B8; /* Delicate Forest Mint */
-    --destructive: #8B3A3A;
-    --destructive-foreground: #EAF1EC;
-    --ring: #5B8B67;
+    /* Natural Organic Warm Beige Palette */
+    --background: #F4EEE1; /* Primary Warm Linen Beige */
+    --background-alt: #EFE8DA; /* Soft Sand Almond */
+    --foreground: #221D18; /* Deep Rich Warm Espresso */
+    --muted: #E8DFD0; /* Muted Warm Beige */
+    --muted-foreground: #6B6256; /* Earthy Taupe Gray */
+    --brand-accent: #7A6244; /* Earthy Warm Timber */
+    --popover: #FAF6EE;
+    --popover-foreground: #221D18;
+    --card: #FAF6EE; /* Crisp Warm Ivory-Beige Card */
+    --card-foreground: #221D18;
+    --border: #DFD5C4; /* Soft Warm Beige Border */
+    --border-subtle: #EBE3D5;
+    --input: #EFE8DA;
+    --primary: #221D18; /* Deep Espresso Primary Action */
+    --primary-foreground: #F4EEE1; /* Beige Text */
+    --secondary: #EBE3D5;
+    --secondary-foreground: #221D18;
+    --accent: #EFE8DA; /* Soft Beige Pill */
+    --accent-foreground: #221D18;
+    --destructive: #991b1b;
+    --destructive-foreground: #FAF6EE;
+    --ring: #7A6244;
     --radius: 0.5rem;
 
-    /* Nature Botanical Swatches */
-    --nature-forest: #0E1613;
-    --nature-moss-dark: #15221D;
-    --nature-moss: #253930;
-    --nature-leaf: #5B8B67;
-    --nature-sage: #7EA984;
-    --nature-mint: #A3CEB3;
-    --nature-cream: #EAF1EC;
-    --nature-earth: #8C7853;
-    --nature-leaf-light: #B8DFC6;
+    /* Palette Swatches */
+    --color-beige-light: #FAF6EE;
+    --color-beige-base: #F4EEE1;
+    --color-beige-sand: #EFE8DA;
+    --color-beige-muted: #DFD5C4;
+    --color-nature-leaf: #5B7A58;
+    --color-nature-sage: #759772;
+    --color-espresso: #221D18;
+    --color-taupe: #6B6256;
   }
 
   html {
@@ -55,28 +54,46 @@
   }
 
   ::selection {
-    background-color: #3E6349;
-    color: #F2F7F4;
+    background-color: #DFD5C4;
+    color: #221D18;
   }
 }
 
-/* Custom Scrollbar in Darkish Forest Greenish tones */
+/* Custom Scrollbar in Warm Beige tones */
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #0E1613;
+  background: #F4EEE1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #253930;
+  background: #DFD5C4;
   border-radius: 9999px;
-  border: 2px solid #0E1613;
+  border: 2px solid #F4EEE1;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3B584B;
+  background: #C4B7A2;
 }
 
-/* Dynamic Ambient Floating Animations for Nature Theme */
+/* Tree & Foliage Swaying Animations */
+@keyframes treeSwayLeft {
+  0%, 100% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(1.5deg) skewX(0.7deg);
+  }
+}
+
+@keyframes treeSwayRight {
+  0%, 100% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(-1.5deg) skewX(-0.7deg);
+  }
+}
+
 @keyframes floatSlow {
   0%, 100% {
     transform: translate(0px, 0px) scale(1);
@@ -101,13 +118,14 @@
   }
 }
 
-@keyframes leafSway {
-  0%, 100% {
-    transform: rotate(0deg) translateY(0px);
-  }
-  50% {
-    transform: rotate(8deg) translateY(-4px);
-  }
+.animate-tree-left {
+  transform-origin: bottom center;
+  animation: treeSwayLeft 7s ease-in-out infinite;
+}
+
+.animate-tree-right {
+  transform-origin: bottom center;
+  animation: treeSwayRight 8s ease-in-out infinite;
 }
 
 .animate-float-slow {
@@ -116,8 +134,4 @@
 
 .animate-float-reverse {
   animation: floatReverse 24s ease-in-out infinite;
-}
-
-.animate-leaf-sway {
-  animation: leafSway 4s ease-in-out infinite;
 }
