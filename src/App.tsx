@@ -7,7 +7,6 @@ import { Experience } from './components/sections/Experience';
 import { Projects } from './components/sections/Projects';
 import { Education } from './components/sections/Education';
 import { Contact } from './components/sections/Contact';
-import { Footer } from './components/layout/Footer';
 import { DotMatrix } from './components/ui/DotMatrix';
 
 export const App: React.FC = () => {
@@ -27,7 +26,7 @@ export const App: React.FC = () => {
       {/* 3. Main Site Content */}
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
-        <main className="flex-grow w-full">
+        <main className="flex-grow w-full pb-10">
           <Hero />
           <About />
           <Skills />
@@ -36,7 +35,6 @@ export const App: React.FC = () => {
           <Education />
           <Contact />
         </main>
-        <Footer />
       </div>
     </div>
   );

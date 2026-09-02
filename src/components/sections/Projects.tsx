@@ -10,7 +10,6 @@ export const Projects: React.FC = () => {
       image: '/projects/swastrix.jpg',
       github: 'https://github.com/AbhinavXDayal',
       live: 'https://github.com/AbhinavXDayal',
-      liveLabel: 'View Project',
       tags: ['React Native', 'Expo', 'JavaScript', 'TypeScript', 'Axios', 'REST APIs'],
     },
     {
@@ -21,7 +20,6 @@ export const Projects: React.FC = () => {
       image: '/projects/watchlist.jpg',
       github: 'https://github.com/AbhinavXDayal/movie-watchlist',
       live: 'https://abhinav-moviewatchlist.vercel.app',
-      liveLabel: 'Live Demo',
       tags: ['React.js', 'OMDb API', 'Axios', 'React Router', 'localStorage', 'CSS3'],
     },
     {
@@ -32,36 +30,35 @@ export const Projects: React.FC = () => {
       image: '/projects/chefclaude.jpg',
       github: 'https://github.com/AbhinavXDayal/chef-claude',
       live: 'https://abhinav-chefclaude.vercel.app',
-      liveLabel: 'Live Demo',
-      tags: ['React.js', 'Generative AI', 'Hugging Face', 'Mixtral 8x7B', 'Tailwind CSS', 'Markdown'],
+      tags: ['React.js', 'Generative AI', 'Hugging Face', 'Mixtral 8x7B', 'Tailwind CSS'],
     },
   ];
 
   return (
     <section
       id="projects"
-      className="w-full py-16 md:py-24 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
+      className="w-full py-8 md:py-12 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-12">
-          <span className="text-sm font-semibold tracking-wider uppercase text-[var(--muted-foreground)] mb-2">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-6">
+          <span className="text-xs font-semibold tracking-wider uppercase text-[var(--muted-foreground)] mb-1">
             Featured Work
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--foreground)]">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Projects
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.map((project) => (
             <div
               key={project.title}
-              className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-6 flex flex-col justify-between hover:border-[var(--foreground)]/40 transition-all duration-300 shadow-sm group"
+              className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-4 sm:p-5 flex flex-col justify-between hover:border-[var(--foreground)]/40 transition-all duration-300 shadow-xs group"
             >
               <div>
                 {/* Card Header */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-2.5 rounded-lg bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)]">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="p-2 rounded-md bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)]">
                     <svg
                       stroke="currentColor"
                       fill="none"
@@ -69,7 +66,7 @@ export const Projects: React.FC = () => {
                       viewBox="0 0 24 24"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-xl"
+                      className="text-base"
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -77,12 +74,12 @@ export const Projects: React.FC = () => {
                       <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                     </svg>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-md hover:bg-[var(--accent)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                      className="p-1.5 rounded-md hover:bg-[var(--accent)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
                       aria-label="GitHub Repository"
                     >
                       <svg
@@ -92,7 +89,7 @@ export const Projects: React.FC = () => {
                         viewBox="0 0 24 24"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-lg"
+                        className="text-base"
                         height="1em"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +101,7 @@ export const Projects: React.FC = () => {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-md hover:bg-[var(--accent)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                      className="p-1.5 rounded-md hover:bg-[var(--accent)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
                       aria-label="Live Demo Link"
                     >
                       <svg
@@ -114,7 +111,7 @@ export const Projects: React.FC = () => {
                         viewBox="0 0 24 24"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="text-lg"
+                        className="text-base"
                         height="1em"
                         width="1em"
                         xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +129,7 @@ export const Projects: React.FC = () => {
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative block w-full h-44 sm:h-48 rounded-lg overflow-hidden mb-4 border border-[var(--border)] group/image cursor-pointer"
+                  className="relative block w-full h-36 sm:h-40 rounded-md overflow-hidden mb-3 border border-[var(--border)] group/image cursor-pointer"
                 >
                   <img
                     src={project.image}
@@ -140,13 +137,13 @@ export const Projects: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-105"
                   />
                   {/* Subtle live indicator badge */}
-                  <div className="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-xs border border-white/10 text-[11px] font-semibold text-white flex items-center gap-1.5 z-10 transition-opacity duration-200 group-hover/image:opacity-0">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <div className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-xs border border-white/10 text-[10px] font-semibold text-white flex items-center gap-1 z-10 transition-opacity duration-200 group-hover/image:opacity-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     Live
                   </div>
                   {/* Hover Overlay with Live Button */}
                   <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center">
-                    <span className="px-4 py-2 rounded-full bg-white text-zinc-950 text-xs font-bold flex items-center gap-1.5 shadow-lg transform translate-y-2 group-hover/image:translate-y-0 transition-transform duration-300">
+                    <span className="px-3.5 py-1.5 rounded-full bg-white text-zinc-950 text-xs font-bold flex items-center gap-1 shadow-md transform translate-y-1 group-hover/image:translate-y-0 transition-transform duration-300">
                       Live Demo{' '}
                       <svg
                         stroke="currentColor"
@@ -169,23 +166,23 @@ export const Projects: React.FC = () => {
                 </a>
 
                 {/* Category & Title */}
-                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)] block mb-1.5 text-center sm:text-left">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[var(--muted-foreground)] block mb-1 text-center sm:text-left">
                   {project.category}
                 </span>
-                <h3 className="text-xl font-bold mb-2.5 text-[var(--foreground)] group-hover:text-[var(--foreground)] transition-colors text-center sm:text-left">
+                <h3 className="text-base sm:text-lg font-bold mb-1.5 text-[var(--foreground)] group-hover:text-[var(--foreground)] transition-colors text-center sm:text-left">
                   {project.title}
                 </h3>
-                <p className="text-sm text-[var(--muted-foreground)] mb-6 leading-relaxed text-center sm:text-left">
+                <p className="text-xs text-[var(--muted-foreground)] mb-4 leading-relaxed text-center sm:text-left line-clamp-3">
                   {project.description}
                 </p>
               </div>
 
-              {/* Tech Tags (no live demo button below) */}
-              <div className="flex flex-wrap justify-center sm:justify-start gap-2 pt-4 border-t border-[var(--border)]/60">
+              {/* Tech Tags */}
+              <div className="flex flex-wrap justify-center sm:justify-start gap-1.5 pt-3 border-t border-[var(--border)]/60">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-1 text-xs font-medium rounded-[var(--radius)] bg-[var(--background)] text-[var(--muted-foreground)] border border-[var(--border)]"
+                    className="px-2 py-0.5 text-[11px] font-medium rounded-[var(--radius)] bg-[var(--background)] text-[var(--muted-foreground)] border border-[var(--border)]"
                   >
                     {tag}
                   </span>

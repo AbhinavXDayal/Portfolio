@@ -30,38 +30,38 @@ export const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="w-full py-16 md:py-24 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
+      className="w-full py-8 md:py-12 bg-transparent text-[var(--foreground)] border-t border-[var(--border)]/50"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-12">
-          <span className="text-sm font-semibold tracking-wider uppercase text-[var(--muted-foreground)] mb-2">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-6">
+          <span className="text-xs font-semibold tracking-wider uppercase text-[var(--muted-foreground)] mb-1">
             Let's Connect
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[var(--foreground)]">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Contact Me
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Left Column Contact Details */}
-          <div className="flex flex-col space-y-6 text-center lg:text-left">
-            <p className="text-base md:text-lg text-[var(--muted-foreground)] leading-relaxed">
-              I am currently open to app development opportunities, freelance mobile projects, and engineering collaborations. Feel free to reach out via email or phone!
+          <div className="flex flex-col space-y-4 text-center lg:text-left">
+            <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
+              I am open to app development opportunities, mobile projects, and engineering collaborations. Feel free to reach out via email or phone!
             </p>
 
-            <div className="space-y-4 pt-2">
+            <div className="space-y-2.5 pt-1">
               {/* Email Card */}
-              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-center sm:text-left">
-                <div className="p-2.5 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-lg">
+              <div className="flex items-center space-x-3 p-3 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-left shadow-2xs">
+                <div className="p-2 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-sm">
                   ✉️
                 </div>
                 <div>
-                  <h4 className="text-xs font-semibold text-[var(--muted-foreground)] uppercase">
+                  <h4 className="text-[10px] font-semibold text-[var(--muted-foreground)] uppercase">
                     Email
                   </h4>
                   <a
                     href="mailto:abhinavxdayal@gmail.com"
-                    className="text-sm font-medium text-[var(--foreground)] hover:underline"
+                    className="text-xs font-medium text-[var(--foreground)] hover:underline"
                   >
                     abhinavxdayal@gmail.com
                   </a>
@@ -69,17 +69,17 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Phone Card */}
-              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-center sm:text-left">
-                <div className="p-2.5 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-lg">
+              <div className="flex items-center space-x-3 p-3 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-left shadow-2xs">
+                <div className="p-2 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-sm">
                   📱
                 </div>
                 <div>
-                  <h4 className="text-xs font-semibold text-[var(--muted-foreground)] uppercase">
+                  <h4 className="text-[10px] font-semibold text-[var(--muted-foreground)] uppercase">
                     Phone
                   </h4>
                   <a
                     href="tel:+918318215585"
-                    className="text-sm font-medium text-[var(--foreground)] hover:underline"
+                    className="text-xs font-medium text-[var(--foreground)] hover:underline"
                   >
                     +91 8318215585
                   </a>
@@ -87,31 +87,28 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Location Card */}
-              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 p-4 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-center sm:text-left">
-                <div className="p-2.5 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-lg">
+              <div className="flex items-center space-x-3 p-3 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] text-left shadow-2xs">
+                <div className="p-2 rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] text-sm">
                   📍
                 </div>
                 <div>
-                  <h4 className="text-xs font-semibold text-[var(--muted-foreground)] uppercase">
+                  <h4 className="text-[10px] font-semibold text-[var(--muted-foreground)] uppercase">
                     Location
                   </h4>
-                  <p className="text-sm font-medium text-[var(--foreground)]">
+                  <p className="text-xs font-medium text-[var(--foreground)]">
                     Delhi / Lucknow, India
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="pt-2">
-              <h4 className="text-xs font-semibold text-[var(--muted-foreground)] uppercase mb-3 text-center lg:text-left">
-                Follow &amp; Connect
-              </h4>
-              <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+            <div className="pt-1">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                 <a
                   href="https://github.com/AbhinavXDayal"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors"
+                  className="px-3 py-1.5 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors shadow-2xs"
                 >
                   GitHub
                 </a>
@@ -119,7 +116,7 @@ export const Contact: React.FC = () => {
                   href="https://linkedin.com/in/abhinavxdayal"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors"
+                  className="px-3 py-1.5 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors shadow-2xs"
                 >
                   LinkedIn
                 </a>
@@ -127,7 +124,7 @@ export const Contact: React.FC = () => {
                   href="https://abhinavxportfolio.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors"
+                  className="px-3 py-1.5 text-xs font-semibold rounded-[var(--radius)] bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)] hover:bg-[var(--background)] transition-colors shadow-2xs"
                 >
                   Portfolio
                 </a>
@@ -136,25 +133,25 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Right Column Form */}
-          <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-6 md:p-8 shadow-sm">
+          <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-4 sm:p-5 shadow-xs">
             {submitted ? (
-              <div className="py-8 text-center space-y-3">
-                <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-500 flex items-center justify-center mx-auto text-xl">
+              <div className="py-6 text-center space-y-2">
+                <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-600 flex items-center justify-center mx-auto text-lg font-bold">
                   ✓
                 </div>
-                <h3 className="text-lg font-bold text-[var(--foreground)]">
-                  Message Sent Successfully!
+                <h3 className="text-base font-bold text-[var(--foreground)]">
+                  Message Sent!
                 </h3>
-                <p className="text-sm text-[var(--muted-foreground)]">
+                <p className="text-xs text-[var(--muted-foreground)]">
                   Thank you for reaching out. I will get back to you promptly.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-3.5">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-xs font-semibold text-[var(--muted-foreground)] uppercase mb-2"
+                    className="block text-[11px] font-semibold text-[var(--muted-foreground)] uppercase mb-1"
                   >
                     Name
                   </label>
@@ -165,14 +162,14 @@ export const Contact: React.FC = () => {
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--ring)] transition-colors"
+                    className="w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)]/60 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-xs font-semibold text-[var(--muted-foreground)] uppercase mb-2"
+                    className="block text-[11px] font-semibold text-[var(--muted-foreground)] uppercase mb-1"
                   >
                     Email Address
                   </label>
@@ -183,37 +180,37 @@ export const Contact: React.FC = () => {
                     placeholder="you@example.com"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--ring)] transition-colors"
+                    className="w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)]/60 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors"
                   />
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between mb-1">
                     <label
                       htmlFor="message"
-                      className="block text-xs font-semibold text-[var(--muted-foreground)] uppercase"
+                      className="block text-[11px] font-semibold text-[var(--muted-foreground)] uppercase"
                     >
                       Message
                     </label>
-                    <span className="text-[11px] font-mono text-[var(--muted-foreground)]">
-                      {formData.message.length} / 500 chars
+                    <span className="text-[10px] font-mono text-[var(--muted-foreground)]">
+                      {formData.message.length} / 500
                     </span>
                   </div>
                   <textarea
                     id="message"
                     required
                     maxLength={500}
-                    rows={4}
-                    placeholder="Your message here (max 500 characters)..."
+                    rows={3}
+                    placeholder="Your message here..."
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-2.5 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--ring)] transition-colors resize-none"
+                    className="w-full px-3 py-2 rounded-[var(--radius)] bg-[var(--background)] border border-[var(--border)] text-[var(--foreground)] placeholder-[var(--muted-foreground)]/60 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-[var(--ring)] transition-colors resize-none"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 px-6 rounded-[var(--radius)] bg-[var(--primary)] text-[var(--primary-foreground)] font-semibold text-sm hover:opacity-90 active:scale-[0.99] transition-all disabled:opacity-50 shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-2.5 px-4 rounded-[var(--radius)] bg-[var(--primary)] text-[var(--primary-foreground)] font-semibold text-xs sm:text-sm hover:opacity-90 active:scale-[0.99] transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   Send Message
                 </button>

@@ -51,9 +51,9 @@ export const Navbar: React.FC = () => {
           ))}
           <button
             onClick={() => scrollToSection('contact')}
-            className="ml-2 px-4 py-2 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
+            className="ml-2 px-4 py-1.5 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
           >
-            Contact Me
+            Hire Me
           </button>
         </div>
 
@@ -63,7 +63,7 @@ export const Navbar: React.FC = () => {
             onClick={() => scrollToSection('contact')}
             className="px-3.5 py-1.5 rounded-full bg-[var(--primary)] text-[var(--primary-foreground)] text-xs font-bold hover:opacity-90 transition-all shadow-xs cursor-pointer"
           >
-            Contact Me
+            Hire Me
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

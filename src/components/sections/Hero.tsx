@@ -1,80 +1,52 @@
-import React from "react";
+import React from 'react';
 
 export const Hero: React.FC = () => {
   const scrollToContact = () => {
-    const el = document.getElementById("contact");
+    const el = document.getElementById('contact');
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
     <section
       id="hero"
-      className="w-full min-h-[85vh] lg:min-h-[calc(100vh-4rem)] flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden py-12 lg:py-0"
+      className="w-full min-h-[55vh] lg:min-h-[65vh] flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden py-6 lg:py-8"
     >
       {/* Top Center Warm Glow */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[radial-gradient(ellipse_at_center,#E9CCB1/0.25_0%,transparent_70%)] blur-3xl pointer-events-none"></div>
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse_at_center,#E9CCB1/0.25_0%,transparent_70%)] blur-3xl pointer-events-none"></div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-12">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-10">
         {/* Left Column Content */}
         <div className="max-w-2xl text-center lg:text-left">
-          <p className="text-base sm:text-lg md:text-xl font-medium text-[var(--primary)] mb-0.5 sm:mb-2">
+          <p className="text-sm sm:text-base font-medium text-[var(--primary)] mb-0.5">
             Hi, I'm
           </p>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-1 sm:mb-3 text-[var(--foreground)]">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-1 text-[var(--foreground)]">
             Abhinav Dayal
           </h1>
-          <h2 className="text-lg sm:text-2xl font-semibold text-[var(--muted-foreground)] mb-4 sm:mb-6 tracking-wide">
+          <h2 className="text-base sm:text-xl font-semibold text-[var(--muted-foreground)] mb-3 tracking-wide">
             App Developer
           </h2>
-          <p className="text-sm sm:text-lg text-[var(--muted-foreground)] mb-6 sm:mb-8 leading-relaxed max-w-xl">
-            I build{" "}
+          <p className="text-xs sm:text-sm md:text-base text-[var(--muted-foreground)] mb-4 leading-relaxed max-w-xl">
+            I build{' '}
             <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
               cross-platform mobile
-            </span>{" "}
-            and high-performance web applications using React Native, React.js,
-            and TypeScript with reusable component architecture and RESTful API
-            integrations.
+            </span>{' '}
+            and high-performance web applications using React Native, React.js, and TypeScript with reusable component architecture and RESTful API integrations.
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-5">
             <a
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToContact();
               }}
-              className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-6 py-3 rounded-[var(--radius)] text-base hover:opacity-90 transition-all shadow-md inline-flex items-center gap-2 cursor-pointer"
+              className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-5 py-2.5 rounded-[var(--radius)] text-sm hover:opacity-90 transition-all shadow-sm inline-flex items-center gap-2 cursor-pointer"
             >
-              Contact Me{" "}
-              <svg
-                stroke="currentColor"
-                fill="none"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-lg"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
-          </div>
-
-          {/* Social Links Pills */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-sm font-medium">
-            <a
-              href="https://github.com/AbhinavXDayal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
-            >
+              Contact Me{' '}
               <svg
                 stroke="currentColor"
                 fill="none"
@@ -87,15 +59,19 @@ export const Hero: React.FC = () => {
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
-              GitHub
             </a>
+          </div>
+
+          {/* Social Links Pills */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs font-medium">
             <a
-              href="https://linkedin.com/in/abhinavxdayal"
+              href="https://github.com/AbhinavXDayal"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
             >
               <svg
                 stroke="currentColor"
@@ -104,7 +80,29 @@ export const Hero: React.FC = () => {
                 viewBox="0 0 24 24"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-base text-[var(--foreground)]"
+                className="text-sm"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/abhinavxdayal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
+            >
+              <svg
+                stroke="currentColor"
+                fill="none"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-sm"
                 height="1em"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +117,7 @@ export const Hero: React.FC = () => {
               href="https://abhinavxportfolio.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
             >
               <svg
                 stroke="currentColor"
@@ -128,7 +126,7 @@ export const Hero: React.FC = () => {
                 viewBox="0 0 24 24"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-base text-[var(--foreground)]"
+                className="text-sm"
                 height="1em"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +139,7 @@ export const Hero: React.FC = () => {
             </a>
             <a
               href="mailto:abhinavxdayal@gmail.com"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
             >
               <svg
                 stroke="currentColor"
@@ -150,7 +148,7 @@ export const Hero: React.FC = () => {
                 viewBox="0 0 24 24"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-base text-[var(--foreground)]"
+                className="text-sm"
                 height="1em"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -165,8 +163,8 @@ export const Hero: React.FC = () => {
 
         {/* Right Column Profile Avatar */}
         <div className="relative w-full max-w-xs flex justify-center">
-          <div className="absolute -inset-6 sm:-inset-10 rounded-full bg-[radial-gradient(circle_at_center,#E9CCB1/0.45_0%,transparent_70%)] blur-2xl pointer-events-none"></div>
-          <div className="relative w-40 h-40 sm:w-56 sm:h-56 md:w-[290px] md:h-[290px] rounded-full overflow-hidden ring-1 ring-[var(--border)] shadow-xl transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
+          <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-[radial-gradient(circle_at_center,#E9CCB1/0.45_0%,transparent_70%)] blur-2xl pointer-events-none"></div>
+          <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden ring-2 ring-[var(--border)] shadow-lg transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
             <img
               src="/portfolio pic.jpeg"
               alt="Abhinav Dayal"
