@@ -21,7 +21,7 @@ export const Contact: React.FC = () => {
           title="CONTACT ME"
         />
 
-        <div className="contact-v4-container">
+        <div className="contact-v4-card">
           <div className="contact-v4-main">
             <h3 className="contact-v4-headline">
               LET'S BUILD SOMETHING.
