@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export const Contact: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,14 +34,36 @@ export const Contact: React.FC = () => {
       className="w-full py-4 md:py-6 bg-transparent text-[var(--foreground)]"
     >
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-4">
+        {/* Section Header with Toggle */}
+        <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Contact Me
           </h2>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] bg-[var(--card)] hover:bg-[var(--accent)] border border-[var(--border)] transition-all cursor-pointer shadow-2xs group"
+            aria-label="Toggle Contact section"
+          >
+            <span className="text-[11px] font-semibold">
+              {isOpen ? "Collapse" : "Expand"}
+            </span>
+            <svg
+              stroke="currentColor"
+              fill="none"
+              strokeWidth="2.5"
+              viewBox="0 0 24 24"
+              className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                isOpen ? "rotate-180" : ""
+              }`}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
         </div>
 
-        {/* Cohesive, Premium Contact Card */}
-        <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-5 sm:p-6 md:p-7 shadow-xs hover:border-[var(--brand-accent)]/30 transition-all duration-200">
+        {isOpen && (
+          <div className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-5 sm:p-6 md:p-7 shadow-xs hover:border-[var(--brand-accent)]/30 transition-all duration-200">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
             {/* Left Column: Context & Contact Points */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
@@ -214,7 +237,8 @@ export const Contact: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
+      )}
+    </div>
+  </section>
+);
 };
