@@ -32,32 +32,31 @@ export const DotMatrix: React.FC = () => {
       targetY: -1000,
     };
 
-    // Quasi-neutral palette particle colors
+    // Soft palette colors
     const palette = [
       '233, 204, 177', // #E9CCB1 (warm peach)
       '211, 196, 190', // #D3C4BE (soft taupe)
-      '228, 218, 194', // #E4DAC2 (warm champagne)
-      '196, 189, 172', // #C4BDAC (muted stone)
-      '235, 207, 196', // #EBCFC4 (soft blush)
+      '228, 218, 194', // #E4DAC2 (champagne)
+      '196, 189, 172', // #C4BDAC (stone)
     ];
 
-    // Grid config
-    const spacing = 32;
-    const baseGridRadius = 1;
-    const hoverRadius = 140;
+    // Grid config: subtle, tiny pinpoint dots
+    const spacing = 36;
+    const baseGridRadius = 0.55;
+    const hoverRadius = 110;
 
-    // Floating dynamic particles
-    const particleCount = Math.min(Math.floor((width * height) / 24000), 48);
+    // Gentle micro-particles
+    const particleCount = Math.min(Math.floor((width * height) / 45000), 22);
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.48,
-        vy: (Math.random() - 0.5) * 0.48,
-        radius: 1.8 + Math.random() * 2,
-        baseAlpha: 0.25 + Math.random() * 0.35,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        radius: 0.8 + Math.random() * 0.5,
+        baseAlpha: 0.15 + Math.random() * 0.15,
         phase: Math.random() * Math.PI * 2,
         color: palette[i % palette.length],
       });
@@ -90,21 +89,21 @@ export const DotMatrix: React.FC = () => {
 
     const render = () => {
       if (!canvas || !ctx) return;
-      time += 0.016;
+      time += 0.012;
 
       // Smooth mouse interpolation
-      mouse.x += (mouse.targetX - mouse.x) * 0.12;
-      mouse.y += (mouse.targetY - mouse.y) * 0.12;
+      mouse.x += (mouse.targetX - mouse.x) * 0.1;
+      mouse.y += (mouse.targetY - mouse.y) * 0.1;
 
       ctx.clearRect(0, 0, width, height);
 
       const hasMouse = mouse.x > 0 && mouse.y > 0;
 
-      // 1. Draw Quasi-Neutral Interactive Dot Matrix Grid
+      // 1. Subtle, faint pinpoint dot matrix
       for (let x = spacing / 2; x < width; x += spacing) {
         for (let y = spacing / 2; y < height; y += spacing) {
           let radius = baseGridRadius;
-          let alpha = 0.16;
+          let alpha = 0.06;
 
           if (hasMouse && !prefersReducedMotion) {
             const dx = mouse.x - x;
@@ -113,50 +112,45 @@ export const DotMatrix: React.FC = () => {
 
             if (dist < hoverRadius) {
               const factor = 1 - dist / hoverRadius;
-              radius = baseGridRadius + factor * 1.8;
-              alpha = 0.16 + factor * 0.45;
+              radius = baseGridRadius + factor * 0.45;
+              alpha = 0.06 + factor * 0.12;
             }
           }
 
-          // #C4BDAC based dot
-          ctx.fillStyle = `rgba(180, 170, 155, ${alpha})`;
+          ctx.fillStyle = `rgba(180, 172, 160, ${alpha})`;
           ctx.beginPath();
           ctx.arc(x, y, radius, 0, Math.PI * 2);
           ctx.fill();
         }
       }
 
-      // 2. Moving Dynamic Floating Nodes & Constellation Lines
+      // 2. Faint micro-particles and fine filaments
       if (!prefersReducedMotion) {
-        // Update particles
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i];
 
-          // Gentle ambient wave motion
-          p.x += p.vx + Math.sin(time + p.phase) * 0.18;
-          p.y += p.vy + Math.cos(time + p.phase) * 0.18;
+          p.x += p.vx + Math.sin(time + p.phase) * 0.12;
+          p.y += p.vy + Math.cos(time + p.phase) * 0.12;
 
-          // Wrap edges
           if (p.x < -20) p.x = width + 20;
           if (p.x > width + 20) p.x = -20;
           if (p.y < -20) p.y = height + 20;
           if (p.y > height + 20) p.y = -20;
 
-          // Mouse interaction (soft attraction)
           if (hasMouse) {
             const dx = mouse.x - p.x;
             const dy = mouse.y - p.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 160) {
-              const force = (1 - dist / 160) * 0.8;
+            if (dist < 120) {
+              const force = (1 - dist / 120) * 0.5;
               p.x += (dx / dist) * force;
               p.y += (dy / dist) * force;
             }
           }
         }
 
-        // Draw connections between close moving particles
-        const maxConnectDist = 135;
+        // Faint connection lines between nearby particles
+        const maxConnectDist = 110;
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const p1 = particles[i];
@@ -166,9 +160,9 @@ export const DotMatrix: React.FC = () => {
             const dist = Math.sqrt(dx * dx + dy * dy);
 
             if (dist < maxConnectDist) {
-              const lineAlpha = (1 - dist / maxConnectDist) * 0.28;
+              const lineAlpha = (1 - dist / maxConnectDist) * 0.08;
               ctx.strokeStyle = `rgba(196, 189, 172, ${lineAlpha})`;
-              ctx.lineWidth = 1;
+              ctx.lineWidth = 0.7;
               ctx.beginPath();
               ctx.moveTo(p1.x, p1.y);
               ctx.lineTo(p2.x, p2.y);
@@ -176,17 +170,16 @@ export const DotMatrix: React.FC = () => {
             }
           }
 
-          // Connection to mouse cursor
           if (hasMouse) {
             const p = particles[i];
             const dx = mouse.x - p.x;
             const dy = mouse.y - p.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
 
-            if (dist < 150) {
-              const lineAlpha = (1 - dist / 150) * 0.42;
+            if (dist < 120) {
+              const lineAlpha = (1 - dist / 120) * 0.12;
               ctx.strokeStyle = `rgba(233, 204, 177, ${lineAlpha})`;
-              ctx.lineWidth = 1.2;
+              ctx.lineWidth = 0.8;
               ctx.beginPath();
               ctx.moveTo(p.x, p.y);
               ctx.lineTo(mouse.x, mouse.y);
@@ -195,19 +188,12 @@ export const DotMatrix: React.FC = () => {
           }
         }
 
-        // Draw moving particle nodes with soft glowing halos
+        // Draw small pinpoint particle dots (NO large outer halo)
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i];
-          const pulsingAlpha = p.baseAlpha + Math.sin(time * 2.5 + p.phase) * 0.1;
+          const pulsingAlpha = p.baseAlpha + Math.sin(time * 2 + p.phase) * 0.05;
 
-          // Outer soft glow halo
-          ctx.fillStyle = `rgba(${p.color}, ${Math.max(0.08, pulsingAlpha * 0.4)})`;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.radius * 2.8, 0, Math.PI * 2);
-          ctx.fill();
-
-          // Core dot
-          ctx.fillStyle = `rgba(${p.color}, ${Math.min(1, pulsingAlpha * 1.4)})`;
+          ctx.fillStyle = `rgba(${p.color}, ${Math.min(0.4, pulsingAlpha)})`;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
           ctx.fill();

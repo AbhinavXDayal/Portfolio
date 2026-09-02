@@ -1,26 +1,58 @@
-import React from 'react';
+import React from "react";
 
 export const Skills: React.FC = () => {
   const skillCategories = [
     {
-      title: 'Mobile & App Development',
-      description: 'Cross-platform mobile apps, native tooling & reusable architecture.',
-      skills: ['React Native', 'React Native CLI', 'Expo', 'State Management', 'C++', 'Mobile UI'],
+      title: "Mobile & App Development",
+      description:
+        "Cross-platform mobile apps, native tooling & reusable architecture.",
+      skills: [
+        "React Native",
+        "React Native CLI",
+        "Expo",
+        "State Management",
+        "C++",
+        "Mobile UI",
+      ],
     },
     {
-      title: 'Frontend & Web',
-      description: 'Modern component-driven web interfaces & responsive design.',
-      skills: ['React.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML5', 'CSS3'],
+      title: "Frontend & Web",
+      description:
+        "Modern component-driven web interfaces & responsive design.",
+      skills: [
+        "React.js",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
+        "HTML5",
+        "CSS3",
+      ],
     },
     {
-      title: 'Web & Architecture',
-      description: 'RESTful API integrations, data handling & routing architectures.',
-      skills: ['REST APIs', 'API Integration', 'Axios', 'React Router', 'Responsive Design', 'Data Flow'],
+      title: "Web & Architecture",
+      description:
+        "RESTful API integrations, data handling & routing architectures.",
+      skills: [
+        "REST APIs",
+        "API Integration",
+        "Axios",
+        "React Router",
+        "Responsive Design",
+        "Data Flow",
+      ],
     },
     {
-      title: 'Tools & Platforms',
-      description: 'Cloud services, version control workflows & dev ecosystems.',
-      skills: ['Git', 'GitHub', 'Google Cloud Platform (GCP)', 'VS Code', 'npm', 'Vercel'],
+      title: "Tools & Platforms",
+      description:
+        "Cloud services, version control workflows & dev ecosystems.",
+      skills: [
+        "Git",
+        "GitHub",
+        "Google Cloud Platform (GCP)",
+        "VS Code",
+        "npm",
+        "Vercel",
+      ],
     },
   ];
 

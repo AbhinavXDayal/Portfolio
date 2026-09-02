@@ -1,36 +1,56 @@
-import React from 'react';
+import React from "react";
 
 export const Projects: React.FC = () => {
   const projects = [
     {
-      title: 'Swastrix Healthcare',
-      category: 'Cross-Platform Mobile Application',
+      title: "Swastrix Healthcare",
+      category: "Cross-Platform Mobile Application",
       description:
-        'Developed a cross-platform healthcare application using React Native & Expo, building reusable components, responsive mobile interfaces for healthcare workflows, and Axios REST API integrations.',
-      image: '/projects/swastrix.jpg',
-      github: 'https://github.com/AbhinavXDayal',
-      live: 'https://github.com/AbhinavXDayal',
-      tags: ['React Native', 'Expo', 'JavaScript', 'TypeScript', 'Axios', 'REST APIs'],
+        "Developed a cross-platform healthcare application using React Native & Expo, building reusable components, responsive mobile interfaces for healthcare workflows, and Axios REST API integrations.",
+      image: "/projects/swastrix.jpg",
+      github: "https://github.com/AbhinavXDayal",
+      live: "https://github.com/AbhinavXDayal",
+      tags: [
+        "React Native",
+        "Expo",
+        "JavaScript",
+        "TypeScript",
+        "Axios",
+        "REST APIs",
+      ],
     },
     {
-      title: 'Movie Watchlist',
-      category: 'Single Page Web Application',
+      title: "Movie Watchlist",
+      category: "Single Page Web Application",
       description:
-        'Developed a responsive single page movie app using React.js, integrating the OMDb REST API with dynamic Watchlist & Watched state management via localStorage.',
-      image: '/projects/watchlist.jpg',
-      github: 'https://github.com/AbhinavXDayal/movie-watchlist',
-      live: 'https://abhinav-moviewatchlist.vercel.app',
-      tags: ['React.js', 'OMDb API', 'Axios', 'React Router', 'localStorage', 'CSS3'],
+        "Developed a responsive single page movie app using React.js, integrating the OMDb REST API with dynamic Watchlist & Watched state management via localStorage.",
+      image: "/projects/watchlist.jpg",
+      github: "https://github.com/AbhinavXDayal/movie-watchlist",
+      live: "https://abhinav-moviewatchlist.vercel.app",
+      tags: [
+        "React.js",
+        "OMDb API",
+        "Axios",
+        "React Router",
+        "localStorage",
+        "CSS3",
+      ],
     },
     {
-      title: 'Chef Claude',
-      category: 'AI-Powered Web Application',
+      title: "Chef Claude",
+      category: "AI-Powered Web Application",
       description:
         "Developed an AI powered recipe generator using React.js & Hugging Face's Mixtral 8x7B model, dynamic user input handling, Markdown rendering, and responsive Tailwind CSS.",
-      image: '/projects/chefclaude.jpg',
-      github: 'https://github.com/AbhinavXDayal/chef-claude',
-      live: 'https://abhinav-chefclaude.vercel.app',
-      tags: ['React.js', 'Generative AI', 'Hugging Face', 'Mixtral 8x7B', 'Tailwind CSS'],
+      image: "/projects/chefclaude.jpg",
+      github: "https://github.com/AbhinavXDayal/chef-claude",
+      live: "https://abhinav-chefclaude.vercel.app",
+      tags: [
+        "React.js",
+        "Generative AI",
+        "Hugging Face",
+        "Mixtral 8x7B",
+        "Tailwind CSS",
+      ],
     },
   ];
 
@@ -141,7 +161,7 @@ export const Projects: React.FC = () => {
                   {/* Hover Overlay with Live Button */}
                   <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center">
                     <span className="px-3.5 py-1.5 rounded-full bg-white text-zinc-950 text-xs font-bold flex items-center gap-1 shadow-md transform translate-y-1 group-hover/image:translate-y-0 transition-transform duration-300">
-                      Live Demo{' '}
+                      Live Demo{" "}
                       <svg
                         stroke="currentColor"
                         fill="none"

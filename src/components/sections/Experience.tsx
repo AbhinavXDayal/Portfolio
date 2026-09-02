@@ -1,40 +1,60 @@
-import React from 'react';
+import React from "react";
 
 export const Experience: React.FC = () => {
   const experiences = [
     {
-      role: 'App Developer',
-      company: 'Aronix Web Technology',
-      location: 'Delhi, India',
-      period: 'Jul 2026 – Present',
+      role: "App Developer",
+      company: "Aronix Web Technology",
+      location: "Delhi, India",
+      period: "Jul 2026 – Present",
       bullets: [
-        'Developing cross platform mobile applications using React Native, JavaScript & TypeScript with reusable components & component based architecture.',
-        'Building responsive and reusable UI components, screens & navigation flows while integrating RESTful APIs for a hospital management application.',
-        'Collaborating in the software development lifecycle to implement features, debug issues, optimize application performance & maintain code quality using Git workflows.',
+        "Developing cross platform mobile applications using React Native, JavaScript & TypeScript with reusable components & component based architecture.",
+        "Building responsive and reusable UI components, screens & navigation flows while integrating RESTful APIs for a hospital management application.",
+        "Collaborating in the software development lifecycle to implement features, debug issues, optimize application performance & maintain code quality using Git workflows.",
       ],
-      tags: ['React Native', 'JavaScript', 'TypeScript', 'RESTful APIs', 'Hospital Management', 'Git'],
+      tags: [
+        "React Native",
+        "JavaScript",
+        "TypeScript",
+        "RESTful APIs",
+        "Hospital Management",
+        "Git",
+      ],
     },
     {
-      role: 'Web Developer Trainee',
-      company: 'PCS Management Consultancy',
-      location: 'Lucknow, India',
-      period: 'Dec 2024 – Feb 2025',
+      role: "Web Developer Trainee",
+      company: "PCS Management Consultancy",
+      location: "Lucknow, India",
+      period: "Dec 2024 – Feb 2025",
       bullets: [
-        'Built & styled responsive web interfaces & internal dashboards using React.js, HTML5 & CSS3 with a focus on usability & cross device compatibility.',
-        'Identified, debugged & resolved UI/UX issues across multiple pages, improving visual consistency, responsiveness & user experience.',
+        "Built & styled responsive web interfaces & internal dashboards using React.js, HTML5 & CSS3 with a focus on usability & cross device compatibility.",
+        "Identified, debugged & resolved UI/UX issues across multiple pages, improving visual consistency, responsiveness & user experience.",
       ],
-      tags: ['React.js', 'HTML5', 'CSS3', 'UI/UX Design', 'Web Dashboards', 'Cross Device Compatibility'],
+      tags: [
+        "React.js",
+        "HTML5",
+        "CSS3",
+        "UI/UX Design",
+        "Web Dashboards",
+        "Cross Device Compatibility",
+      ],
     },
     {
-      role: 'Summer Training Intern',
-      company: 'EICT Academy, IIT Kanpur',
-      location: 'Lucknow, India',
-      period: 'Jul 2024 – Aug 2024',
+      role: "Summer Training Intern",
+      company: "EICT Academy, IIT Kanpur",
+      location: "Lucknow, India",
+      period: "Jul 2024 – Aug 2024",
       bullets: [
-        'Developed responsive web applications using JavaScript & React.js with reusable components & component based architecture.',
-        'Practiced database design, data management & application development concepts through guided exercises & hands on mock projects.',
+        "Developed responsive web applications using JavaScript & React.js with reusable components & component based architecture.",
+        "Practiced database design, data management & application development concepts through guided exercises & hands on mock projects.",
       ],
-      tags: ['JavaScript', 'React.js', 'Database Design', 'Component Architecture', 'Web Applications'],
+      tags: [
+        "JavaScript",
+        "React.js",
+        "Database Design",
+        "Component Architecture",
+        "Web Applications",
+      ],
     },
   ];
 

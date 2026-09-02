@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const Education: React.FC = () => {
   return (
@@ -39,7 +39,8 @@ export const Education: React.FC = () => {
                     Bachelor of Computer Applications (BCA)
                   </h3>
                   <p className="text-xs font-medium text-[var(--muted-foreground)]">
-                    SRMCEM — Shri Ramswaroop Memorial College of Engg. &amp; Mgmt.
+                    SRMCEM — Shri Ramswaroop Memorial College of Engg. &amp;
+                    Mgmt.
                   </p>
                 </div>
               </div>
@@ -49,21 +50,27 @@ export const Education: React.FC = () => {
             </div>
 
             <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed mb-3 text-left">
-              Focused on software development, data structures &amp; algorithms, object-oriented programming, database management systems, and modern web &amp; mobile application engineering.
+              Focused on software development, data structures &amp; algorithms,
+              object-oriented programming, database management systems, and
+              modern web &amp; mobile application engineering.
             </p>
 
             {/* Coursework & Focus Tags */}
             <div className="flex flex-wrap gap-1.5 pt-1 border-t border-[var(--border)]/60">
-              {['Computer Science', 'Data Structures & Algorithms', 'DBMS', 'Software Engineering', 'OOP'].map(
-                (item) => (
-                  <span
-                    key={item}
-                    className="px-2 py-0.5 text-[11px] font-medium rounded-[var(--radius)] bg-[var(--background)] text-[var(--muted-foreground)] border border-[var(--border)]"
-                  >
-                    {item}
-                  </span>
-                )
-              )}
+              {[
+                "Computer Science",
+                "Data Structures & Algorithms",
+                "DBMS",
+                "Software Engineering",
+                "OOP",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="px-2 py-0.5 text-[11px] font-medium rounded-[var(--radius)] bg-[var(--background)] text-[var(--muted-foreground)] border border-[var(--border)]"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </div>

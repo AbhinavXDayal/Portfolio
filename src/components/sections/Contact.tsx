@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { id, value } = e.target;
     setFormData((prev) => ({
@@ -23,7 +23,7 @@ export const Contact: React.FC = () => {
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: "", email: "", message: "" });
     }, 4000);
   };
 
@@ -43,7 +43,9 @@ export const Contact: React.FC = () => {
           {/* Left Column Contact Details */}
           <div className="flex flex-col space-y-4 text-center lg:text-left">
             <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
-              I am open to app development opportunities, mobile projects, and engineering collaborations. Feel free to reach out via email or phone!
+              I am open to app development opportunities, mobile projects, and
+              engineering collaborations. Feel free to reach out via email or
+              phone!
             </p>
 
             <div className="space-y-2.5 pt-1">
