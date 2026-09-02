@@ -92,100 +92,14 @@ export const Projects: React.FC = () => {
 
         {isOpen && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 transition-all duration-300">
-          {projects.map((project) => (
-            <div
-              key={project.title}
-              className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-3 sm:p-3.5 hover:border-[var(--foreground)]/30 transition-all duration-300 group shadow-xs hover:-translate-y-0.5"
-            >
-              {/* Header Icon & Links */}
-              <div className="flex items-center justify-between mb-2">
-                <div className="p-1.5 rounded-md bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)]">
-                  <svg
-                    stroke="currentColor"
-                    fill="none"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-base"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                </div>
-                <div className="flex items-center gap-1">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-1 rounded-md hover:bg-[var(--accent)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-                    aria-label="GitHub Repository"
-                  >
-                    <svg
-                      stroke="currentColor"
-                      fill="none"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-sm"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                    </svg>
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-1 rounded-md hover:bg-[var(--accent)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-                    aria-label="Live Demo Link"
-                  >
-                    <svg
-                      stroke="currentColor"
-                      fill="none"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-sm"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              {/* Project Image with Interactive Hover Overlay */}
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative block w-full h-28 sm:h-32 rounded-md overflow-hidden mb-2 border border-[var(--border)] group/image cursor-pointer"
+            {projects.map((project) => (
+              <div
+                key={project.title}
+                className="bg-[var(--card)] text-[var(--card-foreground)] border border-[var(--border)] rounded-[var(--radius)] p-3 sm:p-3.5 hover:border-[var(--foreground)]/30 transition-all duration-300 group shadow-xs hover:-translate-y-0.5"
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-105"
-                />
-                {/* Subtle live indicator badge */}
-                <div className="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded-full bg-black/70 backdrop-blur-xs border border-white/10 text-[9px] font-semibold text-white flex items-center gap-1 z-10 transition-opacity duration-200 group-hover/image:opacity-0">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                  Live
-                </div>
-                {/* Hover Overlay with Live Button */}
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center">
-                  <span className="px-3 py-1 rounded-full bg-white text-zinc-950 text-[11px] font-bold flex items-center gap-1 shadow-md transform translate-y-1 group-hover/image:translate-y-0 transition-transform duration-300">
-                    Live Demo{" "}
+                {/* Header Icon & Links */}
+                <div className="flex items-center justify-between mb-2">
+                  <div className="p-1.5 rounded-md bg-[var(--accent)] text-[var(--foreground)] border border-[var(--border)]">
                     <svg
                       stroke="currentColor"
                       fill="none"
@@ -193,31 +107,117 @@ export const Projects: React.FC = () => {
                       viewBox="0 0 24 24"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-xs"
+                      className="text-base"
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                      <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                     </svg>
-                  </span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1 rounded-md hover:bg-[var(--accent)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                      aria-label="GitHub Repository"
+                    >
+                      <svg
+                        stroke="currentColor"
+                        fill="none"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-sm"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                      </svg>
+                    </a>
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1 rounded-md hover:bg-[var(--accent)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                      aria-label="Live Demo Link"
+                    >
+                      <svg
+                        stroke="currentColor"
+                        fill="none"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-sm"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
-              </a>
 
-              {/* Category & Title */}
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-foreground)] block mb-0.5 text-center sm:text-left">
-                {project.category}
-              </span>
-              <h3 className="text-sm sm:text-base font-bold mb-1 text-[var(--foreground)] group-hover:text-[var(--foreground)] transition-colors text-center sm:text-left">
-                {project.title}
-              </h3>
-              <p className="text-[11.5px] sm:text-xs text-[var(--muted-foreground)] leading-relaxed text-center sm:text-left line-clamp-2">
-                {project.description}
-              </p>
-            </div>
-          ))}
+                {/* Project Image with Interactive Hover Overlay */}
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block w-full h-28 sm:h-32 rounded-md overflow-hidden mb-2 border border-[var(--border)] group/image cursor-pointer"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-105"
+                  />
+                  {/* Subtle live indicator badge */}
+                  <div className="absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded-full bg-black/70 backdrop-blur-xs border border-white/10 text-[9px] font-semibold text-white flex items-center gap-1 z-10 transition-opacity duration-200 group-hover/image:opacity-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Live
+                  </div>
+                  {/* Hover Overlay with Live Button */}
+                  <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover/image:opacity-100 transition-all duration-300 flex items-center justify-center">
+                    <span className="px-3 py-1 rounded-full bg-white text-zinc-950 text-[11px] font-bold flex items-center gap-1 shadow-md transform translate-y-1 group-hover/image:translate-y-0 transition-transform duration-300">
+                      Live Demo{" "}
+                      <svg
+                        stroke="currentColor"
+                        fill="none"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </span>
+                  </div>
+                </a>
+
+                {/* Category & Title */}
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--muted-foreground)] block mb-0.5 text-center sm:text-left">
+                  {project.category}
+                </span>
+                <h3 className="text-sm sm:text-base font-bold mb-1 text-[var(--foreground)] group-hover:text-[var(--foreground)] transition-colors text-center sm:text-left">
+                  {project.title}
+                </h3>
+                <p className="text-[11.5px] sm:text-xs text-[var(--muted-foreground)] leading-relaxed text-center sm:text-left line-clamp-2">
+                  {project.description}
+                </p>
+              </div>
+            ))}
           </div>
         )}
       </div>

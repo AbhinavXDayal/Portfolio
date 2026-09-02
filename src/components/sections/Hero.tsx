@@ -11,21 +11,21 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="w-full flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden pt-3 pb-4 sm:pt-5 sm:pb-6"
+      className="w-full flex items-center justify-center relative bg-transparent text-[var(--foreground)] overflow-hidden pt-1 pb-2 sm:pt-2 sm:pb-3"
     >
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-6 lg:gap-10">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-8">
         {/* Left Column Content */}
         <div className="max-w-2xl text-center lg:text-left">
-          <p className="text-sm sm:text-base font-medium text-[var(--brand-accent)] mb-0.5 inline-flex items-center gap-1.5">
+          <p className="text-xs sm:text-sm font-medium text-[var(--brand-accent)] mb-0.5 inline-flex items-center gap-1.5">
             <span>🌿</span> Hi, I'm
           </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-1 text-[var(--foreground)]">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-0.5 text-[var(--foreground)]">
             Abhinav Dayal
           </h1>
-          <h2 className="text-base sm:text-xl font-semibold text-[var(--muted-foreground)] mb-3 tracking-wide">
+          <h2 className="text-sm sm:text-base font-semibold text-[var(--muted-foreground)] mb-2 tracking-wide">
             App Developer
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-[var(--muted-foreground)] mb-4 leading-relaxed max-w-xl">
+          <p className="text-xs sm:text-sm text-[var(--muted-foreground)] mb-3 leading-snug max-w-xl">
             I build{" "}
             <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
               cross-platform mobile
@@ -35,15 +35,15 @@ export const Hero: React.FC = () => {
             integrations.
           </p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-5">
+          {/* Action Buttons & Social Links */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-2.5">
             <a
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToContact();
               }}
-              className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-5 py-2.5 rounded-[var(--radius)] text-sm hover:opacity-90 transition-all shadow-sm inline-flex items-center gap-2 cursor-pointer"
+              className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-4 py-1.5 rounded-[var(--radius)] text-xs sm:text-sm hover:opacity-90 transition-all shadow-xs inline-flex items-center gap-1.5 cursor-pointer"
             >
               Contact Me{" "}
               <svg
@@ -53,7 +53,7 @@ export const Hero: React.FC = () => {
                 viewBox="0 0 24 24"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-base"
+                className="text-xs"
                 height="1em"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,12 +65,12 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Social Links Pills */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-xs font-medium">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-1.5 text-[11px] font-medium">
             <a
               href="https://github.com/AbhinavXDayal"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-2xs"
             >
               <svg
                 stroke="currentColor"
@@ -79,7 +79,7 @@ export const Hero: React.FC = () => {
                 viewBox="0 0 24 24"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-sm"
+                className="text-xs"
                 height="1em"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
               href="https://linkedin.com/in/abhinavxdayal"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-2xs"
             >
               <svg
                 stroke="currentColor"
@@ -101,7 +101,7 @@ export const Hero: React.FC = () => {
                 viewBox="0 0 24 24"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-sm"
+                className="text-xs"
                 height="1em"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +116,7 @@ export const Hero: React.FC = () => {
               href="https://abhinavxportfolio.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-2xs"
             >
               <svg
                 stroke="currentColor"
@@ -125,7 +125,7 @@ export const Hero: React.FC = () => {
                 viewBox="0 0 24 24"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-sm"
+                className="text-xs"
                 height="1em"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +138,7 @@ export const Hero: React.FC = () => {
             </a>
             <a
               href="mailto:abhinavxdayal@gmail.com"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-xs"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-[var(--border)] bg-[var(--background)]/60 hover:bg-[var(--accent)] hover:border-[var(--foreground)]/40 text-[var(--foreground)] transition-all shadow-2xs"
             >
               <svg
                 stroke="currentColor"
@@ -147,7 +147,7 @@ export const Hero: React.FC = () => {
                 viewBox="0 0 24 24"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-sm"
+                className="text-xs"
                 height="1em"
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
@@ -160,9 +160,9 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column Profile Avatar */}
-        <div className="relative w-full max-w-xs flex justify-center">
-          <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden ring-2 ring-[var(--border)] shadow-md transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
+        {/* Right Column Profile Avatar - Compact Dimensions */}
+        <div className="relative w-auto flex justify-center shrink-0">
+          <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full overflow-hidden ring-2 ring-[var(--border)] shadow-md transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
             <img
               src="/portfolio pic.jpeg"
               alt="Abhinav Dayal"
