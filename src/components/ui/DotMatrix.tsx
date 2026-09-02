@@ -36,45 +36,45 @@ export const DotMatrix: React.FC = () => {
       targetY: -1000,
     };
 
-    // Nature botanical matte colors (no glow, soft and organic)
+    // Nature botanical matte colors (crisp, solid, no glow)
     const leafColors = [
       '#7EA984', // fresh herbal sage
       '#5B8B67', // lush leaf green
       '#A3CEB3', // tender forest mint
       '#6E9A75', // deep botanical moss
+      '#88B792', // bright sage
     ];
 
-    // Dot matrix grid config (subtle matte dewy pinpoints)
-    const spacing = 42;
-    const baseDotRadius = 0.5;
+    // Dot matrix grid config (prominent, crisp matte dewy pinpoints)
+    const spacing = 36;
+    const baseDotRadius = 0.85;
 
-    // Reduced overall quantity: only 12 leaves/sprouts + 10 graph nodes
-    const totalCount = Math.min(Math.floor((width * height) / 40000), 22);
+    // Balanced nature elements & graph nodes
+    const totalCount = Math.min(Math.floor((width * height) / 32000), 28);
     const elements: NatureElement[] = [];
 
     for (let i = 0; i < totalCount; i++) {
-      // Balance: ~60% leaves/sprouts, ~40% graph nodes
+      // 50% graph nodes, 50% leaves/sprouts
       const type: 'leaf' | 'sprout' | 'graphNode' =
-        i % 3 === 0 ? 'graphNode' : i % 3 === 1 ? 'leaf' : 'sprout';
+        i % 2 === 0 ? 'graphNode' : i % 4 === 1 ? 'leaf' : 'sprout';
 
       elements.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        // Leaves drift gently downward-right, graph nodes drift organically
-        vx: type === 'graphNode' ? (Math.random() - 0.5) * 0.35 : 0.25 + Math.random() * 0.35,
-        vy: type === 'graphNode' ? (Math.random() - 0.5) * 0.35 : 0.35 + Math.random() * 0.45,
+        vx: type === 'graphNode' ? (Math.random() - 0.5) * 0.45 : 0.28 + Math.random() * 0.4,
+        vy: type === 'graphNode' ? (Math.random() - 0.5) * 0.45 : 0.38 + Math.random() * 0.48,
         size:
           type === 'leaf'
-            ? 11 + Math.random() * 8
+            ? 12 + Math.random() * 8
             : type === 'sprout'
-            ? 13 + Math.random() * 6
-            : 1.4 + Math.random() * 0.6, // clean matte point
+            ? 14 + Math.random() * 6
+            : 2.4 + Math.random() * 0.8, // prominent solid matte graph node
         angle: Math.random() * Math.PI * 2,
-        angularSpeed: (Math.random() - 0.5) * 0.018,
+        angularSpeed: (Math.random() - 0.5) * 0.02,
         swayPhase: Math.random() * Math.PI * 2,
         swaySpeed: 0.015 + Math.random() * 0.02,
         color: leafColors[i % leafColors.length],
-        alpha: type === 'graphNode' ? 0.35 + Math.random() * 0.2 : 0.45 + Math.random() * 0.3,
+        alpha: type === 'graphNode' ? 0.7 + Math.random() * 0.2 : 0.65 + Math.random() * 0.25,
         type,
       });
     }
@@ -103,7 +103,7 @@ export const DotMatrix: React.FC = () => {
 
     let time = 0;
 
-    // Draw crisp matte leaf (NO glow halos)
+    // Draw crisp matte leaf
     const drawLeaf = (
       c: CanvasRenderingContext2D,
       x: number,
@@ -118,7 +118,7 @@ export const DotMatrix: React.FC = () => {
       c.rotate(rot);
       c.globalAlpha = alpha;
 
-      // Leaf blade
+      // Leaf body
       c.beginPath();
       c.moveTo(0, 0);
       c.bezierCurveTo(size * 0.45, -size * 0.4, size * 0.85, -size * 0.28, size, 0);
@@ -126,18 +126,18 @@ export const DotMatrix: React.FC = () => {
       c.fillStyle = color;
       c.fill();
 
-      // Delicate stem & central vein
+      // Clear crisp central vein
       c.beginPath();
       c.moveTo(-size * 0.15, 0);
       c.lineTo(size * 0.88, 0);
-      c.strokeStyle = 'rgba(234, 241, 236, 0.4)';
-      c.lineWidth = 0.7;
+      c.strokeStyle = 'rgba(235, 245, 238, 0.65)';
+      c.lineWidth = 0.9;
       c.stroke();
 
       c.restore();
     };
 
-    // Draw swaying seedling sprout (NO glow)
+    // Draw swaying seedling sprout
     const drawSprout = (
       c: CanvasRenderingContext2D,
       x: number,
@@ -155,8 +155,8 @@ export const DotMatrix: React.FC = () => {
       c.beginPath();
       c.moveTo(0, 0);
       c.quadraticCurveTo(sway * 3, -size * 0.5, sway * 5, -size * 0.85);
-      c.strokeStyle = 'rgba(126, 169, 132, 0.55)';
-      c.lineWidth = 1;
+      c.strokeStyle = 'rgba(126, 169, 132, 0.75)';
+      c.lineWidth = 1.2;
       c.stroke();
 
       // Left leaf
@@ -178,61 +178,62 @@ export const DotMatrix: React.FC = () => {
 
     const render = () => {
       if (!canvas || !ctx) return;
-      time += 0.014;
+      time += 0.016;
 
       // Smooth mouse interpolation
-      mouse.x += (mouse.targetX - mouse.x) * 0.1;
-      mouse.y += (mouse.targetY - mouse.y) * 0.1;
+      mouse.x += (mouse.targetX - mouse.x) * 0.12;
+      mouse.y += (mouse.targetY - mouse.y) * 0.12;
 
       ctx.clearRect(0, 0, width, height);
 
       const hasMouse = mouse.x > 0 && mouse.y > 0;
 
-      // 1. Dynamic Moving Dot Matrix (clean matte dewy pinpoints, gentle wave motion)
+      // 1. Prominent Dynamic Moving Dot Matrix (clean, visible, subtle organic micro-wave)
       for (let x = spacing / 2; x < width; x += spacing) {
         for (let y = spacing / 2; y < height; y += spacing) {
-          const wave = Math.sin(time + x * 0.014 + y * 0.014) * 0.35;
+          const wave = Math.sin(time + x * 0.018 + y * 0.018) * 0.4;
           let dotRadius = baseDotRadius;
-          let alpha = 0.045 + wave * 0.01;
+          let alpha = 0.12 + wave * 0.025;
 
           if (hasMouse) {
             const dx = mouse.x - x;
             const dy = mouse.y - y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 90) {
-              const factor = 1 - dist / 90;
-              dotRadius = baseDotRadius + factor * 0.4;
-              alpha = 0.05 + factor * 0.1;
+            if (dist < 110) {
+              const factor = 1 - dist / 110;
+              dotRadius = baseDotRadius + factor * 0.7;
+              alpha = 0.14 + factor * 0.28;
             }
           }
 
-          ctx.fillStyle = `rgba(126, 169, 132, ${alpha})`;
+          // Crisp solid matte dot
+          ctx.fillStyle = `rgba(135, 185, 148, ${alpha})`;
           ctx.beginPath();
           ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
           ctx.fill();
         }
       }
 
-      // 2. Update Dynamic Moving Nature Elements
+      // 2. Update Dynamic Moving Nature Elements & Graph Nodes
       for (let i = 0; i < elements.length; i++) {
         const el = elements[i];
         const sway = Math.sin(time * 1.6 + el.swayPhase);
 
         if (el.type === 'leaf') {
-          el.x += el.vx + sway * 0.3;
-          el.y += el.vy + Math.cos(time + el.swayPhase) * 0.18;
-          el.angle += el.angularSpeed + sway * 0.008;
+          el.x += el.vx + sway * 0.35;
+          el.y += el.vy + Math.cos(time + el.swayPhase) * 0.2;
+          el.angle += el.angularSpeed + sway * 0.01;
         } else if (el.type === 'sprout') {
-          el.x += el.vx * 0.4 + sway * 0.2;
-          el.y += el.vy * 0.35;
+          el.x += el.vx * 0.45 + sway * 0.22;
+          el.y += el.vy * 0.4;
           el.angle += el.angularSpeed;
         } else {
           // Graph node drift
-          el.x += el.vx + Math.sin(time + i) * 0.15;
-          el.y += el.vy + Math.cos(time + i) * 0.15;
+          el.x += el.vx + Math.sin(time * 1.2 + i) * 0.2;
+          el.y += el.vy + Math.cos(time * 1.2 + i) * 0.2;
         }
 
-        // Screen wrap (seamless continuous loop)
+        // Screen wrap
         if (el.x < -30) el.x = width + 30;
         if (el.x > width + 30) el.x = -30;
         if (el.y > height + 30) {
@@ -244,33 +245,32 @@ export const DotMatrix: React.FC = () => {
           el.x = Math.random() * width;
         }
 
-        // Gentle mouse wind deflection
+        // Mouse wind interaction
         if (hasMouse) {
           const dx = mouse.x - el.x;
           const dy = mouse.y - el.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 130) {
-            const force = (1 - dist / 130) * 1.2;
+          if (dist < 140) {
+            const force = (1 - dist / 140) * 1.4;
             el.x -= (dx / dist) * force;
             el.y -= (dy / dist) * force;
-            el.angle += force * 0.04;
+            el.angle += force * 0.05;
           }
         }
       }
 
-      // 3. Draw Dynamic Graph Lines / Edges between graph nodes and leaves
-      const maxDistance = 140;
+      // 3. Draw Prominent Dynamic Graph Lines / Edges
+      const maxDistance = 155;
       for (let i = 0; i < elements.length; i++) {
         for (let j = i + 1; j < elements.length; j++) {
           const dx = elements[i].x - elements[j].x;
           const dy = elements[i].y - elements[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          // Connect nearby elements with delicate thin botanical filaments
           if (dist < maxDistance) {
-            const edgeAlpha = (1 - dist / maxDistance) * 0.14;
-            ctx.strokeStyle = `rgba(126, 169, 132, ${edgeAlpha})`;
-            ctx.lineWidth = 0.7;
+            const edgeAlpha = (1 - dist / maxDistance) * 0.32;
+            ctx.strokeStyle = `rgba(135, 185, 148, ${edgeAlpha})`;
+            ctx.lineWidth = 1.05;
             ctx.beginPath();
             ctx.moveTo(elements[i].x, elements[i].y);
             ctx.lineTo(elements[j].x, elements[j].y);
@@ -278,15 +278,15 @@ export const DotMatrix: React.FC = () => {
           }
         }
 
-        // Interactive cursor connection
+        // Interactive line connection to mouse cursor
         if (hasMouse) {
           const dx = mouse.x - elements[i].x;
           const dy = mouse.y - elements[i].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            const edgeAlpha = (1 - dist / 120) * 0.18;
-            ctx.strokeStyle = `rgba(163, 206, 179, ${edgeAlpha})`;
-            ctx.lineWidth = 0.75;
+          if (dist < 135) {
+            const edgeAlpha = (1 - dist / 135) * 0.42;
+            ctx.strokeStyle = `rgba(168, 218, 181, ${edgeAlpha})`;
+            ctx.lineWidth = 1.15;
             ctx.beginPath();
             ctx.moveTo(elements[i].x, elements[i].y);
             ctx.lineTo(mouse.x, mouse.y);
@@ -295,11 +295,11 @@ export const DotMatrix: React.FC = () => {
         }
       }
 
-      // 4. Render Leaves, Sprouts, and Matte Graph Nodes (crisp, solid, NO glow)
+      // 4. Render Leaves, Sprouts, and Prominent Matte Graph Nodes
       for (let i = 0; i < elements.length; i++) {
         const el = elements[i];
         const currentAlpha = Math.min(
-          0.75,
+          0.88,
           el.alpha + Math.sin(time * 1.8 + el.swayPhase) * 0.08
         );
 
@@ -309,7 +309,7 @@ export const DotMatrix: React.FC = () => {
           const sway = Math.sin(time * 1.6 + el.swayPhase);
           drawSprout(ctx, el.x, el.y, el.size, sway, el.color, currentAlpha);
         } else {
-          // Clean solid matte graph node (strictly NO glow halos)
+          // Prominent solid matte graph node (strictly NO glow halos)
           ctx.fillStyle = el.color;
           ctx.beginPath();
           ctx.arc(el.x, el.y, el.size, 0, Math.PI * 2);
