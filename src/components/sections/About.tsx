@@ -85,19 +85,19 @@ export const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="w-full py-3 md:py-5 bg-transparent text-[var(--foreground)]"
+      className="w-full py-2 md:py-3.5 bg-transparent text-[var(--foreground)]"
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-4">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left mb-2.5">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             About Me
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center transition-all duration-300">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start transition-all duration-300">
           {/* Left Column Text */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left pt-0.5">
             <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
               I'm an{" "}
               <span className="text-[var(--foreground)] font-semibold">
@@ -172,7 +172,7 @@ export const About: React.FC = () => {
               </div>
 
               {/* Content Area - Compact Height */}
-              <div className="p-3 bg-[#0B1310]/90 text-[11px] leading-tight min-h-[160px] max-h-[190px] overflow-y-auto">
+              <div className="p-2.5 sm:p-3 bg-[#0B1310]/90 text-[11px] leading-tight min-h-[125px] max-h-[155px] overflow-y-auto">
                 {activeTab === "code" ? (
                   <div className="flex gap-2.5">
                     {/* Line Numbers */}
@@ -211,8 +211,9 @@ export const About: React.FC = () => {
                       <div className="pl-3">
                         <span className="text-[#A3CEB3]">mobile:</span>{" "}
                         <span className="text-[#91A89B]">[</span>
-                        <span className="text-[#EAF1EC]">"React Native"</span>,{" "}
-                        <span className="text-[#EAF1EC]">"Expo"</span>
+                        <span className="text-[#EAF1EC]">
+                          "React Native"
+                        </span>, <span className="text-[#EAF1EC]">"Expo"</span>
                         <span className="text-[#91A89B]">]</span>,
                       </div>
                       <div className="pl-3">
