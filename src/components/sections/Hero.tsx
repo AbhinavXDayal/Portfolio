@@ -24,14 +24,14 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Action Buttons & Social Links */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-2.5">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] font-medium">
             <a
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToContact();
               }}
-              className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-4 py-1.5 rounded-[var(--radius)] text-xs sm:text-sm hover:opacity-90 transition-all shadow-xs inline-flex items-center gap-1.5 cursor-pointer"
+              className="bg-[var(--primary)] text-[var(--primary-foreground)] font-bold px-3.5 py-1.5 rounded-full text-xs hover:opacity-90 transition-all shadow-xs inline-flex items-center gap-1.5 cursor-pointer"
             >
               Contact Me{" "}
               <svg
@@ -50,10 +50,7 @@ export const Hero: React.FC = () => {
                 <polyline points="7 7 17 7 17 17"></polyline>
               </svg>
             </a>
-          </div>
 
-          {/* Social Links Pills */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-1.5 text-[11px] font-medium">
             <a
               href="https://github.com/AbhinavXDayal"
               target="_blank"
@@ -163,4 +160,3 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
-
