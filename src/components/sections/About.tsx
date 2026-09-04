@@ -172,7 +172,10 @@ export const About: React.FC = () => {
               </div>
 
               {/* Content Area - Compact Height */}
-              <div data-lenis-prevent="true" className="p-2 sm:p-2.5 bg-[#0B1310]/90 text-[11px] leading-tight min-h-[88px] max-h-[110px] overflow-y-auto overscroll-contain">
+              <div
+                data-lenis-prevent="true"
+                className="p-2 sm:p-2.5 bg-[#0B1310]/90 text-[11px] leading-tight min-h-[88px] max-h-[110px] overflow-y-auto overscroll-contain"
+              >
                 {activeTab === "code" ? (
                   <div className="flex gap-2.5">
                     {/* Line Numbers */}

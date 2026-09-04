@@ -89,7 +89,7 @@ export const Contact: React.FC = () => {
     if (isMobile) {
       // On mobile phones, mailto opens the phone's native Gmail / Mail app seamlessly
       return `mailto:abhinavxdayal@gmail.com?subject=${encodeURIComponent(
-        draft.subject
+        draft.subject,
       )}&body=${encodeURIComponent(draft.body)}`;
     }
     // On desktop, open official Gmail web compose
@@ -243,13 +243,17 @@ export const Contact: React.FC = () => {
                         </div>
                       ) : (
                         <div className="text-[10.5px] sm:text-[11px] leading-relaxed text-[var(--foreground)] max-w-full space-y-1">
-                          <p className="text-[var(--muted-foreground)]">{msg.text}</p>
+                          <p className="text-[var(--muted-foreground)]">
+                            {msg.text}
+                          </p>
 
                           {/* Email Draft: Clean Direct Text — NO Nested Boxes */}
                           {msg.draft && (
                             <div className="pt-1 space-y-1 text-left">
                               <div className="text-[10.5px] font-semibold text-[var(--foreground)]">
-                                <span className="text-[var(--brand-accent)]">Subject: </span>
+                                <span className="text-[var(--brand-accent)]">
+                                  Subject:{" "}
+                                </span>
                                 {msg.draft.subject}
                               </div>
 
@@ -263,7 +267,9 @@ export const Contact: React.FC = () => {
                                   href={getEmailHref(msg.draft)}
                                   target={
                                     typeof navigator !== "undefined" &&
-                                    /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+                                    /iPhone|iPad|iPod|Android/i.test(
+                                      navigator.userAgent,
+                                    )
                                       ? "_self"
                                       : "_blank"
                                   }
@@ -271,7 +277,7 @@ export const Contact: React.FC = () => {
                                   onClick={() => {
                                     // Also copy draft to clipboard automatically
                                     navigator.clipboard?.writeText(
-                                      `Subject: ${msg.draft!.subject}\n\n${msg.draft!.body}`
+                                      `Subject: ${msg.draft!.subject}\n\n${msg.draft!.body}`,
                                     );
                                   }}
                                   className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-[var(--radius)] bg-[var(--brand-accent)] hover:bg-[#96c19c] text-[#0E1613] text-[10.5px] sm:text-[11px] font-bold transition-all shadow-xs cursor-pointer"
@@ -294,11 +300,17 @@ export const Contact: React.FC = () => {
 
                                 <button
                                   type="button"
-                                  onClick={() => handleCopyDraft(msg.draft!, msg.id)}
+                                  onClick={() =>
+                                    handleCopyDraft(msg.draft!, msg.id)
+                                  }
                                   className="inline-flex items-center gap-1 px-2 py-0.5 sm:py-1 rounded-[var(--radius)] bg-[var(--accent)] hover:bg-[var(--border)] text-[var(--foreground)] text-[10px] sm:text-[10.5px] font-medium border border-[var(--border)] transition-all cursor-pointer"
                                   title="Copy draft to clipboard"
                                 >
-                                  <span>{copiedId === msg.id ? "Copied" : "Copy Draft"}</span>
+                                  <span>
+                                    {copiedId === msg.id
+                                      ? "Copied"
+                                      : "Copy Draft"}
+                                  </span>
                                 </button>
                               </div>
                             </div>
