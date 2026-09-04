@@ -173,3 +173,4 @@ export function getMailtoUrl(draft: EmailDraft, toEmail = "abhinavxdayal@gmail.c
   const body = encodeURIComponent(draft.body);
   return `mailto:${toEmail}?subject=${su}&body=${body}`;
 }
+

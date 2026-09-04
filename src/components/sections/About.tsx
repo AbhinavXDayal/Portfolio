@@ -97,7 +97,7 @@ export const About: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start transition-all duration-300">
           {/* Left Column Text */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left pt-0.5">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <p className="text-xs sm:text-sm text-[var(--muted-foreground)] leading-relaxed">
               I'm an{" "}
               <span className="text-[var(--foreground)] font-semibold">
@@ -115,10 +115,10 @@ export const About: React.FC = () => {
           </div>
 
           {/* Right Column: Compact & Dynamic Interactive Console */}
-          <div className="flex justify-center items-center w-full">
-            <div className="w-full max-w-lg rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] shadow-xs overflow-hidden font-mono text-xs hover:border-[var(--brand-accent)]/40 transition-all duration-200">
+          <div className="flex justify-center md:justify-end items-start w-full">
+            <div className="w-full max-w-lg rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] shadow-xs overflow-hidden font-mono text-xs hover:border-[var(--brand-accent)]/40 transition-all duration-200 -mt-1">
               {/* Window Header with Tabs */}
-              <div className="flex items-center justify-between px-3 py-1.5 bg-[var(--accent)]/60 border-b border-[var(--border)]">
+              <div className="flex items-center justify-between px-3 py-1 bg-[var(--accent)]/60 border-b border-[var(--border)]">
                 {/* Window Dots & Tabs */}
                 <div className="flex items-center gap-2.5">
                   <div className="flex items-center gap-1.5">
