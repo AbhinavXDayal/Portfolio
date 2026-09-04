@@ -19,20 +19,9 @@ export const Hero: React.FC = () => {
           <p className="text-xs sm:text-sm font-medium text-[var(--brand-accent)] mb-0.5 inline-flex items-center gap-1.5">
             <span>🌿</span> Hi, I'm
           </p>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-0.5 text-[var(--foreground)]">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-3 text-[var(--foreground)]">
             Abhinav Dayal
           </h1>
-          <h2 className="text-sm sm:text-base font-semibold text-[var(--muted-foreground)] mb-2 tracking-wide">
-            App Developer
-          </h2>
-          <p className="text-xs sm:text-sm text-[var(--muted-foreground)] mb-3 leading-snug max-w-xl">
-            I build{" "}
-            <span className="text-[var(--foreground)] font-semibold underline decoration-zinc-500/30 underline-offset-4">
-              cross-platform mobile
-            </span>{" "}
-            and high-performance web apps using React Native, React.js, and
-            TypeScript.
-          </p>
 
           {/* Action Buttons & Social Links */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 mb-2.5">
