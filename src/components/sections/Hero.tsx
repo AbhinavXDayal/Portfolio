@@ -4,7 +4,11 @@ export const Hero: React.FC = () => {
   const scrollToContact = () => {
     const el = document.getElementById("contact");
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      if ((window as any).lenis) {
+        (window as any).lenis.scrollTo(el, { offset: -30, duration: 1.15 });
+      } else {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 

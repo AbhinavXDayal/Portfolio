@@ -188,29 +188,39 @@ export const DotMatrix: React.FC = () => {
 
       const hasMouse = mouse.x > 0 && mouse.y > 0;
 
-      // 1. Prominent Dynamic Moving Dot Matrix (clean, visible, subtle organic micro-wave)
+      // 1. High-Performance Batched Dot Matrix Grid (Single path draw for entire background)
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(135, 185, 148, 0.12)';
       for (let x = spacing / 2; x < width; x += spacing) {
         for (let y = spacing / 2; y < height; y += spacing) {
-          const wave = Math.sin(time + x * 0.018 + y * 0.018) * 0.4;
-          let dotRadius = baseDotRadius;
-          let alpha = 0.12 + wave * 0.025;
+          ctx.moveTo(x + baseDotRadius, y);
+          ctx.arc(x, y, baseDotRadius, 0, Math.PI * 2);
+        }
+      }
+      ctx.fill();
 
-          if (hasMouse) {
+      // Interactive mouse reactive highlight dots (only compute for dots near cursor)
+      if (hasMouse) {
+        const mouseRadius = 110;
+        const startX = Math.max(spacing / 2, Math.floor((mouse.x - mouseRadius) / spacing) * spacing + spacing / 2);
+        const endX = Math.min(width, Math.ceil((mouse.x + mouseRadius) / spacing) * spacing + spacing / 2);
+        const startY = Math.max(spacing / 2, Math.floor((mouse.y - mouseRadius) / spacing) * spacing + spacing / 2);
+        const endY = Math.min(height, Math.ceil((mouse.y + mouseRadius) / spacing) * spacing + spacing / 2);
+
+        for (let x = startX; x <= endX; x += spacing) {
+          for (let y = startY; y <= endY; y += spacing) {
             const dx = mouse.x - x;
             const dy = mouse.y - y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 110) {
-              const factor = 1 - dist / 110;
-              dotRadius = baseDotRadius + factor * 0.7;
-              alpha = 0.14 + factor * 0.28;
+            if (dist < mouseRadius) {
+              const factor = 1 - dist / mouseRadius;
+              const radius = baseDotRadius + factor * 0.8;
+              ctx.beginPath();
+              ctx.fillStyle = `rgba(168, 218, 181, ${0.16 + factor * 0.35})`;
+              ctx.arc(x, y, radius, 0, Math.PI * 2);
+              ctx.fill();
             }
           }
-
-          // Crisp solid matte dot
-          ctx.fillStyle = `rgba(135, 185, 148, ${alpha})`;
-          ctx.beginPath();
-          ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
-          ctx.fill();
         }
       }
 
@@ -346,6 +356,8 @@ export const DotMatrix: React.FC = () => {
         height: '100vh',
         pointerEvents: 'none',
         zIndex: 0,
+        transform: 'translateZ(0)',
+        willChange: 'transform',
       }}
       aria-hidden="true"
     />
