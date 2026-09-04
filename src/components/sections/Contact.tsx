@@ -19,10 +19,18 @@ export const Contact: React.FC = () => {
   const [inputPrompt, setInputPrompt] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const chatBottomRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    chatBottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    // Only scroll the internal chat box when user enters prompts (never scroll window on refresh)
+    if (messages.length > 1 || isTyping) {
+      if (chatContainerRef.current) {
+        chatContainerRef.current.scrollTo({
+          top: chatContainerRef.current.scrollHeight,
+          behavior: "smooth",
+        });
+      }
+    }
   }, [messages, isTyping]);
 
   const handleSendPrompt = (promptText: string) => {
@@ -216,8 +224,12 @@ export const Contact: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Messages Feed (Compact height, clean text without nested boxes) */}
-                <div className="h-[105px] sm:h-[135px] md:h-[155px] overflow-y-auto space-y-2 pr-1 text-xs rounded-[var(--radius)] bg-[var(--background)]/60 border border-[var(--border)]/70 p-2 sm:p-2.5">
+                {/* Messages Feed (Scrollable without Lenis conflict) */}
+                <div
+                  ref={chatContainerRef}
+                  data-lenis-prevent="true"
+                  className="h-[110px] sm:h-[140px] md:h-[160px] overflow-y-auto overscroll-contain space-y-2 pr-1 text-xs rounded-[var(--radius)] bg-[var(--background)]/60 border border-[var(--border)]/70 p-2 sm:p-2.5"
+                >
                   {messages.map((msg) => (
                     <div
                       key={msg.id}
@@ -305,7 +317,6 @@ export const Contact: React.FC = () => {
                       <span>Drafting...</span>
                     </div>
                   )}
-                  <div ref={chatBottomRef} />
                 </div>
 
                 {/* Custom Prompt Input Bar */}
