@@ -147,7 +147,7 @@ export const Hero: React.FC = () => {
 
         {/* Right Column Profile Avatar - Compact Dimensions */}
         <div className="relative w-auto flex justify-center shrink-0">
-          <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full overflow-hidden ring-2 ring-[var(--border)] shadow-md transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full overflow-hidden ring-2 ring-[var(--border)] shadow-md transition-all duration-700 ease-out hover:scale-[1.02] hover:ring-[var(--foreground)]/30 group">
             <img
               src="/portfolio pic.jpeg"
               alt="Abhinav Dayal"
